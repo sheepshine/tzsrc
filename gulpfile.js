@@ -5,7 +5,8 @@
 
 // 引入 gulp及组件
 var gulp = require('gulp'),
-    connect = require('gulp-connect');
+    connect = require('gulp-connect'),
+    less = require('gulp-less');
    //  uglify = require('gulp-uglify'),
    //  concat = require('gulp-concat'),
    // // rev = require('gulp-rev-append'),
@@ -64,10 +65,15 @@ var path = {
 //         .pipe(rev())
 //         .pipe(gulp.dest('dist/'))
 // })
+gulp.task('testLess', function () {
+    gulp.src('src/css/style.less')
+        .pipe(less())
+        .pipe(gulp.dest('src/css'));
+});
+//gulp.task('default', [/*'concat',*/ 'jsmin','testCssmin',/*'testHtmlmin',*/'testRev']);
 
-gulp.task('default', [/*'concat',*/ 'jsmin','testCssmin',/*'testHtmlmin',*/'testRev']);
 gulp.task('watch', function() {
-    gulp.watch(path.src + '**/*.*',['reload-dev']);
+    gulp.watch(path.src + '**/*.*',['testLess','reload-dev']);
 });
 
 gulp.task('connectDev', function() {
@@ -84,4 +90,4 @@ gulp.task('reload-dev',function() {
     .pipe(connect.reload());
 });
 //测试服务器
-gulp.task('default', ['connectDev', 'watch']);
+gulp.task('default', ['connectDev', 'watch','testLess']);
