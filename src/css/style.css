@@ -266,7 +266,7 @@ button {
   font-size: 34px;
 }
 [data-dpr="3"] .nav {
-  font-size: 68px;
+  font-size: 68px  !important;
 }
 [data-dpr="3"]input.search-text-searchfix {
   font-size: 52px !important;
@@ -413,17 +413,17 @@ button {
   margin: 0.25rem auto;
   background: #fff;
   text-align: center;
-  font-size: 48px;
+  font-size: 48px !important;
 }
 [data-dpr="3"] .search-no-til {
-  font-size: 56px;
+  font-size: 56px !important;
 }
 [data-dpr="3"] .search-no-listwarp-til,
 [data-dpr="3"] .search-no-listwarp-pri {
-  font-size: 44px;
+  font-size: 44px !important;
 }
 [data-dpr="3"] .shopcar .num {
-  font-size: 44.8px;
+  font-size: 44.8px !important;
 }
 .search-warp {
   background: #ECECEC;
@@ -597,16 +597,159 @@ button {
   background-size: 100% 100%;
 }
 [data-dpr="3"] .search-content-nav-til {
-  font-size: 48px;
+  font-size: 48px !important;
 }
 [data-dpr="3"] .search-warp-list-h2 {
   font-size: 44px !important;
 }
 [data-dpr="3"] .search-warp-shop-list-price-now {
-  font-size: 48px;
+  font-size: 48px !important;
 }
 [data-dpr="3"] .search-warp-shop-list-price {
-  font-size: 48px;
+  font-size: 48px !important;
+}
+.for-pay-warp {
+  background: #ECECEC;
+  padding-top: 0.106667rem;
+}
+.for-pay-warp .nav {
+  width: 10.0rem;
+  height: 1.375rem;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  font-size: 34px;
+  color: #000;
+  text-align: center;
+  line-height: 1.390625rem;
+  font-weight: 600;
+}
+.for-pay-warp .nav button {
+  width: 0.875rem;
+  height: 1.375rem;
+  background: #fff;
+  background-image: url(../images/nav-ico-red.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+  position: absolute;
+  left: 0;
+}
+.for-pay-warp .nav-filter {
+  width: 9.625rem;
+  height: 1.171875rem;
+  margin: 1.386667rem auto 0;
+  background: #fff;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 4px;
+}
+.for-pay-warp .nav-filter > div {
+  display: inline-block;
+  line-height: 0.53125rem;
+  height: 0.53125rem;
+  width: 1.666667rem;
+  text-align: center;
+  border-right: 1px solid #959595;
+  margin-top: 0.34375rem;
+  font-weight: 600;
+}
+.for-pay-warp .pay-warp {
+  position: relative;
+  width: 9.625rem;
+  margin: 0.586667rem auto 0;
+  background: #fff;
+  border-radius: 4px;
+  padding: 0.32rem 0.16rem;
+  box-sizing: border-box;
+}
+.for-pay-warp .pay-warp .pay-status {
+  position: absolute;
+  top: 0.293333rem;
+  right: 0.293333rem;
+}
+.for-pay-warp .pay-for-pay-order {
+  font-size: 22px;
+  color: #000;
+  color: #959595;
+  margin-left: 0.16rem;
+  line-height: 0.533333rem;
+}
+.for-pay-warp .pay-for-pay-order-detail {
+  font-size: 22px;
+  color: #000;
+}
+.for-pay-warp hr {
+  margin-top: 0.186667rem;
+}
+.for-pay-warp .pay-list-item {
+  width: 9.625rem;
+  height: 1.96875rem;
+  position: relative;
+}
+.for-pay-warp .pay-list-item-img {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid #c6c6c6;
+  margin: 0.293333rem 0.16rem;
+  display: inline-block;
+}
+.for-pay-warp .for-pay-warp-item-info {
+  font-size: 0.266667rem;
+  color: #959595;
+  margin-left: 0.213333rem;
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.96875rem;
+}
+.for-pay-warp .pay-list-item .btn {
+  display: inline-block;
+  width: 0.1875rem;
+  height: 0.3125rem;
+  background: url("../images/nav-ico-right.png");
+  background-size: 100% 100%;
+  margin-left: 0.625rem;
+}
+.for-pay-warp .hr2 {
+  margin-top: 0;
+}
+.for-pay-warp .pay-for-pay-total-price {
+  height: 1.875rem;
+  position: relative;
+  font-size: 24px;
+  line-height: 1.875rem;
+}
+.for-pay-warp .pay-for-pay-total-price span {
+  color: #E00B0B;
+  font-size: 600;
+}
+.for-pay-warp .pay-for-pay-total-price button {
+  width: 2.0625rem;
+  height: 0.9375rem;
+  border-radius: 6px;
+  font-size: 24px;
+  color: #fff;
+  position: absolute;
+  top: 0.4375rem;
+  left: 4.53125rem;
+}
+.for-pay-warp .pay-for-pay-total-price .button2 {
+  left: 7.0625rem;
+  background: #E00B0B;
+}
+[data-dpr="3"] .pay-for-pay-order {
+  font-size: 44px !important;
+}
+[data-dpr="3"] .pay-for-pay-order-detail {
+  font-size: 44px !important;
+}
+[data-dpr="3"] .for-pay-warp-item-info {
+  font-size: 40px !important;
+}
+[data-dpr="3"] .pay-for-pay-total-price {
+  font-size: 48px !important;
+}
+[data-dpr="3"] .pay-for-pay-total-button {
+  font-size: 48px !important;
 }
 /*global*/
 .nobor {
