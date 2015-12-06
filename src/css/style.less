@@ -283,8 +283,8 @@ button {
 [data-dpr="3"] .nav {
     font-size: 68px;
 }
-[data-dpr="3"] input.search-text{
-	font-size: 52px;
+[data-dpr="3"]input.search-text-searchfix{
+	font-size: 52px !important;
 }
 .search-no{
 	background: @bg;
@@ -452,6 +452,8 @@ button {
 		text-align: center;
 		padding-top: 0.25rem;
 		box-sizing:border-box;
+		position: fixed;
+		top: 0
 	}
 	.header .btn1{
 		width: 0.765625rem;
@@ -500,6 +502,9 @@ button {
 		width: 100%;
 		overflow-x: scroll;
 		border-bottom: 1px solid #c6c6c6;
+		position: fixed;
+		top: 1.484375rem;
+		background:#fff;
 	}
 	.content .nav{
 		height: 2.53125rem;
@@ -550,6 +555,42 @@ button {
 		text-align: center;
 		border-top: 1px solid #7F7F7F;
 	}
+	.shop-list-warp{
+		margin-top: 4.133333rem;
+		text-align: center;
+	}
+	.shop-list-item{
+		width: 4.12rem;
+		height: 4.8rem;
+		border:1px solid #C6C6C6;
+		display: inline-block;
+		margin: 0.106667rem 0.08rem;
+	}
+	.shop-list-item h2{
+		font-size: 22px;
+		color: #000;
+		width: 2.96rem;
+		text-align: center;
+		display: block;
+		margin: 0.4rem auto 0.2rem;
+	}
+	.shop-list-item-img{
+		width: 4.04rem;
+		height: 2.906667rem;
+		display: block;
+		margin:0 auto;
+	}
+	.search-warp-shop-list-price-now{
+		font-size: 24px;
+		color: #E00B0B;
+		margin-left: 0.586667rem;
+	}
+	.search-warp-shop-list-price{
+		font-size: 24px;
+		color: #959595;
+		float: right;
+		margin-right: 0.586667rem;
+	}
 	.footnav{
 		.foot-nav-btn{
 			display: inline-block;
@@ -578,5 +619,14 @@ button {
 [data-dpr="3"] .search-content-nav-til{
 	font-size: 48px;
 }
+[data-dpr="3"] .search-warp-list-h2{
+	font-size: 44px !important;
+}
+[data-dpr="3"] .search-warp-shop-list-price-now{
+		font-size: 48px;
+	}
+[data-dpr="3"] .search-warp-shop-list-price{
+		font-size: 48px;
+		}
 /*global*/
 .nobor{border: 0 !important}
