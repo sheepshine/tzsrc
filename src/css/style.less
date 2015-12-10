@@ -289,6 +289,32 @@ button {
 .search-no{
 	background: @bg;
 }
+.search-no.shop-item-search{
+	.header{
+		position: fixed;
+		top: 0;
+		width: 10.0rem;
+		z-index: 99;
+	}
+	.nav-filter{
+		position: fixed;
+		top: 1.375rem;
+		left: 0.15625rem;
+		margin: 0.36rem auto;
+		background: #fff;
+		text-align: center;
+		font-size: 24px;
+		z-index: 99;
+	}
+	.shop-item-search-bg{
+		height: 3.046875rem;
+		width: 10.0rem;
+		background: #ECECEC;
+		position: fixed;
+		top: 0;
+		z-index: 99;
+	}
+}
 .search-no{
 	.header{
 		position: relative;
@@ -423,6 +449,74 @@ button {
 		top: 0.4375rem;
 		right: 0.1875rem;
 	}
+	.search-item {
+		padding: 0.46875rem 0.46875rem;
+		position: relative;
+		border-bottom: 1px solid #C0C0C0;
+	}
+	.search-item .shop-img{
+		width: 2.25rem;
+		height: 2.25rem;
+		border:1px solid #c6c6c6;
+		display: inline-block;
+	}
+	.search-item-warp{
+		padding-top: 0 !important;
+		margin-top: 3.046875rem;
+	}
+	.search-item{
+		.phoneprice{
+			width: 1.453125rem;
+			height: 0.546875rem;
+			background: url("../images/phoneprice.png");
+			.bgfull;
+			display: inline-block;
+			margin: 0.3125rem 0 0 0.5rem;
+		}
+		.til{
+			width: 5.78125rem;
+			margin-left: 0.5rem;
+			vertical-align: top;
+		}
+		.phoneprice1{
+			width: 0.5rem;
+			height: 0.5rem;
+			background: url("../images/phoneprice1.png");
+			.bgfull;
+			display: inline-block;
+			margin: 0.3125rem 0 0.3125rem 0.1875rem;
+		}
+		.phoneprice2{
+			width: 0.5rem;
+			height: 0.5rem;
+			background: url("../images/phoneprice2.png");
+			.bgfull;
+			display: inline-block;
+			margin: 0.3125rem 0 0.3125rem 0.1875rem;
+		}
+		.price{
+			width: 4.09375rem;
+			color: #E00B0B;
+			margin:0 0 0 0.671875rem;
+		}
+		.tip{
+			width: 4.09375rem;
+			display: inline-block;
+			margin:0 0 0 0.671875rem;
+			color: #959595;
+		}
+		.inshopcar{
+			position: absolute;
+			right: 0.59375rem;
+			bottom: 0.40625rem;
+			width: 0.5625rem;
+			height: 0.515625rem;
+			background: url("../images/inshopcar.png");
+			.bgfull;
+		}
+
+	}
+	
 }
 [data-dpr="3"] .nav-filter{
 		width: 9.625rem;
