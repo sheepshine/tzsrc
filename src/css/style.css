@@ -1415,6 +1415,93 @@ button {
   display: inline-block;
   float: left;
 }
+.address {
+  background: #ECECEC;
+  padding-top: 1.375rem;
+}
+.address .nav {
+  width: 10.0rem;
+  height: 1.375rem;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  font-size: 34px;
+  color: #000;
+  text-align: center;
+  line-height: 1.390625rem;
+  font-weight: 600;
+}
+.address .nav button {
+  width: 0.875rem;
+  height: 1.375rem;
+  background: #fff;
+  background-image: url(../images/nav-ico-red.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+  position: absolute;
+  left: 0;
+}
+.address .content {
+  width: 9.640625rem;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0 0.21875rem;
+  box-sizing: border-box;
+}
+.address .content .contenter-warp {
+  text-align: center;
+  padding-top: 1.0rem;
+  border-bottom: 1px solid #C0C0C0;
+}
+.address .content .contenter-warp .contenter {
+  height: 1.796875rem;
+  width: 1.796875rem;
+  background: url("../images/contenter.png");
+  background-size: 100% 100%;
+  display: inline-block;
+}
+.address .content .contenter-warp .til {
+  margin: 0.375rem auto 0.6875rem;
+}
+.address .content .item {
+  height: 1.28125rem;
+  padding: 0 0.390625rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid #C0C0C0;
+}
+.address .content .item span {
+  line-height: 1.28125rem;
+}
+.address .content .item input {
+  height: 1.28125rem;
+  width: 75%;
+  padding: 0 0.09375rem;
+  line-height: 1.28125rem;
+  background: transparent;
+}
+.address .content .btn {
+  color: #fff;
+  background: #E00B0B;
+  text-align: center;
+  width: 8.390625rem;
+  height: 1.09375rem;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 0.875rem;
+}
+.back-btn {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  bottom: 0.15625rem;
+  right: 0.15625rem;
+  color: #fff;
+  line-height: 1.5rem;
+  text-align: center;
+}
 /*global*/
 .nobor {
   border: 0 !important;
