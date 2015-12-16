@@ -1603,11 +1603,114 @@ button {
 		}
 	}
 }
+.good-item{
+	background: @bg;
+	padding-top:1.609375rem; 
+}
+.good-item{
+	.nav{
+		width: 10.0rem;
+		height: 1.375rem;
+		background: #fff;
+		position: fixed;
+		top: 0;
+		font-size: 34px;
+		color: #000;
+		text-align: center;
+		line-height: 1.390625rem;
+		font-weight: 600;
+	}
+	.nav button{
+		width: 0.875rem;
+		height: 1.375rem;
+		background: #fff;
+		background-image: url(../images/nav-ico-red.png);
+		background-repeat: no-repeat;
+		background-position: right center;
+		position: absolute;
+		left: 0
+	}
+	.nav-bar{
+		width: 9.625rem;height: 1.15625rem;background: #fff;margin: 0.234375rem auto;text-align: center;padding: 0.375rem 0;box-sizing: border-box;
+	}
+	.nav-bar{
+		div{
+			display: inline-block;line-height: 0.421875rem;border-left: 2px solid #c6c6c6;width: 3.046875rem;
+		}
+	}
+	.content{
+		margin-bottom: 1.53125rem;
+	}
+	.content{
+		.main{
+			width: 9.625rem;height: 10.90625rem;background: #fff;margin: 0 auto;border-radius: 4px;
+		}
+		.main{
+			>.imgwarp{
+				width: 9.625rem;height: 8.203125rem;overflow: hidden;
+			}
+			.imgwarp{
+				img{width: 100%;height: 100%}
+			}
+			>.tilwarp{
+				width: 9.625rem;height: 2.703125rem;padding: 0.703125rem 0.5625rem;box-sizing: border-box;
+			}
+			.tilwarp{
+				>h1,>div{
+					color: #E00B0B;
+				}
+				>h2{
+					line-height: 1.0rem;
+				}
+			}
+		}
+		.shopname{
+			width: 9.625rem;height: 1.1875rem;background: #fff;margin: 0.21875rem auto;padding: 0.21875rem 0.40625rem;box-sizing: border-box;
+		}
+		.shopname{
+			.logo{
+				height: 0.625rem;display: inline-block;
+			}
+			.shopname_{
+				display: inline-block;line-height: 0.703125rem;margin-left: 0.375rem;
+			}
+			.info{
+				line-height: 0.703125rem;
+			}
+			.info span{
+				color: #F0B30F;margin-left: 0.21875rem;
+			}
+		}
+	}
+	.fot-nav{
+		width: 100%;height: 1.53125rem;position: fixed;bottom: 0;border-top: 1px solid #7F7F7F;padding: 0.265625rem 0;box-sizing: border-box;text-align: center;background: #fff;
+	}
+	.fot-nav{
+		.item{
+			display: inline-block;border-left: 1px solid #C6C6C6;margin-left: 0.40625rem;
+		}
+		.item{
+			.bg{
+				width: 0.53125rem;height: 0.53125rem;background: url("../images/start.png");.bgfull;display: inline-block;margin: 0.23rem 0.25rem;
+			}
+			.bg2{
+				background: url("../images/inshopcar.png");.bgfull;width: 0.578125rem;height: 0.53125rem;
+			}
+			.bg3{
+				background: url("../images/inshopcarplus.png");.bgfull;width: 0.703125rem;height: 0.515625rem;
+			}
+			span{
+				line-height: 0.984375rem;
+			}
+		}
+	}
+}
 .back-btn{
 	width: 1.5rem;height: 1.5rem;border-radius: 50%;background: rgba(0,0,0,0.6);position: fixed;bottom: 0.15625rem;right: 0.15625rem;color: #fff;line-height: 1.5rem;text-align: center;
 }
 /*global*/
 .nobor{border: 0 !important}
+.nomarginleft{margin-left: 0 !important}
 /*fonsize*/
 [data-dpr="1"] .f26px{
 	font-size: 13px !important;
@@ -1642,7 +1745,7 @@ button {
 [data-dpr="2"] .f28px{
 	font-size: 28px !important;
 }
-[data-dpr="3"] .f42px{
+[data-dpr="3"] .f28px{
 	font-size: 42px !important;
 }
 [data-dpr="1"] .f18px{

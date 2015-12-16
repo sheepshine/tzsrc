@@ -1594,6 +1594,142 @@ button {
   display: block;
   margin-top: 0.875rem;
 }
+.good-item {
+  background: #ECECEC;
+  padding-top: 1.609375rem;
+}
+.good-item .nav {
+  width: 10.0rem;
+  height: 1.375rem;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  font-size: 34px;
+  color: #000;
+  text-align: center;
+  line-height: 1.390625rem;
+  font-weight: 600;
+}
+.good-item .nav button {
+  width: 0.875rem;
+  height: 1.375rem;
+  background: #fff;
+  background-image: url(../images/nav-ico-red.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+  position: absolute;
+  left: 0;
+}
+.good-item .nav-bar {
+  width: 9.625rem;
+  height: 1.15625rem;
+  background: #fff;
+  margin: 0.234375rem auto;
+  text-align: center;
+  padding: 0.375rem 0;
+  box-sizing: border-box;
+}
+.good-item .nav-bar div {
+  display: inline-block;
+  line-height: 0.421875rem;
+  border-left: 2px solid #c6c6c6;
+  width: 3.046875rem;
+}
+.good-item .content {
+  margin-bottom: 1.53125rem;
+}
+.good-item .content .main {
+  width: 9.625rem;
+  height: 10.90625rem;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+.good-item .content .main > .imgwarp {
+  width: 9.625rem;
+  height: 8.203125rem;
+  overflow: hidden;
+}
+.good-item .content .main .imgwarp img {
+  width: 100%;
+  height: 100%;
+}
+.good-item .content .main > .tilwarp {
+  width: 9.625rem;
+  height: 2.703125rem;
+  padding: 0.703125rem 0.5625rem;
+  box-sizing: border-box;
+}
+.good-item .content .main .tilwarp > h1,
+.good-item .content .main .tilwarp > div {
+  color: #E00B0B;
+}
+.good-item .content .main .tilwarp > h2 {
+  line-height: 1.0rem;
+}
+.good-item .content .shopname {
+  width: 9.625rem;
+  height: 1.1875rem;
+  background: #fff;
+  margin: 0.21875rem auto;
+  padding: 0.21875rem 0.40625rem;
+  box-sizing: border-box;
+}
+.good-item .content .shopname .logo {
+  height: 0.625rem;
+  display: inline-block;
+}
+.good-item .content .shopname .shopname_ {
+  display: inline-block;
+  line-height: 0.703125rem;
+  margin-left: 0.375rem;
+}
+.good-item .content .shopname .info {
+  line-height: 0.703125rem;
+}
+.good-item .content .shopname .info span {
+  color: #F0B30F;
+  margin-left: 0.21875rem;
+}
+.good-item .fot-nav {
+  width: 100%;
+  height: 1.53125rem;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid #7F7F7F;
+  padding: 0.265625rem 0;
+  box-sizing: border-box;
+  text-align: center;
+  background: #fff;
+}
+.good-item .fot-nav .item {
+  display: inline-block;
+  border-left: 1px solid #C6C6C6;
+  margin-left: 0.40625rem;
+}
+.good-item .fot-nav .item .bg {
+  width: 0.53125rem;
+  height: 0.53125rem;
+  background: url("../images/start.png");
+  background-size: 100% 100%;
+  display: inline-block;
+  margin: 0.23rem 0.25rem;
+}
+.good-item .fot-nav .item .bg2 {
+  background: url("../images/inshopcar.png");
+  background-size: 100% 100%;
+  width: 0.578125rem;
+  height: 0.53125rem;
+}
+.good-item .fot-nav .item .bg3 {
+  background: url("../images/inshopcarplus.png");
+  background-size: 100% 100%;
+  width: 0.703125rem;
+  height: 0.515625rem;
+}
+.good-item .fot-nav .item span {
+  line-height: 0.984375rem;
+}
 .back-btn {
   width: 1.5rem;
   height: 1.5rem;
@@ -1609,6 +1745,9 @@ button {
 /*global*/
 .nobor {
   border: 0 !important;
+}
+.nomarginleft {
+  margin-left: 0 !important;
 }
 /*fonsize*/
 [data-dpr="1"] .f26px {
@@ -1644,7 +1783,7 @@ button {
 [data-dpr="2"] .f28px {
   font-size: 28px !important;
 }
-[data-dpr="3"] .f42px {
+[data-dpr="3"] .f28px {
   font-size: 42px !important;
 }
 [data-dpr="1"] .f18px {
