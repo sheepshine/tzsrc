@@ -8,9 +8,12 @@
 	<script type="text/javascript" src="js/a.js"></script>
 	<script type="text/javascript" src="js/a_css.js"></script>
 	<link rel="stylesheet" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/servies/search.js"></script>
 </head>
 <body>
-	<div class="search-warp">
+	<div class="search-warp" ng-app='search'>
 		<div class="header">
 			<div class="btn1"></div>
 			<div class="search">
@@ -20,16 +23,16 @@
 			<div class="QRcode"></div>
 		</div>
 		<div class="content">
-			<div class="navwarp">
+			<div class="navwarp" ng-controller="searchClassCtr">
 				<div class="nav">
-					<div class="list">
+					<div class="list" ng-repeat="datalist in datas" ng-click="finditem(datalist.id)">
 						<div class="img">
 						</div>
 						<div class="search-content-nav-til f24px">
-							感冒咳嗽
+							{{datalist.name}}
 						</div>
 					</div>
-					<div class="list">
+					<!-- <div class="list">
 						<div class="img img2">
 						</div>
 						<div class="search-content-nav-til f24px">
@@ -56,7 +59,7 @@
 						<div class="search-content-nav-til f24px">
 							心脑血管
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="shop-list-warp">
