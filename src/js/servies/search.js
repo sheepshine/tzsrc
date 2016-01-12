@@ -20,12 +20,11 @@ search.controller('searchClassCtr',['$scope','searchClassSer',function($scope,se
 
 		    },
 		    data:{
-		    	productId:id
+		    	shopItemClassId:id
 
 		    },
 		    success: function(data){
-		    	$scope.datas=data.result.pageResultList.result;
-		    	console.log($scope.datas)
+		    	
 		    },
 		    error: function(data){
 		        alert(data);
