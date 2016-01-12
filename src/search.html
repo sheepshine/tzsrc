@@ -25,7 +25,7 @@
 		<div class="content">
 			<div class="navwarp" ng-controller="searchClassCtr">
 				<div class="nav">
-					<div class="list" ng-repeat="datalist in datas" ng-click="finditem(datalist.id)">
+					<div class="list" ng-repeat="datalist in datas" ng-if="datalist.shopItemClassId==0" ng-click="finditem(datalist.id)">
 						<div class="img">
 						</div>
 						<div class="search-content-nav-til f24px">
