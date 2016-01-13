@@ -71,6 +71,7 @@ search.service("searchClassSer",function(){
 search.service("searchItemSera",function(){
 	return {
 		searchItem:function(id){
+			var datas="";
 			$.ajax({
 				url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
 		        type: 'post',
@@ -88,13 +89,13 @@ search.service("searchItemSera",function(){
 			        "phoneModel":"iphone"
 				},
 		        success: function(data){
-		        	
+		        	datas=data
 		        },
 		        error: function(data){
 		            alert(data);
 		        }
 			})
-			return 1
+			return datas
 		}
 	}
 })
