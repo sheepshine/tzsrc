@@ -3,11 +3,16 @@ var search=angular.module('search',[])
 search.controller('searchClassCtr',['$scope','searchClassSer','searchItemSera',function($scope,searchClassSer,searchItemSera){
 	//获取商品分类
 	$scope.datas=searchClassSer.result.pageResultList.result;
+
 	//获取对应分类下的商品
 	//$scope.finditem=searchItemSer(id);
 	//console.log($scope.finditem)
-	$scope.finditem=searchItemSera.searchItem
-	console.log(searchItemSera.datasa)
+	$scope.finditem=function(id){
+		$scope.itemList=searchItemSera.searchItem(id);
+		console.log($scope.itemList)
+	}
+	// searchItemSera.searchItem
+	// console.log(searchItemSera.searchItem())
 	// function(id){
 	// 	$.ajax({
 	// 		url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
@@ -66,7 +71,6 @@ search.service("searchClassSer",function(){
 search.service("searchItemSera",function(){
 	return {
 		searchItem:function(id){
-			var datasa="";
 			$.ajax({
 				url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
 		        type: 'post',
@@ -84,13 +88,13 @@ search.service("searchItemSera",function(){
 			        "phoneModel":"iphone"
 				},
 		        success: function(data){
-		        	datasa=data
+		        	
 		        },
 		        error: function(data){
 		            alert(data);
 		        }
 			})
+			return 1
 		}
-
 	}
 })
