@@ -8,8 +8,11 @@ search.controller('searchClassCtr',['$scope','searchClassSer','searchItemSera',f
 	//$scope.finditem=searchItemSer(id);
 	//console.log($scope.finditem)
 	$scope.finditem=function(id){
-		$scope.itemList=searchItemSera.searchItem(id);
+		$scope.itemList=searchItemSera.searchItem(id).result.result.list;
 		console.log($scope.itemList)
+	}
+	$scope.itemDeatil=function(id){
+
 	}
 	// searchItemSera.searchItem
 	// console.log(searchItemSera.searchItem())

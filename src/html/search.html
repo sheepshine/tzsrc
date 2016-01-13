@@ -22,8 +22,8 @@
 			</div>
 			<div class="QRcode"></div>
 		</div>
-		<div class="content" ng-controller="searchClassCtr">
-			<div class="navwarp">
+		<div class="content">
+			<div class="navwarp" ng-controller="searchClassCtr">
 				<div class="nav">
 					<div class="list" ng-repeat="datalist in datas" ng-if="datalist.shopItemClassId==0" ng-click="finditem(datalist.id)">
 						<div class="img">
@@ -63,18 +63,6 @@
 				</div>
 			</div>
 			<div class="shop-list-warp">
-				<div class="shop-list-item" ng-repeat="list in itemList">
-					<img class="shop-list-item-img" ng-src="{{list.photo}}"  >
-					<h2 class="search-warp-list-h2 f22px">{{list.name}}</h2>
-					<span class="search-warp-shop-list-price-now f24px">￥{{list.mallprice}}</span>
-					<span class="search-warp-shop-list-price f24px">￥{{list.marketprice}}</span>
-				</div>
-				<!-- <div class="shop-list-item">
-					<img class="shop-list-item-img" src="images/content/shop2.jpg"  >
-					<h2 class="search-warp-list-h2 f22px">药品名称药品名称药品名称药品名称</h2>
-					<span class="search-warp-shop-list-price-now f24px">￥8.8</span>
-					<span class="search-warp-shop-list-price f24px">￥11.2</span>
-				</div>
 				<div class="shop-list-item">
 					<img class="shop-list-item-img" src="images/content/shop2.jpg"  >
 					<h2 class="search-warp-list-h2 f22px">药品名称药品名称药品名称药品名称</h2>
@@ -98,7 +86,19 @@
 					<h2 class="search-warp-list-h2 f22px">药品名称药品名称药品名称药品名称</h2>
 					<span class="search-warp-shop-list-price-now f24px">￥8.8</span>
 					<span class="search-warp-shop-list-price f24px">￥11.2</span>
-				</div> -->
+				</div>
+				<div class="shop-list-item">
+					<img class="shop-list-item-img" src="images/content/shop2.jpg"  >
+					<h2 class="search-warp-list-h2 f22px">药品名称药品名称药品名称药品名称</h2>
+					<span class="search-warp-shop-list-price-now f24px">￥8.8</span>
+					<span class="search-warp-shop-list-price f24px">￥11.2</span>
+				</div>
+				<div class="shop-list-item">
+					<img class="shop-list-item-img" src="images/content/shop2.jpg"  >
+					<h2 class="search-warp-list-h2 f22px">药品名称药品名称药品名称药品名称</h2>
+					<span class="search-warp-shop-list-price-now f24px">￥8.8</span>
+					<span class="search-warp-shop-list-price f24px">￥11.2</span>
+				</div>
 			</div>
 		</div>
 		<div class="footnav">

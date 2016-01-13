@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script type="text/javascript" src="js/a.js"></script>
+	<script type="text/javascript" src="js/a_css.js"></script>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/switchery.min.css" />
+	<script type="text/javascript" src="js/switchery.min.js"></script>
+</head>
+<body>
+	<div class="order-confirm">
+		<div class="nav f34px">
+			<button></button>
+			确认订单
+		</div>
+		<div class="pay-warp">
+			<div class="address">
+				<span class="f26px reciver">收件人:</span>
+				<span class="f22px recivername">张三</span>
+				<span class="f22px phone">13526895468</span><br>
+				<span class="f22px fw600">重庆北部新区</span>
+				<span class="f22px fw600">保利高尔夫公馆5栋16-1</span>
+				<div class="btn"></div>
+				<hr>
+			</div>
+			<div class="item-list">
+				<div class="item">
+					<img src="images/content/shop5.jpg">
+				</div>
+				<div class="item">
+					<img src="images/content/shop5.jpg">
+				</div>
+				<div class="item">
+					<img src="images/content/shop5.jpg">
+				</div>
+				<div class="item">
+					<img src="images/content/shop5.jpg">
+				</div>
+			</div>
+			<span class="f22px fr">1个包裹</span>
+			<span class="f22px fr pay-warp-total">共4件商品</span><br>
+			<div class="f22px fr pay-warp-price fw600">￥1296.00</div>
+		</div>
+		<div class="pay-select">
+			<div class="address">
+				<span class="f26px reciver">支付配送:</span>
+				<span class="f22px recivername">在线支付</span><br>
+				<span class="f26px fr post">快递费 0 元</span>
+				<span class="f26px fr pay-warp-total post">普通快递</span><br>
+				<div class="btn"></div>
+				<hr>
+			</div>
+			<div class="row">
+				<span class="f26px fw600 info">发票信息</span>
+				<span class="f22px info-type">个人</span>
+				<div class="btn"></div>
+			</div>
+			<div class="row">
+				<span class="f26px fw600 info">优惠券</span>
+				<span class="num f14px">1</span>
+				<span class="f26px btn-til">未使用</span>
+				<div class="btn"></div>
+			</div>
+			<div class="row nobor">
+				<span class="f26px fw600 info">匿名购买</span>
+				<input type="checkbox" class="js-switch" checked />
+			</div>
+		</div>
+		<div class="footnav">
+			<span class="f30px total">总计：178.00</span>
+			<div class="f30px btn">确认</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		 // Default
+      // if-else statement used only for fixing <IE9 issues
+      if (Array.prototype.forEach) {
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+        elems.forEach(function(html) {
+          var switchery = new Switchery(html);
+        });
+      } else {
+        var elems = document.querySelectorAll('.js-switch');
+
+        for (var i = 0; i < elems.length; i++) {
+          var switchery = new Switchery(elems[i]);
+        }
+      }
+
+      // Disabled switch
+      var disabled = document.querySelector('.js-switch-disabled');
+      var switchery = new Switchery(disabled, { disabled: true });
+
+      var disabledOpacity = document.querySelector('.js-switch-disabled-opacity');
+      var switchery = new Switchery(disabledOpacity, { disabled: true, disabledOpacity: 0.75 });
+
+      var secondary = document.querySelector('.js-switch-secondary');
+      var switchery = new Switchery(secondary, { color: '#fec200', secondaryColor: '#ff8787' });
+	</script>
+</body>
+</html>

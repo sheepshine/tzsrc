@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script type="text/javascript" src="js/a.js"></script>
+	<script type="text/javascript" src="js/a_css.js"></script>
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<div class="invoice-warp">
+		<div class="nav f34px">
+			<button></button>
+			购物车
+			<span class="invoice-warp-nav-needkonw f28px">发票须知</span>
+		</div>
+		<div class="pay-warp">
+			<h1 class="invoice-warp-pay-warp-til f26px">发票抬头</h1>
+			<input class="invoice-warp-pay-warp-input" id="inputText" type="text">
+			<div class="input-del" id="input-del">
+			</div>
+		</div>
+		<div class="footnav">
+			<div class="foot-nav-btn">
+			</div>
+			<div class="foot-nav-btn ico1">
+			</div>
+			<div class="foot-nav-btn ico2">
+			</div>
+			<div class="foot-nav-btn ico3">
+			</div>
+		</div>
+	</div>
+	<script>
+		var oninput=document.getElementById("inputText");
+		var odelIco=document.getElementById("input-del");
+		oninput.onkeyup=function(){
+			if(this.value!=""){
+				odelIco.style.display="block";
+			}else{
+				odelIco.style.display="none";
+			}
+		}
+		odelIco.onclick=function(){
+			oninput.value="";
+		}
+	</script>	
+</body>
+</html>
