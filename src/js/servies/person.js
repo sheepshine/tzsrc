@@ -27,7 +27,7 @@ person.controller('personCtr',['$scope',function($scope){
 		        	if(data.code=="00000"){
 		        		$scope.personInfo=data.result
 		        		console.log($scope.personInfo.usrInfoName)
-		        		localStorage.usrUserId=usrUserId;
+		        		localStorage.usrUserId=$scope.personInfo.usrUserId;
 		        		$scope.tologin=!$scope.tologin;
 		        		$scope.haslogin=!$scope.haslogin;
 		        	}
