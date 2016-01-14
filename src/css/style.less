@@ -873,6 +873,36 @@ button {
 	padding-top: 0.25rem;
 }
 .invoice-warp{
+	.shopcarfoot{
+		width:10.0rem;
+		height:1.75rem;
+		position:fixed;
+		bottom:0;
+		padding:0.21875rem 0.46875rem;
+		box-sizing: border-box;
+		border-top: 1px solid #7f7f7f;
+	}
+	.shopcarfoot{
+		.totalprice{
+			font-weight: 600;
+			color:#E00B0B;
+			display: block;
+			line-height: 0.671875rem;
+		}
+		.tip{
+			font-weight: 600;
+		}
+		button{
+			width:2.640625rem;
+			height:1.09375rem;
+			background:#E00B0B;
+			color:#fff;
+			border-radius: 6px;
+			position:absolute;
+			top:0.375rem;
+			right:0.5rem;
+		}
+	}
 	.nav{
 		width: 10.0rem;
 		height: 1.375rem;
@@ -908,6 +938,40 @@ button {
 		border-radius: 4px;
 		padding: 0.25rem 0.46875rem;
 		box-sizing: border-box;
+	}
+	.pay-warp{
+		.shocar-list{
+			border-bottom: 1px solid #c6c6c6
+		}
+		.shocar-list{
+			.shop-img{
+				width:1.59375rem;
+				height:1.59375rem;
+				border:1px solid #c6c6c6;
+				display:inline-block;
+				float:left;
+			}
+			h2{
+				display:inline-block;
+				float:left;
+				margin-left: 0.40625rem;
+				width:6.390625rem;
+				line-height: 0.453125rem;
+			}
+			.num{
+				color:#959595;
+				margin-left: 0.40625rem;
+				margin-top: 0.21875rem;
+				display:inline-block;
+			}
+			.price{
+				font-weight: 500;
+				display:block;
+				margin-top: 0.359375rem;
+				text-align: right;
+				margin-bottom: 0.28125rem;
+			}
+		}
 	}
 	.invoice-warp-pay-warp-til{
 		font-size: 26px;
@@ -1190,6 +1254,11 @@ button {
 			.bgfull;
 			box-shadow: 0px 0px 0px 6px #E99F93,0px 0px 0px 6px #E76C56;
 			display: inline-block;
+			overflow:hidden;
+		}
+		.head>img{
+			width: 1.28125rem;
+			height: 1.28125rem;
 		}
 		.phone{
 			display: inline-block;

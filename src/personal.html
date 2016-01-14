@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="js/servies/person.js"></script>
 </head>
 <body ng-app='person'>
-	<div class="personal" ng-controller="personCtr">
+	<div class="personal" ng-controller="personCtr" ng-init='personInfo'>
 		<div class="nav f34px">
 			<a href="index.html"><button></button></a>
 			个人中心
@@ -27,10 +27,12 @@
 				<button ng-click="loginin()">登录</button>
 			</div>
 			<div class="haslogin" ng-show="haslogin">	
-				<div class="head"></div>
-				<div class="phone f20px">{{username}}</div>
+				<div class="head">
+				<img ng-src="personInfo.usrInfoPhoto">
+				</div>
+				<div class="phone f20px">{{personInfo.usrInfoName}}</div>
 				<div class="tag">实名认证</div>
-				<div class="vip f18px">1</div>
+				<div class="vip f18px">{{personInfo.usrUserUsingstate}}</div>
 				<div class="ftil f18px">级会员</div>
 			</div>
 		</div>
