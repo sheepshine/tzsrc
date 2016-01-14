@@ -1636,6 +1636,9 @@ button {
   border-left: 2px solid #c6c6c6;
   width: 3.046875rem;
 }
+.good-item .nav-bar .active {
+  font-weight: 800;
+}
 .good-item .content {
   margin-bottom: 1.53125rem;
 }

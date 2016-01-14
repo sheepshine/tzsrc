@@ -7,12 +7,13 @@ search.controller('searchClassCtr',['$scope','searchClassSer','searchItemSera',f
 	//获取对应分类下的商品
 	//$scope.finditem=searchItemSer(id);
 	//console.log($scope.finditem)
+	$scope.itemList=searchItemSera.searchItem(1).result.result.list;
 	$scope.finditem=function(id){
 		$scope.itemList=searchItemSera.searchItem(id).result.result.list;
-		console.log($scope.itemList)
 	}
-	$scope.itemDeatil=function(id){
-
+	$scope.viewDeatil=function(id){
+		localStorage.productId=id;
+		location.href="good_item.html";
 	}
 	// searchItemSera.searchItem
 	// console.log(searchItemSera.searchItem())
