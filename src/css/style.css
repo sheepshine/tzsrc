@@ -290,18 +290,103 @@ button {
   font-size: 24px;
   z-index: 99;
 }
-.search-no.shop-item-search .nav-filter .arrlist1 {
+.search-no.shop-item-search .nav-filter .classwarp,
+.search-no.shop-item-search .nav-filter .rankClass,
+.search-no.shop-item-search .nav-filter .filterClass {
+  width: 100%;
+  height: 156.234375rem;
+  background: rgba(0, 0, 0, 0.5);
   position: absolute;
   left: 0;
   top: 1.171875rem;
+}
+.search-no.shop-item-search .nav-filter .arrlist1 {
+  position: absolute;
+  left: 0;
+  top: 0;
   margin: 0 !important;
 }
+.search-no.shop-item-search .nav-filter .arrlist2,
+.search-no.shop-item-search .nav-filter .arrlist3 {
+  position: absolute;
+  left: 5.0rem;
+  top: 0;
+  margin: 0 !important;
+}
+.search-no.shop-item-search .nav-filter .arrlist3 {
+  left: 0;
+}
+.search-no.shop-item-search .nav-filter .arrlist4 {
+  position: absolute;
+  left: 2.1875rem;
+  top: -3.246875rem;
+  margin: 0 !important;
+  height: 100%;
+  background: #fff;
+}
+.search-no.shop-item-search .nav-filter button {
+  width: 2.21875rem;
+  height: 0.96875rem;
+  margin-top: 0.3125rem;
+}
+.search-no.shop-item-search .nav-filter .arrlist4 .fileterBtn {
+  margin-right: 3.125rem;
+}
+.search-no.shop-item-search .nav-filter .arrlist4 .fliterSelect {
+  color: #c9c9c9;
+  position: absolute;
+  right: 0.9375rem;
+}
+.search-no.shop-item-search .nav-filter .arrlist4 .filterSelector li {
+  background: #f7f7f7;
+  width: 7.8125rem;
+  line-height: 0.4875rem;
+  padding: 0.40625rem 0.5rem;
+  box-sizing: border-box;
+  border-top: 1px solid #c7c7c7;
+  text-align: left;
+  position: relative;
+}
+.search-no.shop-item-search .nav-filter .arrlist4 li {
+  width: 7.8125rem;
+  line-height: 0.6875rem;
+  padding: 0.40625rem 0.5rem;
+  box-sizing: border-box;
+  background: #fff;
+  border-top: 1px solid #c7c7c7;
+  text-align: left;
+  position: relative;
+}
+.search-no.shop-item-search .nav-filter .arrlist4 .priceSel {
+  width: 2.0625rem;
+  height: 0.8125rem;
+  border: 1px solid #C5C5C5;
+  margin: 0 0.09375rem;
+}
+.search-no.shop-item-search .nav-filter .arrlist3 li {
+  width: 10.0rem;
+  line-height: 0.6875rem;
+  padding: 0.40625rem 0.5rem;
+  box-sizing: border-box;
+  background: #fff;
+  border-top: #EFEFEF;
+  text-align: left;
+}
+.search-no.shop-item-search .nav-filter .arrlist2 li {
+  width: 5.0rem;
+  line-height: 0.6875rem;
+  padding: 0.40625rem 0.5rem;
+  box-sizing: border-box;
+  background: #fff;
+  border-top: #EFEFEF;
+}
 .search-no.shop-item-search .nav-filter .arrlist1 li {
-  width: 4.0625rem;
+  width: 5.0rem;
   line-height: 0.6875rem;
   padding: 0.40625rem 0.5rem;
   box-sizing: border-box;
   background: #f7f7f7;
+  border-top: #EFEFEF;
 }
 .search-no.shop-item-search .shop-item-search-bg {
   height: 3.046875rem;
