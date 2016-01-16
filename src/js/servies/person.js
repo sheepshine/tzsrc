@@ -3,7 +3,7 @@ var person=angular.module('person',[])
 person.controller('personCtr',['$scope',function($scope){
 	$scope.tologin=true;
 	$scope.haslogin=false;
-	$scope.username=13983604782
+	$scope.username=13983604781
 	$scope.password=123456
 	$scope.loginin=function(){
 		$.ajax({
@@ -37,6 +37,8 @@ person.controller('personCtr',['$scope',function($scope){
 		        }
 			})
 	}
-	
+	$scope.info=function(){
+		
+	}
 }])
 

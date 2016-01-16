@@ -18,7 +18,7 @@
 <body ng-app='goodDeatil'>
 	<div class="good-item" ng-controller="goodDeatilCtr" ng-init='itemdata'>
 		<div class="nav f34px">
-			<button></button>
+			<button id="backforward"></button>
 			商品详情
 		</div>
 		<div class="nav-bar">
@@ -87,6 +87,9 @@
 			$(this).addClass("active")
 			$(".content").hide();
 			$(".content").eq($(this).index()).show();
+		})
+		$("#backforward").tap(function(){
+			window.history.back(-1)
 		})
 	</script>
 </body>

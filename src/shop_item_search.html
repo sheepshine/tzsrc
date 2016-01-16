@@ -33,7 +33,7 @@
 			<div class="btn1"></div>
 			<div class="search ">
 				<div class="search-ico"></div>
-				<input class="search-text f24px" type="text" placeholder="感冒（1105）" />
+				<input class="search-text f24px" id="searchInput" type="text" ng-model='searchValue' ng-blur='searchAjax(searchValue)' placeholder="感冒（1105）" />
 			</div>
 			<div class="QRcode"></div>
 		</div>
@@ -90,22 +90,22 @@
 					<div class="arrlist3">
 						<ul>
 							<li ng-click='selectClass();$event.stopPropagation();' ng-class='{"class-select":isActive2}'>
-								透明隐形眼镜
+							综合排序
 							</li>
 							<li>
-								透明隐形眼镜
+								销量排序
 							</li>
 							<li>
-								透明隐形眼镜
+								好评排序
 							</li>
 							<li>
-								透明隐形眼镜
+								价格排序
 							</li>
 							<li>
-								透明隐形眼镜
+								价格降序
 							</li>
 							<li>
-								透明隐形眼镜
+								最新上架
 							</li>
 						</ul>
 					</div>
@@ -116,10 +116,10 @@
 					<div class="arrlist4">
 						<ul>
 							<li ng-click='$event.stopPropagation();'>
-								<span class='fileterBtn'>只看拓珍自营</span><input type="checkbox" class="js-switch" />
+								<span class='fileterBtn'>只看拓珍自营</span><input type="checkbox" class="js-switch" ng-click="tuozhenSell()" />
 							</li>
 							<li ng-click='$event.stopPropagation();'>
-								<span class='fileterBtn'>只看包邮商品</span><input type="checkbox" class="js-switch fileterBtn" />
+								<span class='fileterBtn'>只看包邮商品</span><input type="checkbox" class="js-switch fileterBtn" ng-click="postfree()" />
 							</li>
 						</ul>
 						<ul>
@@ -149,90 +149,72 @@
 				</div>
 		</div>
 		<div class="content search-item-warp">
-			<div class="search-item">
-				<img class="shop-img fl" src="images/content/shop2.jpg">
+			<div class="search-item" ng-repeat='searchitemdatas in searchitemdata' ng-click="viewDeatil(searchitemdatas.productId)">
+				{{searchitemdatas.name}}
+				<img class="shop-img fl" ng-src="{{searchitemdatas.photo}}">
 				<div class="til f26px fl">
-					999牌 感冒灵颗粒 10g*9包
+					{{searchitemdatas.name}}
 				</div>
-				<div class="phoneprice fl"></div>
-				<div class="phoneprice1 fl"></div>
-				<div class="phoneprice2 fl"></div>
-				<div class="price f26px fl">￥9.00</div>
+				<div class="phoneprice fl" ng-if="searchitemdatas.isonsale==1"></div>
+				<div class="phoneprice1 fl" ng-if="searchitemdatas.isfreedeliver==1"></div>
+				<div class="phoneprice2 fl" ng-if="searchitemdatas.activityState==1"></div>
+				<div class="price f26px fl">￥{{searchitemdatas.mallprice}}</div>
 				<div class="tip f20px">1200条评论</div>
 				<div class="inshopcar"></div>
 			</div>
-			<div class="search-item">
-				<img class="shop-img fl" src="images/content/shop2.jpg">
-				<div class="til f26px fl">
-					999牌 感冒灵颗粒 10g*9包
-				</div>
-				<div class="phoneprice fl"></div>
-				<div class="phoneprice1 fl"></div>
-				<div class="phoneprice2 fl"></div>
-				<div class="price f26px fl">￥9.00</div>
-				<div class="tip f20px">1200条评论</div>
-				<div class="inshopcar"></div>
+			
+		</div>
+		<div class="content" ng-show="noresout">
+			<img class="noout" src="images/noout.png">
+			<!-- <div class="search-no-til f28px">
+				猜您需要
 			</div>
-			<div class="search-item">
-				<img class="shop-img fl" src="images/content/shop2.jpg">
-				<div class="til f26px fl">
-					999牌 感冒灵颗粒 10g*9包
+			<div class="listwarp">
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
 				</div>
-				<div class="phoneprice fl"></div>
-				<div class="phoneprice1 fl"></div>
-				<div class="phoneprice2 fl"></div>
-				<div class="price f26px fl">￥9.00</div>
-				<div class="tip f20px">1200条评论</div>
-				<div class="inshopcar"></div>
-			</div>
-			<div class="search-item">
-				<img class="shop-img fl" src="images/content/shop2.jpg">
-				<div class="til f26px fl">
-					999牌 感冒灵颗粒 10g*9包
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
 				</div>
-				<div class="phoneprice fl"></div>
-				<div class="phoneprice1 fl"></div>
-				<div class="phoneprice2 fl"></div>
-				<div class="price f26px fl">￥9.00</div>
-				<div class="tip f20px">1200条评论</div>
-				<div class="inshopcar"></div>
-			</div>
-			<div class="search-item">
-				<img class="shop-img fl" src="images/content/shop2.jpg">
-				<div class="til f26px fl">
-					999牌 感冒灵颗粒 10g*9包
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
 				</div>
-				<div class="phoneprice fl"></div>
-				<div class="phoneprice1 fl"></div>
-				<div class="phoneprice2 fl"></div>
-				<div class="price f26px fl">￥9.00</div>
-				<div class="tip f20px">1200条评论</div>
-				<div class="inshopcar"></div>
-			</div>
-			<div class="search-item">
-				<img class="shop-img fl" src="images/content/shop2.jpg">
-				<div class="til f26px fl">
-					999牌 感冒灵颗粒 10g*9包
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
 				</div>
-				<div class="phoneprice fl"></div>
-				<div class="phoneprice1 fl"></div>
-				<div class="phoneprice2 fl"></div>
-				<div class="price f26px fl">￥9.00</div>
-				<div class="tip f20px">1200条评论</div>
-				<div class="inshopcar"></div>
-			</div>
-			<div class="search-item">
-				<img class="shop-img fl" src="images/content/shop2.jpg">
-				<div class="til f26px fl">
-					999牌 感冒灵颗粒 10g*9包
-				</div>
-				<div class="phoneprice fl"></div>
-				<div class="phoneprice1 fl"></div>
-				<div class="phoneprice2 fl"></div>
-				<div class="price f26px fl">￥9.00</div>
-				<div class="tip f20px">1200条评论</div>
-				<div class="inshopcar"></div>
-			</div>
+			</div> -->
 		</div>
 		<div class="shopcar">
 			<div class="num">1</div>
