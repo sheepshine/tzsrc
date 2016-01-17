@@ -150,14 +150,15 @@
 		</div>
 		<div class="content search-item-warp">
 			<div class="search-item" ng-repeat='searchitemdatas in searchitemdata' ng-click="viewDeatil(searchitemdatas.productId)">
-				{{searchitemdatas.name}}
 				<img class="shop-img fl" ng-src="{{searchitemdatas.photo}}">
 				<div class="til f26px fl">
 					{{searchitemdatas.name}}
 				</div>
-				<div class="phoneprice fl" ng-if="searchitemdatas.isonsale==1"></div>
-				<div class="phoneprice1 fl" ng-if="searchitemdatas.isfreedeliver==1"></div>
-				<div class="phoneprice2 fl" ng-if="searchitemdatas.activityState==1"></div>
+				<div class="phonepricewarp">
+					<div class="phoneprice fl" ng-if="searchitemdatas.isonsale==1"></div>
+					<div class="phoneprice1 fl" ng-if="searchitemdatas.isfreedeliver==1"></div>
+					<div class="phoneprice2 fl" ng-if="searchitemdatas.activityState==1"></div>
+				</div>
 				<div class="price f26px fl">￥{{searchitemdatas.mallprice}}</div>
 				<div class="tip f20px">1200条评论</div>
 				<div class="inshopcar"></div>

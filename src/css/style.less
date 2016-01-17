@@ -564,6 +564,7 @@ button {
 		padding: 0.46875rem 0.46875rem;
 		position: relative;
 		border-bottom: 1px solid #C0C0C0;
+		display:inline-block;
 	}
 	.search-item .shop-img{
 		width: 2.25rem;
@@ -576,16 +577,27 @@ button {
 		margin-top: 3.046875rem;
 	}
 	.search-item{
+		.phonepricewarp{
+			width:4.6875rem;
+			height:1.125rem;
+			margin:0 0 0 0.5rem;
+			overflow:hidden;
+			display:inline-block;
+			float:left;
+		}
 		.phoneprice{
 			width: 1.453125rem;
 			height: 0.546875rem;
 			background: url("../images/phoneprice.png");
 			.bgfull;
 			display: inline-block;
-			margin: 0.3125rem 0 0 0.5rem;
+			margin: 0.3125rem 0 0 0;
 		}
 		.til{
 			width: 5.78125rem;
+			height:0.40625rem;
+			overflow: hidden;
+			text-overflow:ellipsis;
 			margin-left: 0.5rem;
 			vertical-align: top;
 		}
