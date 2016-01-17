@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script type="text/javascript" src="js/a.js"></script>
+	<script type="text/javascript" src="js/a_css.js"></script>
+	<link rel="stylesheet" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/servies/search.js"></script>
+</head>
+<body>
+	<div class="search-warp" ng-app='search'>
+		<div class="header">
+			<div class="btn1"></div>
+			<div class="search">
+				<div class="search-ico"></div>
+				<input class="search-text search-text-searchfix f26px" type="text" placeholder="搜索商品名/症状/疾病名" />
+			</div>
+			<div class="QRcode"></div>
+		</div>
+		<div class="content">
+			<div class="navwarp" ng-controller="searchClassCtr">
+				<div class="nav">
+					<div class="list" ng-repeat="datalist in datas" ng-if="datalist.shopItemClassId==0" ng-click="finditem(datalist.id)">
+						<div class="img">
+						</div>
+						<div class="search-content-nav-til f24px">
+							{{datalist.name}}
+						</div>
+					</div>
+					<!-- <div class="list">
+						<div class="img img2">
+						</div>
+						<div class="search-content-nav-til f24px">
+							计生避孕
+						</div>
+					</div>
+					<div class="list">
+						<div class="img img3">
+						</div>
+						<div class="search-content-nav-til f24px">
+							肠胃用药
+						</div>
+					</div>
+					<div class="list">
+						<div class="img img4">
+						</div>
+						<div class="search-content-nav-til f24px">
+							隐形眼镜
+						</div>
+					</div>
+					<div class="list">
+						<div class="img img5">
+						</div>
+						<div class="search-content-nav-til f24px">
+							心脑血管
+						</div>
+					</div> -->
+				</div>
+			</div>
+			<div class="shop-list-warp">
+				<div class="shop-list-item">
+					<img class="shop-list-item-img" src="images/content/shop2.jpg"  >
+					<h2 class="search-warp-list-h2 f22px">药品名称药品名称药品名称药品名称</h2>
+					<span class="search-warp-shop-list-price-now f24px">￥8.8</span>
+					<span class="search-warp-shop-list-price f24px">￥11.2</span>
+				</div>
+				<div class="shop-list-item">
+					<img class="shop-list-item-img" src="images/content/shop2.jpg"  >
+					<h2 class="search-warp-list-h2 f22px">药品名称药品名称药品名称药品名称</h2>
+					<span class="search-warp-shop-list-price-now f24px">￥8.8</span>
+					<span class="search-warp-shop-list-price f24px">￥11.2</span>
+				</div>
+				<div class="shop-list-item">
+					<img class="shop-list-item-img" src="images/content/shop2.jpg"  >
+					<h2 class="search-warp-list-h2 f22px">药品名称药品名称药品名称药品名称</h2>
+					<span class="search-warp-shop-list-price-now f24px">￥8.8</span>
+					<span class="search-warp-shop-list-price f24px">￥11.2</span>
+				</div>
+				<div class="shop-list-item">
+					<img class="shop-list-item-img" src="images/content/shop2.jpg"  >
+					<h2 class="search-warp-list-h2 f22px">药品名称药品名称药品名称药品名称</h2>
+					<span class="search-warp-shop-list-price-now f24px">￥8.8</span>
+					<span class="search-warp-shop-list-price f24px">￥11.2</span>
+				</div>
+				<div class="shop-list-item">
+					<img class="shop-list-item-img" src="images/content/shop2.jpg"  >
+					<h2 class="search-warp-list-h2 f22px">药品名称药品名称药品名称药品名称</h2>
+					<span class="search-warp-shop-list-price-now f24px">￥8.8</span>
+					<span class="search-warp-shop-list-price f24px">￥11.2</span>
+				</div>
+				<div class="shop-list-item">
+					<img class="shop-list-item-img" src="images/content/shop2.jpg"  >
+					<h2 class="search-warp-list-h2 f22px">药品名称药品名称药品名称药品名称</h2>
+					<span class="search-warp-shop-list-price-now f24px">￥8.8</span>
+					<span class="search-warp-shop-list-price f24px">￥11.2</span>
+				</div>
+			</div>
+		</div>
+		<div class="footnav">
+			<div class="foot-nav-btn">
+			</div>
+			<div class="foot-nav-btn ico1">
+			</div>
+			<div class="foot-nav-btn ico2">
+			</div>
+			<div class="foot-nav-btn ico3">
+			</div>
+		</div>
+	</div>	
+</body>
+</html>
