@@ -306,6 +306,10 @@ button {
   top: 0;
   margin: 0 !important;
 }
+.search-no.shop-item-search .nav-filter .arrlist2 {
+  height: 12.28125rem;
+  overflow-y: scroll;
+}
 .search-no.shop-item-search .nav-filter .arrlist2,
 .search-no.shop-item-search .nav-filter .arrlist3 {
   position: absolute;

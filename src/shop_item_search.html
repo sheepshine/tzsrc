@@ -42,7 +42,10 @@
 			<div class="classwarp" ng-show="list1" ng-click="viewclass()">
 				<div class="arrlist1" ng-show="list1">
 					<ul>
-						<li ng-click='viewclass2();$event.stopPropagation();' ng-class='{"class-active":isActive}'>
+						<li ng-class='{"class-active":isActive}' ng-repeat='datas in searchClassNav' ng-if='datas.shopItemClassId==0' ng-click="finditem(datas.id);$event.stopPropagation()">
+							{{datas.name}}
+						</li>
+						<!-- <li>
 							透明隐形眼镜
 						</li>
 						<li>
@@ -56,15 +59,15 @@
 						</li>
 						<li>
 							透明隐形眼镜
-						</li>
-						<li>
-							透明隐形眼镜
-						</li>
+						</li> -->
 					</ul>
 				</div>
 				<div class="arrlist2" ng-show="list2">
 					<ul>
-						<li ng-click='selectClass();$event.stopPropagation();' ng-class='{"class-select":isActive2}'>
+						<li ng-click='selectClass(datas2.shopItemClassId);$event.stopPropagation();' ng-class='{"class-select":isActive2}' ng-repeat='datas2 in itemList2'>
+							{{datas2.name}}
+						</li>
+						<!-- <li>
 							透明隐形眼镜
 						</li>
 						<li>
@@ -78,10 +81,7 @@
 						</li>
 						<li>
 							透明隐形眼镜
-						</li>
-						<li>
-							透明隐形眼镜
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>

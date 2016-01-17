@@ -29,7 +29,7 @@
 			</div>
 			<div class="haslogin" ng-show="haslogin">	
 				<div class="head">
-					<img ng-src="personInfo.usrInfoPhoto">
+					<img ng-src="{{personInfo.usrInfoPhoto}}">
 				</div>
 				<div class="phone f20px">{{personInfo.usrInfoName}}</div>
 				<div class="tag">实名认证</div>
@@ -107,13 +107,13 @@
 					<div class="til f24px">
 						收藏的商品
 					</div>
-					<div class="num f24px">0</div>
+					<div class="num f24px">{{likeshopslength.length}}</div>
 				</div>
 				<div class="warp">
 					<div class="til f24px">
 						收藏的店铺
 					</div>
-					<div class="num f24px">0</div>
+					<div class="num f24px">{{likegoodslength.length}}</div>
 				</div>
 				<div class="warp nobor">
 					<div class="til f24px">

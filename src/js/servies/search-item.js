@@ -12,15 +12,50 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	$scope.isActive=false;
 	$scope.viewclass=function(){
 		$scope.list1=!$scope.list1;
+		$scope.searchClassAjax()
 		$scope.rankshow=false;
-		
 	}
 	$scope.viewclass2=function(){
 		$scope.list2=!$scope.list2;
 		$scope.isActive=true;
 	}
-	$scope.selectClass=function(){
+	$scope.selectClass=function(odata){
 		$scope.isActive2=true;
+		$.ajax({
+			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	title:$scope.searchValue,
+			   	shopItemClassIdSub:odata
+			},
+	        headers: {
+	            "imei":"asdaSA",
+		        "mobileOperators":"IOS8",
+		        "originateEnum":"APP_USER_AND",
+		        "version":"2_0",
+		        "sysVersion":"ios9",
+		        "phoneModel":"iphone"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		$scope.$watch($scope.searchitemdata)
+	        		$scope.searchitemdata=data.result.result.list
+	        		console.log(data.result.result.list)
+	        		if(data.result.result.list.length==0){
+	        			$scope.noresout=true;
+	        		}else{
+	        			$scope.noresout=false;
+	        		}
+
+	        	}
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
+
 	}
 	$scope.rankClass=function(){
 		$scope.rankshow=!$scope.rankshow;
@@ -56,6 +91,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	$scope.noresout=false;
 	$scope.searchAjax=function(searchData){
+		localStorage
 		$.ajax({
 			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
@@ -83,6 +119,60 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	        			$scope.noresout=false;
 	        		}
 
+	        	}
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
+	}
+	$scope.finditem=function(id){
+		$.ajax({
+				url: 'http://211.149.150.213:9090/application-shopapp/productItem/selectProductItem.tz',
+		        type: 'post',
+		        dataType: 'json',
+		       	async:false,
+		       	data:{
+				   	shopItemClassId:id
+				},
+		        headers: {
+		            "imei":"asdaSA",
+			        "mobileOperators":"IOS8",
+			        "originateEnum":"APP_USER_AND",
+			        "version":"2_0",
+			        "sysVersion":"ios9",
+			        "phoneModel":"iphone"
+				},
+		        success: function(data){
+		        	$scope.itemList2=data.result.pageResultList.result
+		        	$scope.list2=true;
+		        },
+		        error: function(data){
+		            alert(data);
+		        }
+			})
+	}
+	$scope.searchClassAjax=function(searchData){
+		$.ajax({
+			url: 'http://211.149.150.213:9090/application-shopapp/productItem/selectProductItem.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	title:searchData
+			},
+	        headers: {
+	            "imei":"asdaSA",
+		        "mobileOperators":"IOS8",
+		        "originateEnum":"APP_USER_AND",
+		        "version":"2_0",
+		        "sysVersion":"ios9",
+		        "phoneModel":"iphone"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		$scope.searchClassNav=data.result.pageResultList.result
+	        		console.log($scope.searchClassNav)
 	        	}
 	        },
 	        error: function(data){

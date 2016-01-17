@@ -19,7 +19,7 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
-	        		$scope.itemdata=data.result.result.productList
+	        		$scope.itemdata=data.result.result.productList[0]
 	        		$scope.shopdata=data.result.result.shopInfo
 	        	}
 	        },
