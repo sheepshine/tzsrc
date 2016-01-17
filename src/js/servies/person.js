@@ -5,41 +5,6 @@ person.controller('personCtr',['$scope',function($scope){
 	$scope.haslogin=false;
 	$scope.username=13983604781
 	$scope.password=123456
-	$scope.loginin=function(){
-		$.ajax({
-				url: 'http://211.149.150.213:9091/application-usrapp/login/in.tz',
-		        type: 'post',
-		        dataType: 'json',
-		       	async:false,
-		       	data:{
-				   	uname:$scope.username,
-				   	password:$scope.password
-				},
-		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
-				},
-		        success: function(data){
-		        	if(data.code=="00000"){
-		        		$scope.personInfo=data.result
-		        		console.log($scope.personInfo.usrInfoName)
-		        		localStorage.usrUserId=$scope.personInfo.usrUserId;
-		        		$scope.tologin=!$scope.tologin;
-		        		$scope.haslogin=!$scope.haslogin;
-		        		$scope.info();
-		        		$scope.likegoods();
-		        		$scope.likeshop();
-		        	}
-		        },
-		        error: function(data){
-		            alert(data.errMsg);
-		        }
-			})
-	}
 	$scope.info=function(){
 		$.ajax({
 				url: 'http://211.149.150.213:9091/application-usrapp/user_shopOrder/selectShopOrder.tz',
@@ -121,5 +86,98 @@ person.controller('personCtr',['$scope',function($scope){
 		        }
 			})
 	}
+	$scope.searchOrder=function(){
+		$scope.orderstate0=0;
+		$scope.orderstate1=0;
+		$scope.orderstate2=0;
+		$scope.orderstate3=0;
+		$scope.orderstate4=0;
+		$.ajax({
+				url: 'http://211.149.150.213:9091/application-usrapp/user_shopOrder/selectShopOrder.tz',
+		        type: 'post',
+		        dataType: 'json',
+		       	async:false,
+		       	data:{
+				   	usrUserId:localStorage.usrUserId
+				},
+		        headers: {
+		            "imei":"asdaSA",
+			        "mobileOperators":"IOS8",
+			        "originateEnum":"APP_USER_AND",
+			        "version":"2_0",
+			        "sysVersion":"ios9",
+			        "phoneModel":"iphone"
+				},
+		        success: function(data){
+		        	if(data.code=="00000"){
+		        		$scope.shoporderList=data.result.result.list;
+		        		console.log($scope.shoporderList[0].state)
+		        		$($scope.shoporderList).each(function(index){
+		        			if($scope.shoporderList[index].state==0){
+								$scope.orderstate0++;
+							}else if($scope.shoporderList[index].state==1){
+								$scope.orderstate1++;
+							}else if($scope.shoporderList[index].state==2){
+								$scope.orderstate2++;
+							}else if($scope.shoporderList[index].state==3){
+								$scope.orderstate3++;
+							}
+							console.log($scope.orderstate0)
+		        		})
+		        		
+		        	}
+		        },
+		        error: function(data){
+		            alert(data.errMsg);
+		        }
+			})
+	}
+	$scope.loginin=function(){
+		$.ajax({
+				url: 'http://211.149.150.213:9091/application-usrapp/login/in.tz',
+		        type: 'post',
+		        dataType: 'json',
+		       	async:false,
+		       	data:{
+				   	uname:$scope.username,
+				   	password:$scope.password
+				},
+		        headers: {
+		            "imei":"asdaSA",
+			        "mobileOperators":"IOS8",
+			        "originateEnum":"APP_USER_AND",
+			        "version":"2_0",
+			        "sysVersion":"ios9",
+			        "phoneModel":"iphone"
+				},
+		        success: function(data){
+		        	if(data.code=="00000"){
+		        		$scope.personInfo=data.result
+		        		console.log($scope.personInfo.usrInfoName)
+		        		localStorage.usrUserId=$scope.personInfo.usrUserId;
+		        		$scope.tologin=!$scope.tologin;
+		        		$scope.haslogin=!$scope.haslogin;
+		        		$scope.info();
+		        		$scope.likegoods();
+		        		$scope.likeshop();
+		        		$scope.searchOrder();
+		        	}
+		        },
+		        error: function(data){
+		            alert(data.errMsg);
+		        }
+			})
+	}
+	if(localStorage.usrUserId){
+		$scope.loginin()
+	}
+	window.onload=function(){
+		$("#viewmypaylist").tap(function(){
+			location.href="for-pay.html";
+			localStorage.orderDate=JSON.stringify($scope.shoporderList)
+		})
+	}
+	
+	
 }])
 

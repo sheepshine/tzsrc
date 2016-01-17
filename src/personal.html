@@ -70,26 +70,31 @@
 			</div>
 			<div class="order-list">
 				<div class="item nml">
+					<span class="numstatu">{{orderstate0}}</span>
 					<div class="ico ico1">
 					</div>
 					<span class="f22px">待付款</span>
 				</div>
 				<div class="item">
+					<span class="numstatu" ng-if="!(orderstate1==0)">{{orderstate1}}</span>
 					<div class="ico ico2">
 					</div>
 					<span class="f22px">待发货</span>
 				</div>
 				<div class="item">
+					<span class="numstatu" ng-if="!(orderstate2==0)">{{orderstate2}}</span>
 					<div class="ico ico3">
 					</div>
 					<span class="f22px">待收货</span>
 				</div>
 				<div class="item">
+					<span class="numstatu" ng-if="!(orderstate3==0)">{{orderstate3}}</span>
 					<div class="ico ico4">
 					</div>
 					<span class="f22px">待评价</span>
 				</div>
 				<div class="item nmr">
+					<span class="numstatu" ng-if="!(orderstate4==0)">{{orderstate4}}</span>
 					<div class="ico ico5">
 					</div>
 					<span class="f22px">待退货</span>
@@ -125,9 +130,7 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		$("#viewmypaylist").tap(function(){
-			location.href="for-pay.html"
-		})
+		
 	</script>
 </body>
 </html>
