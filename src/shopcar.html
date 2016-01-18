@@ -9,32 +9,52 @@
 	<script type="text/javascript" src="js/a_css.js"></script>
 	<link rel="stylesheet" href="css/style.css" />
 	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tap.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/servies/shopcar.js"></script>
 </head>
 <body ng-app='shopcar'>
 	<div class="invoice-warp" ng-controller='shopcarCtr'>
 		<div class="nav f34px">
-			<button></button>
+			<button id="backBtn"></button>
 			购物车
-			<span class="invoice-warp-nav-needkonw f28px">编辑</span>
+			<span class="invoice-warp-nav-needkonw f28px" ng-click="shopCarEdit()">{{editTil}}</span>
 		</div>
 		<div class="pay-warp">
-			<div class="shocar-list">
-				<img class="shop-img" /> 
-				<h2 class="f24px">康恩贝 澳大康派天然  胡萝卜素软
-				胶囊</h2>
-				<span class="num f22px">数量:1</span>
-				<span class="price f24px">￥29.00</span>
+			<div class="shocar-list" ng-repeat="datalist in itemdata">
+				<div class="selectBtn"></div>
+				<img class="shop-img" ng-src='{{datalist.photo}}' /> 
+				<h2 class="f24px">{{datalist.name}}</h2>
+				<span class="num f22px">数量:{{datalist.number}}</span>
+				<span class="price f24px">￥{{datalist.mallprice*datalist.number}}</span>
 			</div>
 		</div>
 		<div class="shopcarfoot">
-			<span class="totalprice f30px">总计:178.00</span>
-			<span class="tip f24px">全场满89元免邮费</span>
-			<button class="f30px">去结算</button>
+			<div ng-show="editCtr">
+				<span class="totalprice f30px">总计:{{totalPrice}}</span>
+				<span class="tip f24px">全场满89元免邮费</span>
+				<button class="f30px">去结算</button>
+			</div>
+			<div ng-show="editCtr2">
+				<div class="selectBtn" id="selectALLBtn"></div><span class="totalprice f30px" id="selectAll">全选</span>
+				<button class="f30px">删除</button>
+			</div>
 		</div>
 	</div>
 	<script>
+		$(function(){
+			$("#backBtn").tap(function(){
+				window.location.href=window.history.back(-1)
+			})
+			$(".selectBtn").tap(function(){
+				$(this).css({"background":"#f00","border":"0.2rem solid #CDCDCD","box-sizing":"border-box"})
+				return false;
+				
+			})
+			$("#selectALLBtn").tap(function(){
+				$(".selectBtn").css({"background":"#f00","border":"0.2rem solid #CDCDCD","box-sizing":"border-box"})
+			})
+		})
 		
 	</script>	
 </body>

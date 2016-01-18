@@ -7,6 +7,8 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 		localStorage.removeItem("searchData");
 		localStorage.removeItem("searchValue");
 	}
+	$scope.maintitle="全部分类"
+	$scope.maintile2="综合排序"
 	$scope.list1=false;
 	$scope.list2=false;
 	$scope.isActive=false;
@@ -19,7 +21,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 		$scope.list2=!$scope.list2;
 		$scope.isActive=true;
 	}
-	$scope.selectClass=function(odata){
+	$scope.selectClass=function(odata,oname){
 		$scope.isActive2=true;
 		$.ajax({
 			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
@@ -55,11 +57,60 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	            alert(data.errMsg);
 	        }
 		})
+		$scope.maintitle=oname
+	}
+	$scope.selectClass2=function(odata,oname){
+		$scope.isActive2=true;
+		if(odata==0){
+			salesvolume=""
+			score=""
+		}else if(odata==1){
+			salesvolume=1
+			score=""
+		}else if(odata==2){
+			salesvolume=""
+			score=1
+		}
+		$.ajax({
+			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	salesvolume:salesvolume,
+			   	score:score
+			},
+	        headers: {
+	            "imei":"asdaSA",
+		        "mobileOperators":"IOS8",
+		        "originateEnum":"APP_USER_AND",
+		        "version":"2_0",
+		        "sysVersion":"ios9",
+		        "phoneModel":"iphone"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		$scope.$watch($scope.searchitemdata)
+	        		$scope.searchitemdata=data.result.result.list
+	        		console.log(data.result.result.list)
+	        		if(data.result.result.list.length==0){
+	        			$scope.noresout=true;
+	        		}else{
+	        			$scope.noresout=false;
+	        		}
 
+	        	}
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
+		$scope.maintile2=oname
 	}
 	$scope.rankClass=function(){
 		$scope.rankshow=!$scope.rankshow;
 		$scope.list1=false;
+
 	}
 	$scope.filterShow=function(){
 		$scope.filterShowCtr=!$scope.filterShowCtr
@@ -118,7 +169,6 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	        		}else{
 	        			$scope.noresout=false;
 	        		}
-
 	        	}
 	        },
 	        error: function(data){
@@ -186,5 +236,79 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 		localStorage.searchValue=$scope.searchValue;
 		location.href="good_item.html";
 	}
+	$scope.addShopCar=function(proId,shopId){
+		if(!localStorage.usrUserId){
+			alert("请先登录");
+			location.href="../../personal.html"
+		}
+		$.ajax({
+			url: 'http://211.149.150.213:9091/application-usrapp/user_shopCart/addShopCart.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	usrUserId:localStorage.usrUserId,
+			   	number:1,
+			   	shopProductId:proId,
+			   	shopInfoId:shopId
+			},
+	        headers: {
+	            "imei":"asdaSA",
+		        "mobileOperators":"IOS8",
+		        "originateEnum":"APP_USER_AND",
+		        "version":"2_0",
+		        "sysVersion":"ios9",
+		        "phoneModel":"iphone"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		alert(data.errMsg)
+	        		$scope.shopcarNum++;
+	        	}
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
+	}
+	$scope.shopCarInfo=function(){
+		$.ajax({
+			url: 'http://211.149.150.213:9091/application-usrapp/user_shopCart/queryShopCart.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	usrUserId:localStorage.usrUserId
+			},
+	        headers: {
+	            "imei":"asdaSA",
+		        "mobileOperators":"IOS8",
+		        "originateEnum":"APP_USER_AND",
+		        "version":"2_0",
+		        "sysVersion":"ios9",
+		        "phoneModel":"iphone"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		$scope.shopcarNum=data.result.result.list.length;
+	        		
+	        		//$scope.shopdata=data.result.result.shopInfo
+	        	}
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
+	}
+	$scope.shopCarInfo();
+	$("#shopCar").show();
+	$("#shopCar").tap(function(){
+		if(!localStorage.usrUserId){
+			alert("请先登录");
+			location.href="../../personal.html"
+		}else{
+			location.href="shopcar.html"
+		}
+	})
 }])
 

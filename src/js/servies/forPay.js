@@ -11,4 +11,7 @@ forPay.controller('forPayCtr',['$scope',function($scope){
 		$scope.orderDates2=JSON.parse(localStorage.orderDate);
 		$scope.allDis=true;
 	}
+	if(localStorage.forPayType){
+		$scope.viewAll(localStorage.forPayType)
+	}
 }])

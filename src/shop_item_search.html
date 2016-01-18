@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="css/switchery.min.css" />
 	<script type="text/javascript" src="js/switchery.min.js"></script>
 	<script src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tap.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/servies/search-item.js"></script>
 	<style type="text/css">
@@ -38,7 +39,7 @@
 			<div class="QRcode"></div>
 		</div>
 		<div class="nav-filter f24px">
-			<div class="arrow" ng-click='viewclass()'>全部分类</div>
+			<div class="arrow" ng-click='viewclass()'>{{maintitle}}</div>
 			<div class="classwarp" ng-show="list1" ng-click="viewclass()">
 				<div class="arrlist1" ng-show="list1">
 					<ul>
@@ -64,7 +65,7 @@
 				</div>
 				<div class="arrlist2" ng-show="list2">
 					<ul>
-						<li ng-click='selectClass(datas2.shopItemClassId);$event.stopPropagation();' ng-class='{"class-select":isActive2}' ng-repeat='datas2 in itemList2'>
+						<li ng-click='selectClass(datas2.shopItemClassId,datas2.name);$event.stopPropagation();' ng-class='{"class-select":isActive2}' ng-repeat='datas2 in itemList2'>
 							{{datas2.name}}
 						</li>
 						<!-- <li>
@@ -85,20 +86,20 @@
 					</ul>
 				</div>
 			</div>
-			<div class="arrow" ng-click="rankClass()">综合排序</div>
+			<div class="arrow" ng-click="rankClass()">{{maintile2}}</div>
 				<div class="rankClass" ng-show="rankshow" ng-click="rankClass()">
 					<div class="arrlist3">
 						<ul>
-							<li ng-click='selectClass();$event.stopPropagation();' ng-class='{"class-select":isActive2}'>
+							<li ng-click="selectClass2('0','综合排序');$event.stopPropagation();" ng-class='{"class-select":isActive2}'>
 							综合排序
 							</li>
-							<li>
+							<li ng-click="selectClass2('1','销量排序');$event.stopPropagation();" ng-class='{"class-select":isActive2}'>
 								销量排序
 							</li>
-							<li>
+							<li ng-click="selectClass2('2','好评排序');$event.stopPropagation();" ng-class='{"class-select":isActive2}'>
 								好评排序
 							</li>
-							<li>
+							<!-- <li>
 								价格排序
 							</li>
 							<li>
@@ -106,7 +107,7 @@
 							</li>
 							<li>
 								最新上架
-							</li>
+							</li> -->
 						</ul>
 					</div>
 				</div>
@@ -149,19 +150,19 @@
 				</div>
 		</div>
 		<div class="content search-item-warp">
-			<div class="search-item" ng-repeat='searchitemdatas in searchitemdata' ng-click="viewDeatil(searchitemdatas.productId)">
-				<img class="shop-img fl" ng-src="{{searchitemdatas.photo}}">
-				<div class="til f26px fl">
+			<div class="search-item" ng-repeat='searchitemdatas in searchitemdata'>
+				<img class="shop-img fl" ng-src="{{searchitemdatas.photo}}"  ng-click="viewDeatil(searchitemdatas.productId)">
+				<div class="til f26px fl"  ng-click="viewDeatil(searchitemdatas.productId)">
 					{{searchitemdatas.name}}
 				</div>
-				<div class="phonepricewarp">
+				<div class="phonepricewarp"  ng-click="viewDeatil(searchitemdatas.productId)">
 					<div class="phoneprice fl" ng-if="searchitemdatas.isonsale==1"></div>
 					<div class="phoneprice1 fl" ng-if="searchitemdatas.isfreedeliver==1"></div>
 					<div class="phoneprice2 fl" ng-if="searchitemdatas.activityState==1"></div>
 				</div>
 				<div class="price f26px fl">￥{{searchitemdatas.mallprice}}</div>
 				<div class="tip f20px">1200条评论</div>
-				<div class="inshopcar"></div>
+				<div class="inshopcar" ng-click="addShopCar(searchitemdatas.productId,searchitemdatas.shopId);$event.stopPropagation();"></div>
 			</div>
 			
 		</div>
@@ -217,8 +218,8 @@
 				</div>
 			</div> -->
 		</div>
-		<div class="shopcar">
-			<div class="num">1</div>
+		<div class="shopcar" id="shopCar" style="display:none">
+			<div class="num">{{shopcarNum}}</div>
 		</div>
 	</div>	
 	<script type="text/javascript">

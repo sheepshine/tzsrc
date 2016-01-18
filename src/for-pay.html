@@ -16,7 +16,7 @@
 <body ng-app='forPay' ng-controller="forPayCtr"  style="height:100%">
 	<div class="for-pay-warp">
 		<div class="nav f34px">
-			<button></button>
+			<button id="backBtn"></button>
 			我的订单
 		</div>
 		<div class="nav-filter">
@@ -34,9 +34,9 @@
 			<span class="pay-for-pay-order-detail">{{orderDate.adddate}}</span>
 			<hr>
 			<div class="pay-list-item">
-				<img class="pay-list-item-img" src="images/content/shop3.jpg">
-				<img class="pay-list-item-img" src="images/content/shop3.jpg">
-				<img class="pay-list-item-img" src="images/content/shop3.jpg">
+				<img class="pay-list-item-img" src="">
+				<img class="pay-list-item-img" src="">
+				<img class="pay-list-item-img" src="">
 				<span class="for-pay-warp-item-info">一个包裹（{{orderDate.number}}件商品）<div class="btn"></div></span>
 			</div>
 			<hr class="hr2">
@@ -54,9 +54,9 @@
 			<span class="pay-for-pay-order-detail">{{orderDate.adddate}}</span>
 			<hr>
 			<div class="pay-list-item">
-				<img class="pay-list-item-img" src="images/content/shop3.jpg">
-				<img class="pay-list-item-img" src="images/content/shop3.jpg">
-				<img class="pay-list-item-img" src="images/content/shop3.jpg">
+				<img class="pay-list-item-img" src="">
+				<img class="pay-list-item-img" src="">
+				<img class="pay-list-item-img" src="">
 				<span class="for-pay-warp-item-info">一个包裹（{{orderDate.number}}件商品）<div class="btn"></div></span>
 			</div>
 			<hr class="hr2">
@@ -76,6 +76,11 @@
 			<div class="foot-nav-btn ico3">
 			</div>
 		</div>
-	</div>	
+	</div>
+	<script>
+	$("#backBtn").tap(function(){
+		window.location.href="personal.html"
+	})
+	</script>	
 </body>
 </html>

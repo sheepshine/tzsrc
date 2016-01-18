@@ -171,6 +171,33 @@ person.controller('personCtr',['$scope',function($scope){
 	if(localStorage.usrUserId){
 		$scope.loginin()
 	}
+	$scope.viewDeatil=function(a,b){
+		if(a==0){
+			return false;
+		}
+		switch (b){
+			case 1:
+				localStorage.forPayType=0;
+				window.location.href="for-pay.html"
+				break;
+			case 2:
+				localStorage.forPayType=1;
+				window.location.href="for-pay.html"
+				break;
+			case 3:
+				localStorage.forPayType=2;
+				window.location.href="for-pay.html"
+				break;
+			case 4:
+				localStorage.forPayType=3;
+				window.location.href="for-pay.html"
+				break;
+			case 5:
+				localStorage.forPayType=4;
+				window.location.href="for-pay.html"
+				break;
+		}
+	}
 	window.onload=function(){
 		$("#viewmypaylist").tap(function(){
 			location.href="for-pay.html";

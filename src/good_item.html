@@ -67,17 +67,17 @@
 			<div class="item nobor nomarginleft">
 				<div class="bg fl">
 				</div>
-				<span class="fl f28px">收藏</span>
+				<span class="fl f28px" ng-click="collectShop()">收藏</span>
 			</div>
 			<div class="item">
 				<div class="bg bg2 fl">
 				</div>
-				<span class="fl f28px">查看购物车</span>
+				<span class="fl f28px" id="viewShopCar">查看购物车</span>
 			</div>
 			<div class="item">
 				<div class="bg bg3 fl">
 				</div>
-				<span class="fl f28px">加入购物车</span>
+				<span class="fl f28px" ng-click="addShopcar()">加入购物车</span>
 			</div>
 		</div>
 	</div>
@@ -90,6 +90,9 @@
 		})
 		$("#backforward").tap(function(){
 			window.history.back(-1)
+		})
+		$("#viewShopCar").tap(function(){
+			window.location.href="shopcar.html"
 		})
 	</script>
 </body>

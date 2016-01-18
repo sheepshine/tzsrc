@@ -28,6 +28,64 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	        }
 		})
 	
+	$scope.addShopcar=function(){
+		$.ajax({
+			url: 'http://211.149.150.213:9091/application-usrapp/user_shopCart/addShopCart.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	usrUserId:localStorage.usrUserId,
+			   	number:1,
+			   	shopProductId:localStorage.productId,
+			   	shopInfoId:$scope.shopdata.id
+			},
+	        headers: {
+	            "imei":"asdaSA",
+		        "mobileOperators":"IOS8",
+		        "originateEnum":"APP_USER_AND",
+		        "version":"2_0",
+		        "sysVersion":"ios9",
+		        "phoneModel":"iphone"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		alert(data.errMsg)
+	        	}
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
 	
+	}
+	$scope.collectShop=function(){
+		$.ajax({
+			url: 'http://211.149.150.213:9091/application-usrapp/userCollectProduct/addUsrCollectShop.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	usrUserId:localStorage.usrUserId,
+			   	shopInfoId:$scope.shopdata.id
+			},
+	        headers: {
+	            "imei":"asdaSA",
+		        "mobileOperators":"IOS8",
+		        "originateEnum":"APP_USER_AND",
+		        "version":"2_0",
+		        "sysVersion":"ios9",
+		        "phoneModel":"iphone"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		alert(data.errMsg)
+	        	}
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
+	}
 }])
 

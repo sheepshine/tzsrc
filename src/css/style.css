@@ -971,6 +971,25 @@ button {
   box-sizing: border-box;
   border-top: 1px solid #7f7f7f;
 }
+.invoice-warp .selectBtn {
+  width: 0.71875rem;
+  height: 0.71875rem;
+  border-radius: 50%;
+  border: 1px solid #CDCDCD;
+  margin-bottom: 0.15625rem;
+  display: none;
+}
+.invoice-warp #selectAll {
+  display: inline-block;
+  float: left;
+  margin-top: 0.3125rem;
+  margin-left: 0.3125rem;
+}
+.invoice-warp #selectALLBtn {
+  display: inline-block;
+  float: left;
+  margin-top: 0.3125rem;
+}
 .invoice-warp .shopcarfoot .totalprice {
   font-weight: 600;
   color: #E00B0B;
@@ -1028,6 +1047,7 @@ button {
 }
 .invoice-warp .pay-warp .shocar-list {
   border-bottom: 1px solid #c6c6c6;
+  margin-bottom: 0.25rem;
 }
 .invoice-warp .pay-warp .shocar-list .shop-img {
   width: 1.59375rem;

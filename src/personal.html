@@ -69,31 +69,31 @@
 				<div class="btn"></div>
 			</div>
 			<div class="order-list">
-				<div class="item nml">
+				<div class="item nml" ng-click="viewDeatil(orderstate0,1)">
 					<span class="numstatu">{{orderstate0}}</span>
 					<div class="ico ico1">
 					</div>
 					<span class="f22px">待付款</span>
 				</div>
-				<div class="item">
+				<div class="item" ng-click="viewDeatil(orderstate1,2)">
 					<span class="numstatu" ng-if="!(orderstate1==0)">{{orderstate1}}</span>
 					<div class="ico ico2">
 					</div>
 					<span class="f22px">待发货</span>
 				</div>
-				<div class="item">
+				<div class="item" ng-click="viewDeatil(orderstate2,3)">
 					<span class="numstatu" ng-if="!(orderstate2==0)">{{orderstate2}}</span>
 					<div class="ico ico3">
 					</div>
 					<span class="f22px">待收货</span>
 				</div>
-				<div class="item">
+				<div class="item" ng-click="viewDeatil(orderstate3,4)">
 					<span class="numstatu" ng-if="!(orderstate3==0)">{{orderstate3}}</span>
 					<div class="ico ico4">
 					</div>
 					<span class="f22px">待评价</span>
 				</div>
-				<div class="item nmr">
+				<div class="item nmr" ng-click="viewDeatil(orderstate4,5)">
 					<span class="numstatu" ng-if="!(orderstate4==0)">{{orderstate4}}</span>
 					<div class="ico ico5">
 					</div>

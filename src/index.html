@@ -8,6 +8,8 @@
 	<script type="text/javascript" src="js/a.js"></script>
 	<script type="text/javascript" src="js/a_css.js"></script>
 	<link rel="stylesheet" href="css/style.css" />
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/jquery.tap.js"></script>
 </head>
 <body>
 	<div class="index">
@@ -16,7 +18,7 @@
 			健康商城
 		</div>
 		<div class="header">
-			<div class="btn1"></div>
+			<a href="item_nav.html"><div class="btn1"></div></a>
 			<div class="search">
 				<div class="search-ico"></div>
 				<input class="search-text f26px" type="text" placeholder="搜索商品名/症状/疾病名" />
@@ -68,9 +70,16 @@
 			<a href="personal.html"><div class="foot-nav-btn ico2">
 				</div>
 			</a>
-			<div class="foot-nav-btn ico3">
+			<a id="shopcarBtn"><div class="foot-nav-btn ico3">
 			</div>
+			</a>
 		</div>
 	</div>	
+	<script>
+		$("#shopcarBtn").tap(function(){
+			localStorage.shopcarBackUrl=window.location.href;
+			window.location.href="shopcar.html"
+		})
+	</script>
 </body>
 </html>
