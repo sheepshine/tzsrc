@@ -14,4 +14,8 @@ forPay.controller('forPayCtr',['$scope',function($scope){
 	if(localStorage.forPayType){
 		$scope.viewAll(localStorage.forPayType)
 	}
+	$scope.viewOrder=function(orderId){
+		localStorage.orderId=orderId;
+		window.location.href="order_view.html"
+	}
 }])

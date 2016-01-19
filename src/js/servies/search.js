@@ -10,41 +10,48 @@ search.controller('searchClassCtr',['$scope','searchClassSer','searchItemSera',f
 	$scope.itemList=searchItemSera.searchItem(1).result.result.list;
 	$scope.finditem=function(id){
 		$scope.itemList=searchItemSera.searchItem(id).result.result.list;
+		if($scope.itemList.length==0){
+			$scope.noresout=false;
+		}
 	}
 	$scope.viewDeatil=function(id){
 		localStorage.productId=id;
 		location.href="good_item.html";
 	}
-	// searchItemSera.searchItem
-	// console.log(searchItemSera.searchItem())
-	// function(id){
-	// 	$.ajax({
-	// 		url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
-	// 	    type: 'post',
-	// 	    dataType: 'json',
-	// 	   	async:false,
-	// 	    headers: {
-	// 	         "imei":"asdaSA",
-	// 	    "mobileOperators":"IOS8",
-	// 	    "originateEnum":"APP_USER_AND",
-	// 	    "version":"2_0",
-	// 	    "sysVersion":"ios9",
-	// 	    "phoneModel":"iphone"
-
-	// 	    },
-	// 	    data:{
-	// 	    	shopItemClassId:id
-
-	// 	    },
-	// 	    success: function(data){
-		    	
-	// 	    },
-	// 	    error: function(data){
-	// 	        alert(data);
-	// 	    }
-	// 	})
-		
-	// }
+	$scope.searchAjax=function(searchData){
+		$.ajax({
+			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	title:searchData
+			},
+	        headers: {
+	            "imei":"asdaSA",
+		        "mobileOperators":"IOS8",
+		        "originateEnum":"APP_USER_AND",
+		        "version":"2_0",
+		        "sysVersion":"ios9",
+		        "phoneModel":"iphone"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		$scope.$watch($scope.searchitemdata)
+	        		$scope.itemList=data.result.result.list
+	        		console.log(data.result.result.list)
+	        		if(data.result.result.list.length==0){
+	        			$scope.noresout=true;
+	        		}else{
+	        			$scope.noresout=false;
+	        		}
+	        	}
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
+	}
 }])
 
 search.service("searchClassSer",function(){

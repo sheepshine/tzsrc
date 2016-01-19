@@ -13,16 +13,16 @@
 	<script type="text/javascript" src="js/servies/search.js"></script>
 </head>
 <body>
-	<div class="search-warp" ng-app='search'>
+	<div class="search-warp" ng-app='search' ng-controller="searchClassCtr">
 		<div class="header">
 			<div class="btn1"></div>
 			<div class="search">
 				<div class="search-ico"></div>
-				<input class="search-text search-text-searchfix f26px" type="text" placeholder="搜索商品名/症状/疾病名" />
+				<input class="search-text search-text-searchfix f26px" id="searchInput" type="text" ng-model='searchValue' ng-blur='searchAjax(searchValue)' placeholder="搜索商品名/症状/疾病名" />
 			</div>
 			<div class="QRcode"></div>
 		</div>
-		<div class="content" ng-controller="searchClassCtr">
+		<div class="content">
 			<div class="navwarp">
 				<div class="nav">
 					<div class="list" ng-repeat="datalist in datas" ng-if="datalist.shopItemClassId==0" ng-click="finditem(datalist.id)">
@@ -100,6 +100,58 @@
 					<span class="search-warp-shop-list-price f24px">￥11.2</span>
 				</div> -->
 			</div>
+			<div class="content" ng-show="noresout">
+			<img class="noout" src="images/noout.png">
+			<!-- <div class="search-no-til f28px">
+				猜您需要
+			</div>
+			<div class="listwarp">
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
+				</div>
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
+				</div>
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
+				</div>
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
+				</div>
+			</div> -->
+		</div>
 		</div>
 		<div class="footnav">
 			<div class="foot-nav-btn">
