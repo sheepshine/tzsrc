@@ -40,6 +40,9 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 		$(".selectBtn").show();
 		$scope.editTil="完成"
 	}
-	
+	$scope.payMoney=function(){
+		localStorage.shopcarDate=JSON.stringify($scope.itemdata);
+		location.href="order_confirm.html"
+	}
 }])
 

@@ -10,46 +10,77 @@
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/switchery.min.css" />
 	<script type="text/javascript" src="js/switchery.min.js"></script>
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/jquery.tap.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/servies/address.js"></script>
 </head>
-<body>
-	<div class="address">
+<body ng-app="address">
+	<div class="address" ng-controller="addressCtr">
 		<div class="nav f34px">
-			<button></button>
+			<button id="backward"></button>
 			添加新地址
 		</div>
-		<div class="content">
-			<div class="contenter-warp">
+		<div class="content" ng-init="addressData">
+			<!-- <div class="contenter-warp">
 				<div class="contenter">
 
 				</div>
 				<div class="til f24px">选联系人</div>
-			</div>
+			</div> -->
 			<div class="item">
 				<span class="f24px fl">联系人:</span>
-				<input class="f24px fl" type="text" />
+				<input class="f24px fl" type="text" ng-model="addressData.name" />
 			</div>
 			<div class="item">
 				<span class="f24px fl">联系方式:</span>
-				<input class="f24px fl" type="text" />
+				<input class="f24px fl" type="text" ng-model="addressData.phone" />
 			</div>
 			<div class="item">
 				<span class="f24px fl">所在地区:</span>
-				<input class="f24px fl" type="text" />
+				<input class="f24px fl" type="text" ng-model="addressData.addressone" />
 			</div>
 			<div class="item">
 				<span class="f24px fl">详细地址:</span>
-				<input class="f24px fl" type="text" />
+				<input class="f24px fl" type="text" ng-model="addressData.addresstwo" />
 			</div>
 			<div class="item">
-				<span class="f24px fl">设置默认:</span>
-				<input class="f24px fl" type="text" />
+				<span class="f24px fl">设置默认</span>
+				<input type="checkbox" class="js-switch" ng-checked="defultCtr" />
 			</div>
-			<button class="btn f30px">保存并使用</button>
+			<button class="btn f30px" ng-click="submitData()">保存并使用</button>
 		</div>
 		
 	</div>
 	<script type="text/javascript">
-	
+		$("#backward").tap(function(){
+	      	window.location.href=window.history.back(-1)
+	      })
+		 // Default
+      // if-else statement used only for fixing <IE9 issues
+      if (Array.prototype.forEach) {
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+        elems.forEach(function(html) {
+          var switchery = new Switchery(html);
+        });
+      } else {
+        var elems = document.querySelectorAll('.js-switch');
+
+        for (var i = 0; i < elems.length; i++) {
+          var switchery = new Switchery(elems[i]);
+        }
+      }
+
+      // Disabled switch
+      var disabled = document.querySelector('.js-switch-disabled');
+      var switchery = new Switchery(disabled, { disabled: true });
+
+      var disabledOpacity = document.querySelector('.js-switch-disabled-opacity');
+      var switchery = new Switchery(disabledOpacity, { disabled: true, disabledOpacity: 0.75 });
+
+      var secondary = document.querySelector('.js-switch-secondary');
+      var switchery = new Switchery(secondary, { color: '#fec200', secondaryColor: '#ff8787' });
 	</script>
 </body>
 </html>

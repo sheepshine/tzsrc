@@ -8,17 +8,22 @@
 	<script type="text/javascript" src="js/a.js"></script>
 	<script type="text/javascript" src="js/a_css.js"></script>
 	<link rel="stylesheet" href="css/style.css" />
+	<script type="text/javascript" src="js/switchery.min.js"></script>
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/jquery.tap.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/servies/invoice.js"></script>
 </head>
-<body>
-	<div class="invoice-warp">
+<body ng-app="invoice">
+	<div class="invoice-warp" ng-controller="invoiceCtr">
 		<div class="nav f34px">
-			<button></button>
+			<button ng-click="backward()"></button>
 			购物车
 			<span class="invoice-warp-nav-needkonw f28px">发票须知</span>
 		</div>
 		<div class="pay-warp">
 			<h1 class="invoice-warp-pay-warp-til f26px">发票抬头</h1>
-			<input class="invoice-warp-pay-warp-input" id="inputText" type="text">
+			<input class="invoice-warp-pay-warp-input" id="inputText" type="text" ng-model="titlename">
 			<div class="input-del" id="input-del">
 			</div>
 		</div>
