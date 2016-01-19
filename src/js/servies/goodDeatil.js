@@ -61,13 +61,14 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	}
 	$scope.collectShop=function(){
 		$.ajax({
-			url: 'http://211.149.150.213:9091/application-usrapp/userCollectProduct/addUsrCollectShop.tz',
+			url: 'http://211.149.150.213:9091/application-usrapp/userCollectProduct/addUsrCollectProduct.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
 	       	data:{
 			   	usrUserId:localStorage.usrUserId,
-			   	shopInfoId:$scope.shopdata.id
+			   	shopProductId:localStorage.productId,
+			   	isdel:0
 			},
 	        headers: {
 	            "imei":"asdaSA",
