@@ -42,8 +42,8 @@
 			<hr class="hr2">
 			<div class="pay-for-pay-total-price">
 				合计：<span>￥{{orderDate.price}}</span>
-				<button class="pay-for-pay-total-button">取消订单</button>
-				<button class="pay-for-pay-total-button button2">去支付</button>
+				<button class="pay-for-pay-total-button" ng-click="cancel(orderDate.shopOrderId)">取消订单</button>
+				<button class="pay-for-pay-total-button button2" ng-click="toPay($index)">去支付</button>
 			</div>
 		</div>
 		<div class="pay-warp" ng-repeat='orderDate in orderDates' ng-if="orderDate.state==viewCtr">
@@ -62,8 +62,8 @@
 			<hr class="hr2">
 			<div class="pay-for-pay-total-price">
 				合计：<span>￥{{orderDate.price}}</span>
-				<button class="pay-for-pay-total-button">取消订单</button>
-				<button class="pay-for-pay-total-button button2">去支付</button>
+				<button class="pay-for-pay-total-button" ng-click="cancel(orderDate.shopOrderId)">取消订单</button>
+				<button class="pay-for-pay-total-button button2" ng-click="toPay($index)">去支付</button>
 			</div>
 		</div>
 		<div class="footnav">

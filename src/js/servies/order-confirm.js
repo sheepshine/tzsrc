@@ -12,6 +12,7 @@ orderConfirm.controller('orderConfirmCtr',['$scope',function($scope){
 		location.href="address.html"
 	}
 	$scope.shopcarData=JSON.parse(localStorage.shopcarDate)
+	console.log($scope.shopcarData)
 	$($scope.shopcarData).each(function(index){
 		$scope.totalPrice+=($($scope.shopcarData)[index].mallprice)*($($scope.shopcarData)[index].number)
 	})
@@ -20,14 +21,14 @@ orderConfirm.controller('orderConfirmCtr',['$scope',function($scope){
 	}
 	$scope.invoiceName=localStorage.invoiceName;
 	$scope.configOrder=function(){
+		var commitdata=JSON.parse(localStorage.payMoney)
 		$.ajax({
 				url: 'http://211.149.150.213:9091/application-usrapp/user_shopOrder/addShopOrder_shop.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
-		       	data:{
-				   	shopItemClassId:id
-				},
+		       	data:commitdata
+				,
 		        headers: {
 		            "imei":"asdaSA",
 			        "mobileOperators":"IOS8",

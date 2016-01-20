@@ -200,8 +200,8 @@ person.controller('personCtr',['$scope',function($scope){
 	}
 	window.onload=function(){
 		$("#viewmypaylist").tap(function(){
-			location.href="for-pay.html";
 			localStorage.orderDate=JSON.stringify($scope.shoporderList)
+			location.href="for-pay.html";
 		})
 	}
 	

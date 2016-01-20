@@ -21,7 +21,7 @@
 			<span class="invoice-warp-nav-needkonw f28px" ng-click="shopCarEdit()">{{editTil}}</span>
 		</div>
 		<div class="pay-warp">
-			<div class="shocar-list" ng-repeat="datalist in itemdata">
+			<div class="shocar-list" ng-repeat="datalist in itemdata" ng-click="viewDEATIL(datalist.shopProductId)">
 				<div class="selectBtn"></div>
 				<img class="shop-img" ng-src='{{datalist.photo}}' /> 
 				<h2 class="f24px">{{datalist.name}}</h2>

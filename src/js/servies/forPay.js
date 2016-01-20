@@ -18,4 +18,61 @@ forPay.controller('forPayCtr',['$scope',function($scope){
 		localStorage.orderId=orderId;
 		window.location.href="order_view.html"
 	}
+	$scope.toPay=function(index){
+		console.log(index)
+		localStorage.shopcarDate=JSON.stringify(JSON.parse(localStorage.orderDate)[index]);
+		location.href="order_confirm.html"
+	}
+	$scope.cancel=function(theId){
+		$.ajax({
+				url: 'http://211.149.150.213:9091/application-usrapp/user_shopOrder/deleteShopOrder.tz',
+		        type: 'post',
+		        dataType: 'json',
+		       	async:false,
+		       	data:{
+				   	shopOrderId:theId
+				},
+		        headers: {
+		            "imei":"asdaSA",
+			        "mobileOperators":"IOS8",
+			        "originateEnum":"APP_USER_AND",
+			        "version":"2_0",
+			        "sysVersion":"ios9",
+			        "phoneModel":"iphone"
+				},
+		        success: function(data){
+		        	if(data.code=="00000"){
+		        		$.ajax({
+							url: 'http://211.149.150.213:9091/application-usrapp/user_shopOrder/selectShopOrder.tz',
+					        type: 'post',
+					        dataType: 'json',
+					       	async:false,
+					       	data:{
+							   	usrUserId:localStorage.usrUserId,
+							   	isdel:0
+							},
+					        headers: {
+					            "imei":"asdaSA",
+						        "mobileOperators":"IOS8",
+						        "originateEnum":"APP_USER_AND",
+						        "version":"2_0",
+						        "sysVersion":"ios9",
+						        "phoneModel":"iphone"
+							},
+					        success: function(data){
+					        	if(data.code=="00000"){
+					        		localStorage.orderDate=JSON.stringify(data.result.result.list);
+					        	}
+					        },
+					        error: function(data){
+					            alert(data.errMsg);
+					        }
+						})
+		        	}
+		        },
+		        error: function(data){
+		            alert(data.errMsg);
+		        }
+			})
+	}
 }])
