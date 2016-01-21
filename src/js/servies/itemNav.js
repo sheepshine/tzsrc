@@ -7,7 +7,12 @@ itemNav.controller('itemNavClassCtr',['$scope','searchClassSer',function($scope,
 	$scope.finditem=function(id){
 		$scope.itemList=searchClassSer.searchItem(id).result.pageResultList.result;
 	}
-	
+	$scope.searchValue=""
+	$scope.goSearch=function(){
+		localStorage.searchValue=$scope.searchValue;
+		localStorage.autoSearch=true;
+		location.href="shop_item_search.html"
+	}
 }])
 
 itemNav.service("searchClassSer",function(){

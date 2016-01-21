@@ -21,12 +21,12 @@
 			<span class="invoice-warp-nav-needkonw f28px" ng-click="shopCarEdit()">{{editTil}}</span>
 		</div>
 		<div class="pay-warp">
-			<div class="shocar-list" ng-repeat="datalist in itemdata" ng-click="viewDEATIL(datalist.shopProductId)">
-				<div class="selectBtn"></div>
-				<img class="shop-img" ng-src='{{datalist.photo}}' /> 
-				<h2 class="f24px">{{datalist.name}}</h2>
-				<span class="num f22px">数量:{{datalist.number}}</span>
-				<span class="price f24px">￥{{datalist.mallprice*datalist.number}}</span>
+			<div class="shocar-list" ng-repeat="datalist in itemdata">
+				<div class="selectBtn" ng-click="selectDel(this,datalist.id);$event.stopPropagation();"></div>
+				<img class="shop-img" ng-src='{{datalist.photo}}'  ng-click="viewDEATIL(datalist.shopProductId)"/> 
+				<h2 class="f24px" ng-click="viewDEATIL(datalist.shopProductId)">{{datalist.name}}</h2>
+				<span class="num f22px" ng-click="viewDEATIL(datalist.shopProductId)">数量:{{datalist.number}}</span>
+				<span class="price f24px" ng-click="viewDEATIL(datalist.shopProductId)">￥{{datalist.mallprice*datalist.number}}</span>
 			</div>
 		</div>
 		<div class="shopcarfoot">
@@ -36,8 +36,8 @@
 				<button class="f30px" ng-click="payMoney()">去结算</button>
 			</div>
 			<div ng-show="editCtr2">
-				<div class="selectBtn" id="selectALLBtn"></div><span class="totalprice f30px" id="selectAll">全选</span>
-				<button class="f30px">删除</button>
+				<div class="selectBtn" id="selectALLBtn" ng-click="selectAll()"></div><span class="totalprice f30px" id="selectAll">全选</span>
+				<button class="f30px" ng-click="delectItem()">删除</button>
 			</div>
 		</div>
 	</div>
@@ -46,14 +46,8 @@
 			$("#backBtn").tap(function(){
 				window.location.href=window.history.back(-1)
 			})
-			$(".selectBtn").tap(function(){
-				$(this).css({"background":"#f00","border":"0.2rem solid #CDCDCD","box-sizing":"border-box"})
-				return false;
-				
-			})
-			$("#selectALLBtn").tap(function(){
-				$(".selectBtn").css({"background":"#f00","border":"0.2rem solid #CDCDCD","box-sizing":"border-box"})
-			})
+			
+			
 		})
 		
 	</script>	

@@ -176,6 +176,41 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	        }
 		})
 	}
+	if(localStorage.autoSearch){
+		$.ajax({
+			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	title:localStorage.searchValue
+			},
+	        headers: {
+	            "imei":"asdaSA",
+		        "mobileOperators":"IOS8",
+		        "originateEnum":"APP_USER_AND",
+		        "version":"2_0",
+		        "sysVersion":"ios9",
+		        "phoneModel":"iphone"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		$scope.$watch($scope.searchitemdata)
+	        		$scope.searchitemdata=data.result.result.list
+	        		console.log(data.result.result.list)
+	        		if(data.result.result.list.length==0){
+	        			$scope.noresout=true;
+	        		}else{
+	        			$scope.noresout=false;
+	        		}
+	        	}
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
+		localStorage.autoSearch=false;
+	}
 	$scope.finditem=function(id){
 		$.ajax({
 				url: 'http://211.149.150.213:9090/application-shopapp/productItem/selectProductItem.tz',
@@ -262,7 +297,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
-	        		alert(data.errMsg)
+	        		alert("加入购物车成功")
 	        		$scope.shopcarNum++;
 	        	}
 	        },
