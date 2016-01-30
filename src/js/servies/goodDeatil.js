@@ -2,7 +2,7 @@ var goodDeatil=angular.module('goodDeatil',[])
 
 goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	$.ajax({
-			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfoById.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfoById.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -30,7 +30,7 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	
 	$scope.addShopcar=function(){
 		$.ajax({
-			url: 'http://211.149.150.213:9091/application-usrapp/user_shopCart/addShopCart.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/addShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -60,8 +60,9 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	
 	}
 	$scope.collectShop=function(){
+		$("#collect-ico").addClass("icoactive")
 		$.ajax({
-			url: 'http://211.149.150.213:9091/application-usrapp/userCollectProduct/addUsrCollectProduct.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectProduct/addUsrCollectProduct.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,

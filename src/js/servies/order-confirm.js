@@ -11,8 +11,11 @@ orderConfirm.controller('orderConfirmCtr',['$scope',function($scope){
 	$scope.addAddress=function(){
 		location.href="address.html"
 	}
+	$scope.hasShop=true;
 	$scope.shopcarData=JSON.parse(localStorage.shopcarDate)
-	console.log($scope.shopcarData)
+	if($scope.shopcarData.length==0){
+		$scope.hasShop=false;
+	}
 	$($scope.shopcarData).each(function(index){
 		$scope.totalPrice+=($($scope.shopcarData)[index].mallprice)*($($scope.shopcarData)[index].number)
 	})
@@ -21,9 +24,10 @@ orderConfirm.controller('orderConfirmCtr',['$scope',function($scope){
 	}
 	$scope.invoiceName=localStorage.invoiceName;
 	$scope.configOrder=function(){
-		var commitdata=JSON.parse(localStorage.payMoney)
+		//var commitdata=JSON.parse(localStorage.payMoney)
+		var commitdata= localStorage.payMoney
 		$.ajax({
-				url: 'http://211.149.150.213:9091/application-usrapp/user_shopOrder/addShopOrder_shop.tz',
+				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/addShopOrder_shop.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,

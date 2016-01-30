@@ -14,6 +14,7 @@
 	<script src="js/servies/public-search.js"></script>
 </head>
 <body>
+<div class="centerfix">
 	<div class="index" ng-app="index" ng-controller="indexCtr">
 		<div class="nav f34px">
 			<button></button>
@@ -23,7 +24,7 @@
 			<a href="item_nav.html"><div class="btn1"></div></a>
 			<div class="search">
 				<div class="search-ico"></div>
-				<input class="search-text f26px" type="text" ng-blur="goSearch()" placeholder="搜索商品名/症状/疾病名" ng-model="searchValue" />
+				<input class="search-text f26px" type="text" ng-blur="goSearch()" ng-keyup="goSearch($event)" placeholder="搜索商品名/症状/疾病名" ng-model="searchValue" />
 			</div>
 			<div class="QRcode"></div>
 		</div>
@@ -77,6 +78,7 @@
 			</a>
 		</div>
 	</div>	
+</div>
 	<script>
 		$("#shopcarBtn").tap(function(){
 			localStorage.shopcarBackUrl=window.location.href;

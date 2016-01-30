@@ -2,10 +2,11 @@ var shopcar=angular.module('shopcar',[])
 
 shopcar.controller('shopcarCtr',['$scope',function($scope){
 	$scope.totalPrice=0;
+
 	$scope.shopInfo=[];
 	$scope.shopOrderProduct=[];
 	$.ajax({
-			url: 'http://211.149.150.213:9091/application-usrapp/user_shopCart/queryShopCart.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/queryShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -56,7 +57,9 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 		
 	}
 	$scope.payMoney=function(){
-		var payDa={"orderInfo":$scope.shopInfo,"shopOrderProduct":$scope.shopOrderProduct}
+		var payDa={"orderInfo":{"shopInfo":$scope.shopInfo,"shopOrderProduct":$scope.shopOrderProduct}}
+		//var payDa={"orderInfo":$scope.shopInfo,"shopOrderProduct":$scope.shopOrderProduct}
+		console.log(payDa)
 		localStorage.shopcarDate=JSON.stringify($scope.itemdata);
 		localStorage.payMoney=JSON.stringify(payDa)
 		location.href="order_confirm.html"
@@ -115,7 +118,7 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 	$scope.delectItem=function(){
 		for(var i=0;i<delectArr.length;i++){
 			$.ajax({
-				url: 'http://211.149.150.213:9091/application-usrapp/user_shopCart/deleteShopCart.tz',
+				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/deleteShopCart.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -147,7 +150,7 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 		$(".selectBtn").hide();
 		$scope.editTil="编辑"
 		$.ajax({
-			url: 'http://211.149.150.213:9091/application-usrapp/user_shopCart/queryShopCart.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/queryShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,

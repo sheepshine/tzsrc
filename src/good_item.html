@@ -14,10 +14,17 @@
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script src="js/jquery.tap.js"></script>
 	<script src="js/servies/goodDeatil.js"></script>
+	<style type="text/css">
+		.icoactive{
+			background: url("images/start-active.png") no-repeat !important;
+			background-size: 100% 100% !important
+		}
+	</style>
 </head>
 <body ng-app='goodDeatil'>
+<div class="centerfix">
 	<div class="good-item" ng-controller="goodDeatilCtr" ng-init='itemdata'>
-		<div class="nav f34px">
+		<div class="nav f34px"  ng-cloak>
 			<button id="backforward"></button>
 			商品详情{{itemdata.boss}}
 		</div>
@@ -29,43 +36,43 @@
 		<div class="content">
 			<div class="main">
 				<div class="imgwarp">
-					<img ng-src="{{itemdata.photo}}">
+					<img ng-cloak ng-src="{{itemdata.photo}}">
 				</div>
 				<div class="tilwarp">
-					<h1 class="f24px">{{itemdata.keywords}}</h1>
-					<h2 class="f24px">{{itemdata.name}}</h2>
-					<div class="f24px">￥{{itemdata.mallprice}}</div>
+					<h1 class="f24px" ng-cloak>{{itemdata.keywords}}</h1>
+					<h2 class="f24px" ng-cloak>{{itemdata.name}}</h2>
+					<div class="f24px" ng-cloak>￥{{itemdata.mallprice}}</div>
 				</div>
 			</div>
 			<div class="shopname" ng-init='shopdata'>
 				<img class="logo fl" ng-src="{{shopdata.photo}}" />
-				<div class="shopname_ f26px fl">{{shopdata.name}}</div>
-				<div class="info f22px fr">关注量：<span>{{itemdata.salesvolume}}</span></div>
+				<div class="shopname_ f26px fl" ng-cloak>{{shopdata.name}}</div>
+				<div class="info f22px fr">关注量：<span ng-cloak>{{itemdata.salesvolume}}</span></div>
 			</div>
 		</div>
 
 		<div class="content content-info" style="display:none">
 			<div class="item-list">
 				<h1 class="f22px">名称：</h1>
-				<div class="info-detail f24px">{{itemdata.name}}</div>
+				<div class="info-detail f24px" ng-cloak>{{itemdata.name}}</div>
 			</div>
 			<div class="item-list">
 				<h1 class="f22px">规格：</h1>
-				<div class="info-detail f24px">{{itemdata.norm}} {{itemdatatype}}</div>
+				<div class="info-detail f24px" ng-cloak>{{itemdata.norm}} {{itemdatatype}}</div>
 			</div>
 			<div class="item-list">
 				<h1 class="f22px">主要原料：</h1>
-				<div class="info-detail f24px">{{itemdata.productnm}}</div>
+				<div class="info-detail f24px" ng-cloak>{{itemdata.productnm}}</div>
 			</div>
 			<div class="item-list">
 				<h1 class="f22px">用法用量：</h1>
-				<div class="info-detail f24px">{{itemdata.proinfo}}</div>
+				<div class="info-detail f24px" ng-cloak>{{itemdata.proinfo}}</div>
 			</div>
 		</div>
 
 		<div class="fot-nav">
 			<div class="item nobor nomarginleft">
-				<div class="bg fl">
+				<div class="bg fl"  id="collect-ico">
 				</div>
 				<span class="fl f28px" ng-click="collectShop()">收藏</span>
 			</div>
@@ -81,6 +88,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 	<script type="text/javascript">
 		$(".item-info-sel").tap(function(){
 			$(".item-info-sel").removeClass("active")

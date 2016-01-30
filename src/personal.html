@@ -16,6 +16,7 @@
 	<script type="text/javascript" src="js/servies/person.js"></script>
 </head>
 <body ng-app='person'>
+<div class="centerfix">
 	<div class="personal" ng-controller="personCtr" ng-init='personInfo'>
 		<div class="nav f34px">
 			<a href="index.html"><button></button></a>
@@ -29,11 +30,11 @@
 			</div>
 			<div class="haslogin" ng-show="haslogin">	
 				<div class="head">
-					<img ng-src="{{personInfo.usrInfoPhoto}}">
+					<img ng-cloak ng-src="{{personInfo.usrInfoPhoto}}">
 				</div>
-				<div class="phone f20px">{{personInfo.usrInfoName}}</div>
-				<div class="tag">实名认证</div>
-				<div class="vip f18px">{{personInfo.usrUserUsingstate}}</div>
+				<div class="phone f20px" ng-cloak>{{personInfo.usrUserNickname}}</div>
+				<div class="tag f22px">实名认证</div>
+				<div class="vip f18px" ng-cloak>{{personInfo.usrUserUsingstate}}</div>
 				<div class="ftil f18px">级会员</div>
 			</div>
 		</div>
@@ -48,13 +49,13 @@
 				<div class="til f24px">
 					账户余额
 				</div>
-				<div class="num f24px">{{personInfo.usrBalanceActualincome}}<span>元</span></div>
+				<div class="num f24px" ng-cloak>{{personInfo.usrBalanceActualincome}}<span>元</span></div>
 			</div>
 			<div class="warp">
 				<div class="til f24px">
 					积分
 				</div>
-				<div class="num f24px">{{personInfo.usrBalancePoint}}<span>分</span></div>
+				<div class="num f24px" ng-cloak>{{personInfo.usrBalancePoint}}<span>分</span></div>
 			</div>
 			<div class="warp nobor">
 				<div class="til f24px til-all">
@@ -70,31 +71,31 @@
 			</div>
 			<div class="order-list">
 				<div class="item nml" ng-click="viewDeatil(orderstate0,1)">
-					<span class="numstatu">{{orderstate0}}</span>
+					<span class="numstatu" ng-cloak>{{orderstate0}}</span>
 					<div class="ico ico1">
 					</div>
 					<span class="f22px">待付款</span>
 				</div>
 				<div class="item" ng-click="viewDeatil(orderstate1,2)">
-					<span class="numstatu" ng-if="!(orderstate1==0)">{{orderstate1}}</span>
+					<span class="numstatu" ng-if="!(orderstate1==0)" ng-cloak>{{orderstate1}}</span>
 					<div class="ico ico2">
 					</div>
 					<span class="f22px">待发货</span>
 				</div>
 				<div class="item" ng-click="viewDeatil(orderstate2,3)">
-					<span class="numstatu" ng-if="!(orderstate2==0)">{{orderstate2}}</span>
+					<span class="numstatu" ng-if="!(orderstate2==0)" ng-cloak>{{orderstate2}}</span>
 					<div class="ico ico3">
 					</div>
 					<span class="f22px">待收货</span>
 				</div>
 				<div class="item" ng-click="viewDeatil(orderstate3,4)">
-					<span class="numstatu" ng-if="!(orderstate3==0)">{{orderstate3}}</span>
+					<span class="numstatu" ng-if="!(orderstate3==0)" ng-cloak>{{orderstate3}}</span>
 					<div class="ico ico4">
 					</div>
 					<span class="f22px">待评价</span>
 				</div>
 				<div class="item nmr" ng-click="viewDeatil(orderstate4,5)">
-					<span class="numstatu" ng-if="!(orderstate4==0)">{{orderstate4}}</span>
+					<span class="numstatu" ng-if="!(orderstate4==0)" ng-cloak>{{orderstate4}}</span>
 					<div class="ico ico5">
 					</div>
 					<span class="f22px">待退货</span>
@@ -112,13 +113,13 @@
 					<div class="til f24px">
 						收藏的商品
 					</div>
-					<div class="num f24px">{{likeshopslength.length}}</div>
+					<div class="num f24px" ng-cloak>{{likeshopslength.length}}</div>
 				</div>
 				<div class="warp">
 					<div class="til f24px">
 						收藏的店铺
 					</div>
-					<div class="num f24px">{{likegoodslength.length}}</div>
+					<div class="num f24px" ng-cloak>{{likegoodslength.length}}</div>
 				</div>
 				<div class="warp nobor">
 					<div class="til f24px">
@@ -129,6 +130,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 	<script type="text/javascript">
 		
 	</script>

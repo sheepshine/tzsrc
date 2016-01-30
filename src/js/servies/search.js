@@ -18,46 +18,56 @@ search.controller('searchClassCtr',['$scope','searchClassSer','searchItemSera',f
 		localStorage.productId=id;
 		location.href="good_item.html";
 	}
+	$scope.minfliter=function(){
+		$scope.showChiliListShowCtr=false;
+	}
 	$scope.searchAjax=function(searchData){
-		$.ajax({
-			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
-	        type: 'post',
-	        dataType: 'json',
-	       	async:false,
-	       	data:{
-			   	title:searchData
-			},
-	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
-			},
-	        success: function(data){
-	        	if(data.code=="00000"){
-	        		$scope.$watch($scope.searchitemdata)
-	        		$scope.itemList=data.result.result.list
-	        		console.log(data.result.result.list)
-	        		if(data.result.result.list.length==0){
-	        			$scope.noresout=true;
-	        		}else{
-	        			$scope.noresout=false;
-	        		}
-	        	}
-	        },
-	        error: function(data){
-	            alert(data.errMsg);
-	        }
-		})
+		var keycode = window.event?e.keyCode:e.which;
+		localStorage.searchValue=$scope.searchValue;
+		if(keycode==13){
+			$.ajax({
+				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
+		        type: 'post',
+		        dataType: 'json',
+		       	async:false,
+		       	data:{
+				   	title:searchData
+				},
+		        headers: {
+		            "imei":"asdaSA",
+			        "mobileOperators":"IOS8",
+			        "originateEnum":"APP_USER_AND",
+			        "version":"2_0",
+			        "sysVersion":"ios9",
+			        "phoneModel":"iphone"
+				},
+		        success: function(data){
+		        	if(data.code=="00000"){
+		        		$scope.$watch($scope.searchitemdata)
+		        		$scope.itemList=data.result.result.list
+		        		console.log(data.result.result.list)
+		        		if(data.result.result.list.length==0){
+		        			$scope.noresout=true;
+		        		}else{
+		        			$scope.noresout=false;
+		        		}
+		        	}
+		        },
+		        error: function(data){
+		            alert(data.errMsg);
+		        }
+			})
+
+
+		}
+		
 	}
 }])
 
 search.service("searchClassSer",function(){
 	var datas="";
 	$.ajax({
-		url: 'http://211.149.150.213:9090/application-shopapp/productItem/selectProductItem.tz',
+		url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productItem/selectProductItem.tz',
         type: 'post',
         dataType: 'json',
        	async:false,
@@ -84,7 +94,7 @@ search.service("searchItemSera",function(){
 		searchItem:function(id){
 			var datas="";
 			$.ajax({
-				url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
+				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,

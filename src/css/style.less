@@ -491,7 +491,6 @@ button {
 		text-align: center;
 		border-right: 1px solid #959595;
 		margin-top: 0.34375rem;
-		font-weight: 600
 	}
 	.arrow{
 		background: url("../images/searrow.png") no-repeat;
@@ -896,11 +895,10 @@ button {
 		display: inline-block;
 		line-height: 0.53125rem;
 		height: 0.53125rem;
-		width: 1.666667rem;
+		width: 1.566667rem;
 		text-align: center;
 		border-right: 1px solid #959595;
 		margin-top: 0.34375rem;
-		font-weight: 600;
 	}
 	.pay-warp{
 		position: relative;
@@ -1004,6 +1002,7 @@ button {
 .invoice-warp{
 	background: @bg;
 	padding-top: 0.25rem;
+	height:21.296296rem;
 }
 .invoice-warp{
 	.shopcarfoot{
@@ -1014,6 +1013,7 @@ button {
 		padding:0.21875rem 0.46875rem;
 		box-sizing: border-box;
 		border-top: 1px solid #7f7f7f;
+		background:#fff;
 	}
 	.selectBtn{
 		width:0.71875rem;
@@ -1021,18 +1021,22 @@ button {
 		border-radius: 50%;
 		border:1px solid #CDCDCD;
 		margin-bottom: 0.15625rem;
-		display:none
+		display:none;
+		position:absolute;
+		top:0.185185rem;
+		right:0.185185rem;
 	}
 	#selectAll{
 		display:inline-block;
 		float:left;
 		margin-top: 0.3125rem;
-		margin-left: 0.3125rem;
+		margin-left: 0.6125rem;
 	}
 	#selectALLBtn{
 		display:inline-block;
 		float:left;
-		margin-top: 0.3125rem
+		margin-top: 0.3125rem;
+		left:0.185185rem;
 	}
 	.shopcarfoot{
 		.totalprice{
@@ -1066,6 +1070,7 @@ button {
 		text-align: center;
 		line-height: 1.390625rem;
 		font-weight: 600;
+		z-index: 999;
 	}
 	.nav button{
 		width: 0.875rem;
@@ -1088,13 +1093,14 @@ button {
 		margin: 1.375rem auto 0;
 		background: #fff;
 		border-radius: 4px;
-		padding: 0.25rem 0.46875rem;
+		padding: 0.25rem 0.46875rem 4rem;
 		box-sizing: border-box;
 	}
 	.pay-warp{
 		.shocar-list{
 			border-bottom: 1px solid #c6c6c6;
 			margin-bottom: 0.25rem;
+			position:relative;
 		}
 		.shocar-list{
 			.shop-img{
@@ -1129,6 +1135,7 @@ button {
 	.invoice-warp-pay-warp-til{
 		font-size: 26px;
 		font-weight: 600;
+
 	}
 	.invoice-warp-pay-warp-input{
 		width: 8.5rem;
@@ -1165,6 +1172,7 @@ button {
 .order-confirm{
 	background: @bg;
 	padding-top: 0.125rem;
+	height:27.777778rem
 }
 .order-confirm{
 	.nav{
@@ -1202,7 +1210,8 @@ button {
 	.address{
 		position: relative;
 		background:#fff;
-		padding-top: 0
+		padding-top: 0.092593rem;
+		box-sizing: border-box;
 	}
 	.reciver{
 		color: #E00B0B;	
@@ -1369,6 +1378,17 @@ button {
 			}
 		}
 	}
+	.empty{
+		display:block;
+		margin:4.953125rem auto 0
+	}
+	.goshop{
+		display:block;
+		margin:2.03125rem auto;
+		width:2.71875rem;height:1.265625rem;
+		background: url("../images/go-shop.png");
+		.bgfull;
+	}
 	.footnav{
 		width: 10.0rem;
 		height: 1.53125rem;
@@ -1401,6 +1421,7 @@ button {
 .personal{
 	background: @bg;
 	padding-top: 1.375rem;
+	height:21.296296rem
 }
 .personal{
 	.nav{
@@ -1414,6 +1435,7 @@ button {
 		text-align: center;
 		line-height: 1.390625rem;
 		font-weight: 600;
+		z-index: 999
 	}
 	.nav button{
 		width: 0.875rem;
@@ -2103,4 +2125,12 @@ button {
 }
 .nmr{
 	margin-right: 0 !important;
+}
+/*********fix*************/
+body{
+	background:#ECECEC
+}
+.centerfix{
+	width:10.0rem;
+	margin:0 auto;
 }

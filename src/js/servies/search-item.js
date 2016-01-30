@@ -2,7 +2,9 @@ var searchItem=angular.module('searchItem',[])
 
 searchItem.controller('searchItemCtr',['$scope',function($scope){
 	if(localStorage.searchData||localStorage.searchValue){
-		$scope.searchitemdata=JSON.parse(localStorage.searchData);
+		if(localStorage.searchData){
+			$scope.searchitemdata=JSON.parse(localStorage.searchData);
+		}
 		$scope.searchValue=localStorage.searchValue;
 		localStorage.removeItem("searchData");
 		localStorage.removeItem("searchValue");
@@ -24,7 +26,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	$scope.selectClass=function(odata,oname){
 		$scope.isActive2=true;
 		$.ajax({
-			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -72,7 +74,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			score=1
 		}
 		$.ajax({
-			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -144,7 +146,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	$scope.searchAjax=function(searchData){
 		localStorage
 		$.ajax({
-			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -178,7 +180,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	if(localStorage.autoSearch){
 		$.ajax({
-			url: 'http://211.149.150.213:9090/application-shopapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -213,7 +215,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	$scope.finditem=function(id){
 		$.ajax({
-				url: 'http://211.149.150.213:9090/application-shopapp/productItem/selectProductItem.tz',
+				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productItem/selectProductItem.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -239,7 +241,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	$scope.searchClassAjax=function(searchData){
 		$.ajax({
-			url: 'http://211.149.150.213:9090/application-shopapp/productItem/selectProductItem.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productItem/selectProductItem.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -265,6 +267,9 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	        }
 		})
 	}
+	$scope.minfliter=function(){
+		$scope.showChiliListShowCtr=false;
+	}
 	$scope.viewDeatil=function(id){
 		localStorage.productId=id;
 		localStorage.searchData=JSON.stringify($scope.searchitemdata);
@@ -277,7 +282,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			location.href="../../personal.html"
 		}
 		$.ajax({
-			url: 'http://211.149.150.213:9091/application-usrapp/user_shopCart/addShopCart.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/addShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -308,7 +313,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	$scope.shopCarInfo=function(){
 		$.ajax({
-			url: 'http://211.149.150.213:9091/application-usrapp/user_shopCart/queryShopCart.tz',
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/queryShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,

@@ -20,7 +20,7 @@ itemNav.service("searchClassSer",function(){
 		searchItem:function(id){
 			var datas="";
 			$.ajax({
-				url: 'http://211.149.150.213:9090/application-shopapp/productItem/selectProductItem.tz',
+				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productItem/selectProductItem.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,

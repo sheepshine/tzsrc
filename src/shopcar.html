@@ -14,24 +14,25 @@
 	<script type="text/javascript" src="js/servies/shopcar.js"></script>
 </head>
 <body ng-app='shopcar'>
+<div class="centerfix">
 	<div class="invoice-warp" ng-controller='shopcarCtr'>
 		<div class="nav f34px">
 			<button id="backBtn"></button>
 			购物车
-			<span class="invoice-warp-nav-needkonw f28px" ng-click="shopCarEdit()">{{editTil}}</span>
+			<span class="invoice-warp-nav-needkonw f28px" ng-click="shopCarEdit()" ng-clock>{{editTil}}</span>
 		</div>
 		<div class="pay-warp">
 			<div class="shocar-list" ng-repeat="datalist in itemdata">
 				<div class="selectBtn" ng-click="selectDel(this,datalist.id);$event.stopPropagation();"></div>
 				<img class="shop-img" ng-src='{{datalist.photo}}'  ng-click="viewDEATIL(datalist.shopProductId)"/> 
-				<h2 class="f24px" ng-click="viewDEATIL(datalist.shopProductId)">{{datalist.name}}</h2>
-				<span class="num f22px" ng-click="viewDEATIL(datalist.shopProductId)">数量:{{datalist.number}}</span>
-				<span class="price f24px" ng-click="viewDEATIL(datalist.shopProductId)">￥{{datalist.mallprice*datalist.number}}</span>
+				<h2 class="f24px" ng-click="viewDEATIL(datalist.shopProductId)" ng-clock>{{datalist.name}}</h2>
+				<span class="num f22px" ng-click="viewDEATIL(datalist.shopProductId)" ng-clock>数量:{{datalist.number}}</span>
+				<span class="price f24px" ng-click="viewDEATIL(datalist.shopProductId)" ng-clock>￥{{datalist.mallprice*datalist.number}}</span>
 			</div>
 		</div>
 		<div class="shopcarfoot">
 			<div ng-show="editCtr">
-				<span class="totalprice f30px">总计:{{totalPrice}}</span>
+				<span class="totalprice f30px" ng-clock>总计:{{totalPrice}}</span>
 				<span class="tip f24px">全场满89元免邮费</span>
 				<button class="f30px" ng-click="payMoney()">去结算</button>
 			</div>
@@ -41,6 +42,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 	<script>
 		$(function(){
 			$("#backBtn").tap(function(){

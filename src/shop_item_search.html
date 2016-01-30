@@ -27,23 +27,24 @@
 	</style>
 </head>
 <body ng-app='searchItem'>
+<div class="centerfix">
 	<div class="search-no shop-item-search" ng-controller='searchItemCtr'>
 		<div class="shop-item-search-bg">
 		</div>
 		<div class="header">
-			<div class="btn1"></div>
+			<div class="btn1" id="back-btn"></div>
 			<div class="search ">
 				<div class="search-ico"></div>
-				<input class="search-text f24px" id="searchInput" type="text" ng-model='searchValue' ng-blur='searchAjax(searchValue)' placeholder="感冒（1105）" />
+				<input class="search-text f24px" id="searchInput" type="text" ng-model='searchValue' ng-keyup="searchAjax(searchValue)" placeholder="感冒（1105）" />
 			</div>
 			<div class="QRcode"></div>
 		</div>
 		<div class="nav-filter f24px">
-			<div class="arrow" ng-click='viewclass()'>{{maintitle}}</div>
+			<div class="arrow" ng-cloak ng-click='viewclass()'>{{maintitle}}</div>
 			<div class="classwarp" ng-show="list1" ng-click="viewclass()">
 				<div class="arrlist1" ng-show="list1">
 					<ul>
-						<li ng-class='{"class-active":isActive}' ng-repeat='datas in searchClassNav' ng-if='datas.shopItemClassId==0' ng-click="finditem(datas.id);$event.stopPropagation()">
+						<li ng-class='{"class-active":isActive}' ng-repeat='datas in searchClassNav' ng-if='datas.shopItemClassId==0' ng-click="finditem(datas.id);$event.stopPropagation()" ng-cloak>
 							{{datas.name}}
 						</li>
 						<!-- <li>
@@ -65,7 +66,7 @@
 				</div>
 				<div class="arrlist2" ng-show="list2">
 					<ul>
-						<li ng-click='selectClass(datas2.shopItemClassId,datas2.name);$event.stopPropagation();' ng-class='{"class-select":isActive2}' ng-repeat='datas2 in itemList2'>
+						<li ng-click='selectClass(datas2.shopItemClassId,datas2.name);$event.stopPropagation();' ng-class='{"class-select":isActive2}' ng-repeat='datas2 in itemList2' ng-cloak>
 							{{datas2.name}}
 						</li>
 						<!-- <li>
@@ -140,8 +141,8 @@
 						<ul>
 							<li ng-click="$event.stopPropagation();">
 								价格
-								<input class="priceSel" type="tel">至
-								<input class="priceSel" type="tel">
+								<input class="priceSel" ng-focus="minfliter()" type="tel">至
+								<input class="priceSel" ng-focus="minfliter()" type="tel">
 							</li>
 							
 						</ul>
@@ -152,7 +153,7 @@
 		<div class="content search-item-warp">
 			<div class="search-item" ng-repeat='searchitemdatas in searchitemdata'>
 				<img class="shop-img fl" ng-src="{{searchitemdatas.photo}}"  ng-click="viewDeatil(searchitemdatas.productId)">
-				<div class="til f26px fl"  ng-click="viewDeatil(searchitemdatas.productId)">
+				<div class="til f26px fl"  ng-click="viewDeatil(searchitemdatas.productId)" ng-cloak>
 					{{searchitemdatas.name}}
 				</div>
 				<div class="phonepricewarp"  ng-click="viewDeatil(searchitemdatas.productId)">
@@ -160,7 +161,7 @@
 					<div class="phoneprice1 fl" ng-if="searchitemdatas.isfreedeliver==1"></div>
 					<div class="phoneprice2 fl" ng-if="searchitemdatas.activityState==1"></div>
 				</div>
-				<div class="price f26px fl">￥{{searchitemdatas.mallprice}}</div>
+				<div class="price f26px fl" ng-cloak>￥{{searchitemdatas.mallprice}}</div>
 				<div class="tip f20px">1200条评论</div>
 				<div class="inshopcar" ng-click="addShopCar(searchitemdatas.productId,searchitemdatas.shopId);$event.stopPropagation();"></div>
 			</div>
@@ -219,9 +220,10 @@
 			</div> -->
 		</div>
 		<div class="shopcar" id="shopCar" style="display:none">
-			<div class="num">{{shopcarNum}}</div>
+			<div class="num" ng-cloak>{{shopcarNum}}</div>
 		</div>
 	</div>	
+</div>
 	<script type="text/javascript">
 	 if (Array.prototype.forEach) {
         var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
@@ -246,6 +248,9 @@
 
       var secondary = document.querySelector('.js-switch-secondary');
       var switchery = new Switchery(secondary, { color: '#fec200', secondaryColor: '#ff8787' });
+      $("#back-btn").tap(function(){
+      	window.location.href=window.history.back(-1)
+      })
 	</script>
 </body>
 </html>

@@ -9,13 +9,15 @@
 	<script type="text/javascript" src="js/a_css.js"></script>
 	<link rel="stylesheet" href="css/style.css" />
 	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tap.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/servies/search.js"></script>
 </head>
 <body>
+<div class="centerfix">
 	<div class="search-warp" ng-app='search' ng-controller="searchClassCtr">
 		<div class="header">
-			<div class="btn1"></div>
+			<div class="btn1" id="back-btn"></div>
 			<div class="search">
 				<div class="search-ico"></div>
 				<input class="search-text search-text-searchfix f26px" id="searchInput" type="text" ng-model='searchValue' ng-blur='searchAjax(searchValue)' placeholder="搜索商品名/症状/疾病名" />
@@ -28,7 +30,7 @@
 					<div class="list" ng-repeat="datalist in datas" ng-if="datalist.shopItemClassId==0" ng-click="finditem(datalist.id)">
 						<div class="img">
 						</div>
-						<div class="search-content-nav-til f24px">
+						<div class="search-content-nav-til f24px" ng-cloak>
 							{{datalist.name}}
 						</div>
 					</div>
@@ -65,9 +67,9 @@
 			<div class="shop-list-warp">
 				<div class="shop-list-item" ng-repeat="list in itemList" ng-click="viewDeatil(list.productId)">
 					<img class="shop-list-item-img" ng-src="{{list.photo}}"  >
-					<h2 class="search-warp-list-h2 f22px">{{list.name}}</h2>
-					<span class="search-warp-shop-list-price-now f24px">￥{{list.mallprice}}</span>
-					<span class="search-warp-shop-list-price f24px">￥{{list.marketprice}}</span>
+					<h2 class="search-warp-list-h2 f22px" ng-cloak>{{list.name}}</h2>
+					<span class="search-warp-shop-list-price-now f24px" ng-cloak>￥{{list.mallprice}}</span>
+					<span class="search-warp-shop-list-price f24px" ng-cloak>￥{{list.marketprice}}</span>
 				</div>
 				<!-- <div class="shop-list-item">
 					<img class="shop-list-item-img" src="images/content/shop2.jpg"  >
@@ -154,8 +156,9 @@
 		</div>
 		</div>
 		<div class="footnav">
-			<div class="foot-nav-btn">
+			<a href="index.html"><div class="foot-nav-btn">
 			</div>
+			</a>
 			<a href="search.html"><div class="foot-nav-btn ico1">
 			</div>
 			</a>
@@ -167,5 +170,11 @@
 			</a>
 		</div>
 	</div>	
+</div>
+	<script>
+		$("#back-btn").tap(function(){
+	      	window.location.href=window.history.back(-1)
+	      })
+	</script
 </body>
 </html>

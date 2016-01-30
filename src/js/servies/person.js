@@ -7,7 +7,7 @@ person.controller('personCtr',['$scope',function($scope){
 	$scope.password=123456
 	$scope.info=function(){
 		$.ajax({
-				url: 'http://211.149.150.213:9091/application-usrapp/user_shopOrder/selectShopOrder.tz',
+				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/selectShopOrder.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -34,7 +34,7 @@ person.controller('personCtr',['$scope',function($scope){
 	}
 	$scope.likeshop=function(){
 		$.ajax({
-				url: 'http://211.149.150.213:9091/application-usrapp/userCollectProduct/queryUsrCollectProduct.tz',
+				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectProduct/queryUsrCollectProduct.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -61,7 +61,7 @@ person.controller('personCtr',['$scope',function($scope){
 	}
 	$scope.likegoods=function(){
 		$.ajax({
-				url: 'http://211.149.150.213:9091/application-usrapp/userCollectShop/queryUsrCollectShop.tz',
+				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectShop/queryUsrCollectShop.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -93,7 +93,7 @@ person.controller('personCtr',['$scope',function($scope){
 		$scope.orderstate3=0;
 		$scope.orderstate4=0;
 		$.ajax({
-				url: 'http://211.149.150.213:9091/application-usrapp/user_shopOrder/selectShopOrder.tz',
+				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/selectShopOrder.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -134,7 +134,7 @@ person.controller('personCtr',['$scope',function($scope){
 	}
 	$scope.loginin=function(){
 		$.ajax({
-				url: 'http://211.149.150.213:9091/application-usrapp/login/in.tz',
+				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/login/in.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,

@@ -16,12 +16,18 @@
 	<script type="text/javascript" src="js/servies/order-confirm.js"></script>
 </head>
 <body ng-app="orderConfirm">
+<div class="centerfix">
 	<div class="order-confirm" ng-controller="orderConfirmCtr">
 		<div class="nav f34px">
-			<button></button>
+			<button id="backBtn"></button>
 			确认订单
 		</div>
-		<div class="pay-warp">
+		<div ng-hide="hasShop">
+			<img class="empty" src="images/empty.png" height="168" width="399">
+			<a class="goshop" href="index.html"></a>
+		</div>
+		<div class="pay-warp" ng-show="hasShop">
+			
 			<div class="address" ng-click="addAddress()">
 				<span class="f26px reciver" ng-show="!addressctr">添加收货人</span>
 				<div ng-show="addressctr" ng-init="addressInfo">
@@ -51,38 +57,45 @@
 			<span class="f22px fr">1个包裹</span>
 			<span class="f22px fr pay-warp-total">共{{shopcarData.length}}件商品</span><br>
 			<div class="f22px fr pay-warp-price fw600">￥{{totalPrice}}</div>
+			
 		</div>
-		<div class="pay-select">
-			<div class="address">
-				<span class="f26px reciver">支付配送:</span>
-				<span class="f22px recivername">在线支付</span><br>
-				<span class="f26px fr post">快递费 0 元</span>
-				<span class="f26px fr pay-warp-total post">普通快递</span><br>
-				<div class="btn"></div>
-				<hr>
+		<div ng-show="hasShop">
+			<div class="pay-select">
+				<div class="address">
+					<span class="f26px reciver">支付配送:</span>
+					<span class="f22px recivername">在线支付</span><br>
+					<span class="f26px fr post">快递费 0 元</span>
+					<span class="f26px fr pay-warp-total post">普通快递</span><br>
+					<div class="btn"></div>
+					<hr>
+				</div>
+				<div class="row" ng-click="invoiceFn()">
+					<span class="f26px fw600 info">发票信息</span>
+					<span class="f22px info-type">{{invoiceName}}</span>
+					<div class="btn"></div>
+				</div>
+				<div class="row">
+					<span class="f26px fw600 info">优惠券</span>
+					<span class="num f14px">1</span>
+					<span class="f26px btn-til">未使用</span>
+					<div class="btn"></div>
+				</div>
+				<div class="row nobor">
+					<span class="f26px fw600 info">匿名购买</span>
+					<input type="checkbox" class="js-switch" checked />
+				</div>
 			</div>
-			<div class="row" ng-click="invoiceFn()">
-				<span class="f26px fw600 info">发票信息</span>
-				<span class="f22px info-type">{{invoiceName}}</span>
-				<div class="btn"></div>
+			<div class="footnav">
+				<span class="f30px total">总计：￥{{totalPrice}}</span>
+				<div class="f30px btn" ng-click="configOrder()">确认</div>
 			</div>
-			<div class="row">
-				<span class="f26px fw600 info">优惠券</span>
-				<span class="num f14px">1</span>
-				<span class="f26px btn-til">未使用</span>
-				<div class="btn"></div>
-			</div>
-			<div class="row nobor">
-				<span class="f26px fw600 info">匿名购买</span>
-				<input type="checkbox" class="js-switch" checked />
-			</div>
-		</div>
-		<div class="footnav">
-			<span class="f30px total">总计：￥{{totalPrice}}</span>
-			<div class="f30px btn" ng-click="configOrder()">确认</div>
 		</div>
 	</div>
+	</div>
 	<script type="text/javascript">
+	$("#backBtn").tap(function(){
+      	 window.location.href=window.history.back(-1)
+      })
 		 // Default
       // if-else statement used only for fixing <IE9 issues
       if (Array.prototype.forEach) {
@@ -108,6 +121,7 @@
 
       var secondary = document.querySelector('.js-switch-secondary');
       var switchery = new Switchery(secondary, { color: '#fec200', secondaryColor: '#ff8787' });
+
 	</script>
 </body>
 </html>

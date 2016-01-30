@@ -464,7 +464,6 @@ button {
   text-align: center;
   border-right: 1px solid #959595;
   margin-top: 0.34375rem;
-  font-weight: 600;
 }
 .search-no .arrow {
   background: url("../images/searrow.png") no-repeat;
@@ -860,11 +859,10 @@ button {
   display: inline-block;
   line-height: 0.53125rem;
   height: 0.53125rem;
-  width: 1.666667rem;
+  width: 1.566667rem;
   text-align: center;
   border-right: 1px solid #959595;
   margin-top: 0.34375rem;
-  font-weight: 600;
 }
 .for-pay-warp .pay-warp {
   position: relative;
@@ -967,6 +965,7 @@ button {
 .invoice-warp {
   background: #ECECEC;
   padding-top: 0.25rem;
+  height: 21.296296rem;
 }
 .invoice-warp .shopcarfoot {
   width: 10.0rem;
@@ -976,6 +975,7 @@ button {
   padding: 0.21875rem 0.46875rem;
   box-sizing: border-box;
   border-top: 1px solid #7f7f7f;
+  background: #fff;
 }
 .invoice-warp .selectBtn {
   width: 0.71875rem;
@@ -984,17 +984,21 @@ button {
   border: 1px solid #CDCDCD;
   margin-bottom: 0.15625rem;
   display: none;
+  position: absolute;
+  top: 0.185185rem;
+  right: 0.185185rem;
 }
 .invoice-warp #selectAll {
   display: inline-block;
   float: left;
   margin-top: 0.3125rem;
-  margin-left: 0.3125rem;
+  margin-left: 0.6125rem;
 }
 .invoice-warp #selectALLBtn {
   display: inline-block;
   float: left;
   margin-top: 0.3125rem;
+  left: 0.185185rem;
 }
 .invoice-warp .shopcarfoot .totalprice {
   font-weight: 600;
@@ -1026,6 +1030,7 @@ button {
   text-align: center;
   line-height: 1.390625rem;
   font-weight: 600;
+  z-index: 999;
 }
 .invoice-warp .nav button {
   width: 0.875rem;
@@ -1048,12 +1053,13 @@ button {
   margin: 1.375rem auto 0;
   background: #fff;
   border-radius: 4px;
-  padding: 0.25rem 0.46875rem;
+  padding: 0.25rem 0.46875rem 4rem;
   box-sizing: border-box;
 }
 .invoice-warp .pay-warp .shocar-list {
   border-bottom: 1px solid #c6c6c6;
   margin-bottom: 0.25rem;
+  position: relative;
 }
 .invoice-warp .pay-warp .shocar-list .shop-img {
   width: 1.59375rem;
@@ -1119,6 +1125,7 @@ button {
 .order-confirm {
   background: #ECECEC;
   padding-top: 0.125rem;
+  height: 27.777778rem;
 }
 .order-confirm .nav {
   width: 10.0rem;
@@ -1155,7 +1162,8 @@ button {
 .order-confirm .address {
   position: relative;
   background: #fff;
-  padding-top: 0;
+  padding-top: 0.092593rem;
+  box-sizing: border-box;
 }
 .order-confirm .reciver {
   color: #E00B0B;
@@ -1319,6 +1327,18 @@ button {
 .order-confirm .pay-select .row .switchery {
   margin-left: 5.625rem;
 }
+.order-confirm .empty {
+  display: block;
+  margin: 4.953125rem auto 0;
+}
+.order-confirm .goshop {
+  display: block;
+  margin: 2.03125rem auto;
+  width: 2.71875rem;
+  height: 1.265625rem;
+  background: url("../images/go-shop.png");
+  background-size: 100% 100%;
+}
 .order-confirm .footnav {
   width: 10.0rem;
   height: 1.53125rem;
@@ -1348,6 +1368,7 @@ button {
 .personal {
   background: #ECECEC;
   padding-top: 1.375rem;
+  height: 21.296296rem;
 }
 .personal .nav {
   width: 10.0rem;
@@ -1360,6 +1381,7 @@ button {
   text-align: center;
   line-height: 1.390625rem;
   font-weight: 600;
+  z-index: 999;
 }
 .personal .nav button {
   width: 0.875rem;
@@ -2128,4 +2150,12 @@ button {
 }
 .nmr {
   margin-right: 0 !important;
+}
+/*********fix*************/
+body {
+  background: #ECECEC;
+}
+.centerfix {
+  width: 10.0rem;
+  margin: 0 auto;
 }

@@ -14,24 +14,25 @@
 	<script type="text/javascript" src="js/servies/forPay.js"></script>
 </head>
 <body ng-app='forPay' ng-controller="forPayCtr"  style="height:100%">
+<div class="centerfix">
 	<div class="for-pay-warp">
 		<div class="nav f34px">
 			<button id="backBtn"></button>
 			我的订单
 		</div>
 		<div class="nav-filter">
-			<div ng-click="viewAllDis()">全部</div>
-			<div ng-click="viewAll(0)">待付款</div>
-			<div ng-click="viewAll(1)">待发货</div>
-			<div ng-click="viewAll(2)">待收货</div>
-			<div class="nobor" ng-click="viewAll(3)">待评价</div>
+			<div class="f24px" ng-click="viewAllDis()">全部</div>
+			<div class="f24px" ng-click="viewAll(0)">待付款</div>
+			<div class="f24px" ng-click="viewAll(1)">待发货</div>
+			<div class="f24px" ng-click="viewAll(2)">待收货</div>
+			<div class="f24px" class="nobor" ng-click="viewAll(3)">待评价</div>
 		</div>
 		<div class="pay-warp" ng-repeat='orderDate in orderDates2' ng-show="allDis">
-			<span class="pay-for-pay-order pay-status">未支付</span>
-			<span class="pay-for-pay-order">订单编号:</span>
-			<span class="pay-for-pay-order-detail">{{orderDate.shopOrdId}}</span><br>
-			<span class="pay-for-pay-order">下单时间:</span>
-			<span class="pay-for-pay-order-detail">{{orderDate.adddate}}</span>
+			<span class="pay-for-pay-order pay-status f22px">未支付</span>
+			<span class="pay-for-pay-order f22px">订单编号:</span>
+			<span class="pay-for-pay-order-detail f22px">{{orderDate.shopOrdId}}</span><br>
+			<span class="pay-for-pay-order f22px">下单时间:</span>
+			<span class="pay-for-pay-order-detail f22px">{{orderDate.adddate}}</span>
 			<hr>
 			<div class="pay-list-item" ng-click="viewOrder(orderDate.shopOrderId)">
 				<img class="pay-list-item-img" src="">
@@ -42,16 +43,16 @@
 			<hr class="hr2">
 			<div class="pay-for-pay-total-price">
 				合计：<span>￥{{orderDate.price}}</span>
-				<button class="pay-for-pay-total-button" ng-click="cancel(orderDate.shopOrderId)">取消订单</button>
-				<button class="pay-for-pay-total-button button2" ng-click="toPay($index)">去支付</button>
+				<button class="pay-for-pay-total-button f24px" ng-click="cancel(orderDate.shopOrderId)">取消订单</button>
+				<button class="pay-for-pay-total-button button2 f24px" ng-click="toPay($index)">去支付</button>
 			</div>
 		</div>
 		<div class="pay-warp" ng-repeat='orderDate in orderDates' ng-if="orderDate.state==viewCtr">
-			<span class="pay-for-pay-order pay-status">未支付</span>
-			<span class="pay-for-pay-order">订单编号:</span>
-			<span class="pay-for-pay-order-detail">{{orderDate.shopOrdId}}</span><br>
-			<span class="pay-for-pay-order">下单时间:</span>
-			<span class="pay-for-pay-order-detail">{{orderDate.adddate}}</span>
+			<span class="pay-for-pay-order pay-status  f24px">未支付</span>
+			<span class="pay-for-pay-order  f24px">订单编号:</span>
+			<span class="pay-for-pay-order-detail f24px">{{orderDate.shopOrdId}}</span><br>
+			<span class="pay-for-pay-order f24px">下单时间:</span>
+			<span class="pay-for-pay-order-detail f24px">{{orderDate.adddate}}</span>
 			<hr>
 			<div class="pay-list-item" ng-click="viewOrder(orderDate.shopOrderId)">
 				<img class="pay-list-item-img" src="">
@@ -60,10 +61,10 @@
 				<span class="for-pay-warp-item-info">一个包裹（{{orderDate.number}}件商品）<div class="btn"></div></span>
 			</div>
 			<hr class="hr2">
-			<div class="pay-for-pay-total-price">
-				合计：<span>￥{{orderDate.price}}</span>
-				<button class="pay-for-pay-total-button" ng-click="cancel(orderDate.shopOrderId)">取消订单</button>
-				<button class="pay-for-pay-total-button button2" ng-click="toPay($index)">去支付</button>
+			<div class="pay-for-pay-total-price  f24px">
+				合计：<span class=" f24px">￥{{orderDate.price}}</span>
+				<button class="pay-for-pay-total-button f24px" ng-click="cancel(orderDate.shopOrderId)">取消订单</button>
+				<button class="pay-for-pay-total-button button2 f24px" ng-click="toPay($index)">去支付</button>
 			</div>
 		</div>
 		<div class="footnav">
@@ -76,6 +77,7 @@
 			<div class="foot-nav-btn ico3">
 			</div>
 		</div>
+	</div>
 	</div>
 	<script>
 	$("#backBtn").tap(function(){
