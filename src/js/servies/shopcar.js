@@ -57,7 +57,7 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 		
 	}
 	$scope.payMoney=function(){
-		var payDa={"orderInfo":{"shopInfo":$scope.shopInfo,"shopOrderProduct":$scope.shopOrderProduct}}
+		var payDa={"shopInfo":$scope.shopInfo,"shopOrderProduct":$scope.shopOrderProduct}
 		//var payDa={"orderInfo":$scope.shopInfo,"shopOrderProduct":$scope.shopOrderProduct}
 		console.log(payDa)
 		localStorage.shopcarDate=JSON.stringify($scope.itemdata);

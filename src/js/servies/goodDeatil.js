@@ -60,8 +60,37 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	
 	}
 	$scope.collectShop=function(){
-		$("#collect-ico").addClass("icoactive")
-		$.ajax({
+		if($("#collect-ico").attr("class")=="bg fl icoactive"){
+			$.ajax({
+			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectProduct/deleteCollectShop.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	usrUserId:localStorage.usrUserId,
+			   	shopProductId:localStorage.productId,
+			   	isdel:1
+			},
+	        headers: {
+	            "imei":"asdaSA",
+		        "mobileOperators":"IOS8",
+		        "originateEnum":"APP_USER_AND",
+		        "version":"2_0",
+		        "sysVersion":"ios9",
+		        "phoneModel":"iphone"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		alert(data.errMsg)
+	        	}
+	        	$("#collect-ico").removeClass("icoactive")
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
+		}else{
+			$.ajax({
 			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectProduct/addUsrCollectProduct.tz',
 	        type: 'post',
 	        dataType: 'json',
@@ -83,11 +112,16 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	        	if(data.code=="00000"){
 	        		alert(data.errMsg)
 	        	}
+	        	$("#collect-ico").addClass("icoactive")
 	        },
 	        error: function(data){
 	            alert(data.errMsg);
 	        }
 		})
+
+		}
+		
+		
 	}
 }])
 

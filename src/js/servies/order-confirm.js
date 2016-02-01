@@ -24,14 +24,16 @@ orderConfirm.controller('orderConfirmCtr',['$scope',function($scope){
 	}
 	$scope.invoiceName=localStorage.invoiceName;
 	$scope.configOrder=function(){
-		//var commitdata=JSON.parse(localStorage.payMoney)
-		var commitdata= localStorage.payMoney
+		var commitdata=JSON.parse(localStorage.payMoney)
+		//var commitdata= localStorage.payMoney
 		$.ajax({
 				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/addShopOrder_shop.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
-		       	data:commitdata
+		       	data:{
+		       		orderInfo:commitdata
+		       	}
 				,
 		        headers: {
 		            "imei":"asdaSA",

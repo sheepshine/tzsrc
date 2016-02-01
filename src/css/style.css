@@ -157,7 +157,7 @@ button {
 }
 .index input.search-text {
   width: 5.75rem;
-  height: 1.0rem;
+  height: 0.8rem;
   margin-left: 0.875rem;
   font-size: 26px;
   line-height: 1.0rem;
@@ -406,13 +406,13 @@ button {
   padding-bottom: 0.15625rem;
 }
 .search-no .btn1 {
+  width: 0.875rem;
+  height: 1.375rem;
+  background-image: url(../images/search-btn1.png);
+  background-repeat: no-repeat;
+  background-position: right center;
   position: absolute;
-  top: 0.3125rem;
-  left: 0.5rem;
-  width: 0.25rem;
-  height: 0.5rem;
-  background: url("../images/search-btn1.png");
-  background-size: 100% 100%;
+  left: 0;
 }
 .search-no .search {
   width: 5.859375rem;
@@ -669,7 +669,7 @@ button {
 }
 .search-warp input.search-text {
   width: 5.75rem;
-  height: 1.0rem;
+  height: 0.8rem;
   margin-left: 0.875rem;
   font-size: 26px;
   line-height: 1.0rem;
@@ -765,7 +765,7 @@ button {
   text-align: center;
   display: block;
   margin: 0.4rem auto 0.2rem;
-  height: 0.6875rem;
+  height: 0.4975rem;
   overflow: hidden;
 }
 .search-warp .shop-list-item-img {
@@ -1631,7 +1631,7 @@ button {
 }
 .item-nav input.search-text {
   width: 5.75rem;
-  height: 1.0rem;
+  height: 0.8rem;
   margin-left: 0.875rem;
   font-size: 26px;
   line-height: 1.0rem;
@@ -1925,7 +1925,8 @@ button {
 }
 .good-item .content .main {
   width: 9.625rem;
-  height: 10.90625rem;
+  height: auto;
+  overflow: hidden;
   background: #fff;
   margin: 0 auto;
   border-radius: 4px;
@@ -1941,7 +1942,7 @@ button {
 }
 .good-item .content .main > .tilwarp {
   width: 9.625rem;
-  height: 2.703125rem;
+  height: auto;
   padding: 0.703125rem 0.5625rem;
   box-sizing: border-box;
 }
