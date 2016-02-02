@@ -44,7 +44,7 @@
 			<div class="classwarp" ng-show="list1" ng-click="viewclass()">
 				<div class="arrlist1" ng-show="list1">
 					<ul>
-						<li ng-class='{"class-active":isActive}' ng-repeat='datas in searchClassNav' ng-if='datas.shopItemClassId==0' ng-click="finditem(datas.id);$event.stopPropagation()" ng-cloak>
+						<li  ng-repeat='datas in searchClassNav' ng-if='datas.shopItemClassId==0' ng-click="finditem(datas.id);$event.stopPropagation()" ng-cloak>
 							{{datas.name}}
 						</li>
 						<!-- <li>
@@ -66,7 +66,7 @@
 				</div>
 				<div class="arrlist2" ng-show="list2">
 					<ul>
-						<li ng-click='selectClass(datas2.shopItemClassId,datas2.name);$event.stopPropagation();' ng-class='{"class-select":isActive2}' ng-repeat='datas2 in itemList2' ng-cloak>
+						<li class="classSelectLi" ng-click='selectClass(datas2.shopItemClassId,datas2.name,$index);$event.stopPropagation();'  ng-repeat='datas2 in itemList2' ng-cloak>
 							{{datas2.name}}
 						</li>
 						<!-- <li>
@@ -91,13 +91,13 @@
 				<div class="rankClass" ng-show="rankshow" ng-click="rankClass()">
 					<div class="arrlist3">
 						<ul>
-							<li ng-click="selectClass2('0','综合排序');$event.stopPropagation();" ng-class='{"class-select":isActive2}'>
+							<li class="classSelectLi2" ng-click="selectClass2('0','综合排序');$event.stopPropagation();">
 							综合排序
 							</li>
-							<li ng-click="selectClass2('1','销量排序');$event.stopPropagation();" ng-class='{"class-select":isActive2}'>
+							<li class="classSelectLi2" ng-click="selectClass2('1','销量排序');$event.stopPropagation();">
 								销量排序
 							</li>
-							<li ng-click="selectClass2('2','好评排序');$event.stopPropagation();" ng-class='{"class-select":isActive2}'>
+							<li class="classSelectLi2" ng-click="selectClass2('2','好评排序');$event.stopPropagation();">
 								好评排序
 							</li>
 							<!-- <li>
@@ -251,6 +251,7 @@
       $("#back-btn").tap(function(){
       	window.location.href=window.history.back(-1)
       })
+
 	</script>
 </body>
 </html>

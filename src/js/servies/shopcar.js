@@ -136,7 +136,7 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
-		        		
+		        		$scope.totalPrice=0;
 		        	}
 		        },
 		        error: function(data){

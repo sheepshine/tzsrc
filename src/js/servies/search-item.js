@@ -1,5 +1,5 @@
 var searchItem=angular.module('searchItem',[])
-
+var shopItemClassIdSub=null;
 searchItem.controller('searchItemCtr',['$scope',function($scope){
 	if(localStorage.searchData||localStorage.searchValue){
 		if(localStorage.searchData){
@@ -23,7 +23,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 		$scope.list2=!$scope.list2;
 		$scope.isActive=true;
 	}
-	$scope.selectClass=function(odata,oname){
+	$scope.selectClass=function(odata,oname,theindex){
+		$(".classSelectLi").removeClass("class-select")
+      	$(".classSelectLi").eq(theindex).addClass("class-select")
+      
+    
+		shopItemClassIdSub=odata
 		$scope.isActive2=true;
 		$.ajax({
 			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
@@ -62,6 +67,8 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 		$scope.maintitle=oname
 	}
 	$scope.selectClass2=function(odata,oname){
+		$(".classSelectLi2").removeClass("class-select")
+      	$(".classSelectLi2").eq(odata).addClass("class-select")
 		$scope.isActive2=true;
 		if(odata==0){
 			salesvolume=""
@@ -79,8 +86,10 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	        dataType: 'json',
 	       	async:false,
 	       	data:{
+	       		title:$scope.searchValue,
 			   	salesvolume:salesvolume,
-			   	score:score
+			   	score:score,
+			   	shopItemClassIdSub:shopItemClassIdSub
 			},
 	        headers: {
 	            "imei":"asdaSA",
