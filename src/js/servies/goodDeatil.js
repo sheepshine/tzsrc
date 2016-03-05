@@ -2,7 +2,7 @@ var goodDeatil=angular.module('goodDeatil',[])
 
 goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfoById.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfoById.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -30,7 +30,7 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	
 	$scope.addShopcar=function(){
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/addShopCart.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/addShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -62,14 +62,12 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	$scope.collectShop=function(){
 		if($("#collect-ico").attr("class")=="bg fl icoactive"){
 			$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectProduct/deleteCollectShop.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/userCollectProduct/deleteCollectProduct.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
 	       	data:{
-			   	usrUserId:localStorage.usrUserId,
-			   	shopProductId:localStorage.productId,
-			   	isdel:1
+			   	shopProductId:localStorage.CollectId
 			},
 	        headers: {
 	            "imei":"asdaSA",
@@ -91,7 +89,7 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 		})
 		}else{
 			$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectProduct/addUsrCollectProduct.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/userCollectProduct/addUsrCollectProduct.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -110,6 +108,8 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
+	        		localStorage.CollectId=""
+	        		localStorage.CollectId=data.result.id
 	        		alert(data.errMsg)
 	        	}
 	        	$("#collect-ico").addClass("icoactive")

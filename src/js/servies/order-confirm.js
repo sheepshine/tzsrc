@@ -27,7 +27,7 @@ orderConfirm.controller('orderConfirmCtr',['$scope',function($scope){
 		var commitdata=JSON.parse(localStorage.payMoney)
 		//var commitdata= localStorage.payMoney
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/addShopOrder_shop.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopOrder/addShopOrder_shop.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,

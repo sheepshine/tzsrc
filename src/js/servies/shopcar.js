@@ -6,7 +6,7 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 	$scope.shopInfo=[];
 	$scope.shopOrderProduct=[];
 	$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/queryShopCart.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/queryShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -118,7 +118,7 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 	$scope.delectItem=function(){
 		for(var i=0;i<delectArr.length;i++){
 			$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/deleteShopCart.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/deleteShopCart.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -150,7 +150,7 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 		$(".selectBtn").hide();
 		$scope.editTil="编辑"
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/queryShopCart.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/queryShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,

@@ -25,7 +25,7 @@ forPay.controller('forPayCtr',['$scope',function($scope){
 	}
 	$scope.cancel=function(theId){
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/deleteShopOrder.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopOrder/deleteShopOrder.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -43,7 +43,7 @@ forPay.controller('forPayCtr',['$scope',function($scope){
 		        success: function(data){
 		        	if(data.code=="00000"){
 		        		$.ajax({
-							url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/selectShopOrder.tz',
+							url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopOrder/selectShopOrder.tz',
 					        type: 'post',
 					        dataType: 'json',
 					       	async:false,

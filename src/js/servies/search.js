@@ -26,7 +26,7 @@ search.controller('searchClassCtr',['$scope','searchClassSer','searchItemSera',f
 		localStorage.searchValue=$scope.searchValue;
 		if(keycode==13){
 			$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -67,7 +67,7 @@ search.controller('searchClassCtr',['$scope','searchClassSer','searchItemSera',f
 search.service("searchClassSer",function(){
 	var datas="";
 	$.ajax({
-		url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productItem/selectProductItem.tz',
+		url: 'http://usrapp.tuozhen.com/application-usrapp/productItem/selectProductItem.tz',
         type: 'post',
         dataType: 'json',
        	async:false,
@@ -94,7 +94,7 @@ search.service("searchItemSera",function(){
 		searchItem:function(id){
 			var datas="";
 			$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,

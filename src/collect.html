@@ -18,7 +18,7 @@
 		<div class="collect-item-search-bg">
 		</div>
 		<div class="header">
-			<div class="btn1"></div>
+			<div class="btn1" id="back-btn"></div>
 			<div class="collect ">
 				<div class="shop active" id="thegoods">
 					商品
@@ -68,7 +68,9 @@
 		</div>
 	</div>	
 	<script type="text/javascript">
-	
+	$("#back-btn").tap(function(){
+      	window.location.href=window.history.back(-1)
+      })
 	</script>
 </body>
 </html>

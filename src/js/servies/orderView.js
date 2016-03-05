@@ -3,7 +3,7 @@ var orderView=angular.module('orderView',[])
 orderView.controller('orderViewCtr',['$scope',function($scope){
 	$scope.totalPrice=0;
 	$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/selectShopOrderById.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopOrder/selectShopOrderById.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,

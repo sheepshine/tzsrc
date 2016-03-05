@@ -31,7 +31,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 		shopItemClassIdSub=odata
 		$scope.isActive2=true;
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -81,7 +81,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			score=1
 		}
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -155,7 +155,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	$scope.searchAjax=function(searchData){
 		localStorage
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -189,12 +189,48 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	if(localStorage.autoSearch){
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
 	       	data:{
-			   	title:localStorage.searchValue
+			   	title:localStorage.searchValue1
+			},
+	        headers: {
+	            "imei":"asdaSA",
+		        "mobileOperators":"IOS8",
+		        "originateEnum":"APP_USER_AND",
+		        "version":"2_0",
+		        "sysVersion":"ios9",
+		        "phoneModel":"iphone"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		$scope.$watch($scope.searchitemdata)
+	        		$scope.searchitemdata=data.result.result.list
+	        		console.log(data.result.result.list)
+	        		if(data.result.result.list.length==0){
+	        			$scope.noresout=true;
+	        		}else{
+	        			$scope.noresout=false;
+	        		}
+	        	}
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
+		localStorage.autoSearch=false;
+	}
+	if(localStorage.autoSearch1){
+		
+		$.ajax({
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	shopItemClassIdSub:localStorage.searchValue2
 			},
 	        headers: {
 	            "imei":"asdaSA",
@@ -224,7 +260,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	$scope.finditem=function(id){
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productItem/selectProductItem.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/productItem/selectProductItem.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -250,7 +286,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	$scope.searchClassAjax=function(searchData){
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productItem/selectProductItem.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productItem/selectProductItem.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -291,7 +327,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			location.href="../../personal.html"
 		}
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/addShopCart.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/addShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -322,7 +358,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	$scope.shopCarInfo=function(){
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/queryShopCart.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/queryShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,

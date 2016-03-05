@@ -4,7 +4,7 @@ collect.controller('collectCtr',['$scope',function($scope){
 	$scope.thegoods=false;
 	$scope.getcollectgoods=function(){
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectProduct/queryUsrCollectProduct.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/userCollectProduct/queryUsrCollectProduct.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -33,7 +33,7 @@ collect.controller('collectCtr',['$scope',function($scope){
 	}
 	$scope.getcollectshop=function(){
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectShop/queryUsrCollectShop.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/userCollectShop/queryUsrCollectShop.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -72,7 +72,7 @@ collect.controller('collectCtr',['$scope',function($scope){
 			location.href="../../personal.html"
 		}
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/addShopCart.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/addShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
