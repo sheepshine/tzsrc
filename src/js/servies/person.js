@@ -3,8 +3,8 @@ var person=angular.module('person',[])
 person.controller('personCtr',['$scope',function($scope){
 	$scope.tologin=true;
 	$scope.haslogin=false;
-	$scope.username=13983604781
-	$scope.password=123456
+	$scope.username=""//"13983604781"
+	$scope.password=""//"123456"
 	$scope.info=function(){
 		$.ajax({
 				url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopOrder/selectShopOrder.tz',
@@ -12,15 +12,15 @@ person.controller('personCtr',['$scope',function($scope){
 		        dataType: 'json',
 		       	async:false,
 		       	data:{
-				   	// usrUserId:localStorage.usrUserId
+				   	usrUserId:localStorage.usrUserId
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
@@ -42,12 +42,12 @@ person.controller('personCtr',['$scope',function($scope){
 				   	usrUserId:localStorage.usrUserId
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
@@ -69,12 +69,12 @@ person.controller('personCtr',['$scope',function($scope){
 				   	usrUserId:localStorage.usrUserId
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
@@ -98,20 +98,20 @@ person.controller('personCtr',['$scope',function($scope){
 		        dataType: 'json',
 		       	async:false,
 		       	data:{
-				   	// usrUserId:localStorage.usrUserId
+				   	usrUserId:localStorage.usrUserId
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
 		        		$scope.shoporderList=data.result.result.list;
-		        		console.log($scope.shoporderList[0].state)
+		        	
 		        		$($scope.shoporderList).each(function(index){
 		        			if($scope.shoporderList[index].state==0){
 								$scope.orderstate0++;
@@ -122,7 +122,6 @@ person.controller('personCtr',['$scope',function($scope){
 							}else if($scope.shoporderList[index].state==3){
 								$scope.orderstate3++;
 							}
-							console.log($scope.orderstate0)
 		        		})
 		        		
 		        	}
@@ -143,17 +142,18 @@ person.controller('personCtr',['$scope',function($scope){
 				   	password:$scope.password
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
+		        		localStorage.username=$scope.username;
+						localStorage.password=$scope.password;
 		        		$scope.personInfo=data.result
-		        		console.log($scope.personInfo.usrInfoName)
 		        		localStorage.usrUserId=$scope.personInfo.usrUserId;
 		        		$scope.tologin=!$scope.tologin;
 		        		$scope.haslogin=!$scope.haslogin;
@@ -169,6 +169,8 @@ person.controller('personCtr',['$scope',function($scope){
 			})
 	}
 	if(localStorage.usrUserId){
+		$scope.username=localStorage.username;
+		$scope.password=localStorage.password;
 		$scope.loginin()
 	}
 	$scope.viewDeatil=function(a,b){

@@ -125,13 +125,14 @@ button {
 	}
 	.header{
 		position: fixed;
-		top: 1.375rem;
+		top: 0;
 		width: 10.0rem;
 		height: 1.484375rem;
 		background: #ECECEC;
 		text-align: center;
 		padding-top: 0.25rem;
 		box-sizing:border-box;
+		background:#EF3739;
 	}
 	.header .btn1{
 		width: 0.765625rem;
@@ -151,6 +152,25 @@ button {
 		margin: 0 auto;
 		position: relative;
 		border-radius: 0.0625rem
+	}
+	.index-list-item-warp{
+		text-align: center;
+		background:#fff;
+		margin:0 0.15625rem;
+		border-radius: 0.09375rem;
+		overflow:hidden;
+		.index-list-item{
+			display:inline-block;
+			margin:0.46875rem 0.3125rem;
+			width:1.271875rem;
+			height:1.46875rem;
+			vertical-align: top;
+			float:left;
+			.index-list-item-img{
+				width:0.9375rem;
+				height:0.9375rem;
+			}
+		}
 	}
 	.search-ico{
 		height: 0.5rem;
@@ -182,49 +202,77 @@ button {
 		background: @bg;
 		padding:2.84375rem 0 1.53125rem;
 	}
+	.content-index{
+		padding-top: 0.075rem !important;
+	}
+	.img-tap-index{
+		width: 100%;
+		background: url("../images/index.png");
+		.bgfull;
+	}
 	.content{
 		.img-tap{
-			width: @shpwith;
-			height: 3.46875rem;
-			background: url("../images/content/shop4.jpg");
-			.bgfull;
+			
 			margin: 0 auto;
+		}
+		.shop-list-two-2{
+			margin:0.46875rem 0;
+			text-align: center;
+			background:#fff;
+			.shop-list-two-2-chil{
+				width:4.484375rem;
+				height:2.765625rem;
+				display:inline-block;
+				margin:0.21875rem 0;
+				img{
+					width:100%;
+					height:100%;
+				}
+			}
 		}
 		.shop-list-one{
 			width:@shpwith;
 			height: 4.171875rem;
-			margin: 0 auto;
+			margin: 0.3125rem auto;
 		}
 		.list-one{
 			width: 3.0625rem;
 			height: 4.171875rem;
-			background: url("../images/content/shop.jpg");
-			.bgfull;
 			float: left;
 			border-right: 1px solid #c0c0c0;
+			img{
+				width:100%;
+				height:100%;
+			}
 		}
 		.list-tow{
 			width: 6.4rem;
 			height: 2.15625rem;
-			background: url("../images/content/shop2.jpg");
-			.bgfull;
 			float: right;
-			border-bottom: 1px solid #c0c0c0;;
+			border-bottom: 1px solid #c0c0c0;
+			img{
+				width:100%;
+				height:100%;
+			}
 		}
 		.list-three{
 			width:3.2rem;
 			height: 2.015625rem;
-			background: url("../images/content/shop3.jpg");
-			.bgfull;
 			float: right;
-			border-right: 1px solid #c0c0c0;;
+			border-right: 1px solid #c0c0c0;
+			img{
+				width:100%;
+				height:100%;
+			}
 		}
 		.shop-list-two{
 			width: @shpwith;
 			height: 1.84375rem;
-			background: url("../images/content/shop4.jpg");
-			.bgfull;
-			margin-top: 0.1875rem
+			margin: 0.1875rem auto 0;
+			img{
+				width:100%;
+				height:100%;
+			}
 		}
 		.shop-list-three{
 			width: @shpwith;
@@ -235,9 +283,11 @@ button {
 			.shop-list-three-chil{
 				width:2.34375rem;
 				height: 2.375rem;
-				background: url("../images/content/shop5.jpg");
-				.bgfull;
 				float: right;
+				img{
+					width:100%;
+					height:100%;
+				}
 			}
 		}
 	}
@@ -743,11 +793,13 @@ button {
 	.list .img{
 		width: 1.15625rem;
 		height: 1.15625rem;
-		background: url("../images/seachico1.png");
-		.bgfull;
 		margin: 0 auto;
+		img{
+			width:100%;
+			height:100%;
+		}
 	}
-	.list .img2{
+	/*.list .img2{
 		background: url("../images/seachico2.png");
 		.bgfull;
 	}
@@ -762,7 +814,7 @@ button {
 	.list .img5{
 		background: url("../images/seachico5.png");
 		.bgfull;
-	}
+	}*/
 	.search-content-nav-til{
 		font-size: 24px;
 		font-weight: 600;

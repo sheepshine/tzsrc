@@ -20,7 +20,7 @@
 			<div class="btn1" id="back-btn"></div>
 			<div class="search">
 				<div class="search-ico"></div>
-				<input class="search-text search-text-searchfix f26px" id="searchInput" type="text" ng-model='searchValue' ng-blur='searchAjax(searchValue)' placeholder="搜索商品名/症状/疾病名" />
+				<input class="search-text search-text-searchfix f26px" id="searchInput" type="text" ng-model='searchValue' ng-keyup='searchAjax($event,searchValue)' placeholder="搜索商品名/症状/疾病名" />
 			</div>
 			<div class="QRcode"></div>
 		</div>
@@ -29,6 +29,7 @@
 				<div class="nav">
 					<div class="list" ng-repeat="datalist in datas" ng-if="datalist.shopItemClassId==0" ng-click="finditem(datalist.id)">
 						<div class="img">
+							<img ng-src="{{datalist.imgurl}}" />
 						</div>
 						<div class="search-content-nav-til f24px" ng-cloak>
 							{{datalist.name}}

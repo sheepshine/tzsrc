@@ -14,12 +14,12 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 			   	usrUserId:localStorage.usrUserId
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -127,12 +127,12 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 				   	usrUserId:localStorage.usrUserId
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
@@ -158,12 +158,12 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 			   	usrUserId:localStorage.usrUserId
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){

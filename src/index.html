@@ -12,14 +12,15 @@
 	<script src="js/jquery.tap.js"></script>
 	<script src="js/angular.min.js"></script>
 	<script src="js/servies/public-search.js"></script>
+	<script type="text/javascript" src="js/servies/index.js"></script>
 </head>
 <body>
 <div class="centerfix">
 	<div class="index" ng-app="index" ng-controller="indexCtr">
-		<div class="nav f34px">
+		<!-- <div class="nav f34px">
 			<button></button>
 			健康商城
-		</div>
+		</div> -->
 		<div class="header">
 			<a href="item_nav.html"><div class="btn1"></div></a>
 			<div class="search">
@@ -28,39 +29,93 @@
 			</div>
 			<div class="QRcode"></div>
 		</div>
-		<div class="content">
-			<div class="img-tap">
+		<img class="img-tap-index" src="images/index.png" />
+				
+			
+		<div class="content content-index">
+			<div class="index-list-item-warp">
+				<div class="index-list-item" ng-repeat="datalist in datas" ng-if="datalist.shopItemClassId==0" ng-click="finditem(datalist.id)" ng-cloak>
+					<img class="index-list-item-img" ng-src="{{datalist.imgurl}}" / >
+					{{datalist.name}}
+				</div>
 				
 			</div>
 			<div class="shop-list-one">
-				<div class="list-one">
+				<div class="list-one" ng-click="viewDeatil(firstFloor[0].productId)">
+					<img ng-src="{{firstFloor[0].photo}}" />
 				</div>
-				<div class="list-tow">
+				<div class="list-tow" ng-click="viewDeatil(firstFloor[1].productId)">
+					<img ng-src="{{firstFloor[1].photo}}" />
 				</div>
-				<div class="list-three">
+				<div class="list-three" ng-click="viewDeatil(firstFloor[2].productId)">
+					<img ng-src="{{firstFloor[2].photo}}" />
 				</div>
-				<div class="list-three nobor">
+				<div class="list-three nobor" ng-click="viewDeatil(firstFloor[3].productId)">
+					<img ng-src="{{firstFloor[3].photo}}" />
 				</div>
 			</div>
-			<div class="shop-list-two">
-				
+			<div class="shop-list-two" ng-click="viewDeatil(twoFloor.productId)">
+				<img ng-src="{{twoFloor.photo}}" />
 			</div>
+
+			<div class="shop-list-two-2">
+				<div class="shop-list-two-2-chil" ng-click="viewDeatil(threeFloor[0].productId)">
+					<img ng-src="{{threeFloor[0].photo}}" />
+				</div>
+				<div class="shop-list-two-2-chil" ng-click="viewDeatil(threeFloor[1].productId)">
+					<img ng-src="{{threeFloor[1].photo}}" />
+				</div>
+				<div class="shop-list-two-2-chil" ng-click="viewDeatil(threeFloor[2].productId)">
+					<img ng-src="{{threeFloor[2].photo}}" />
+				</div>
+				<div class="shop-list-two-2-chil" ng-click="viewDeatil(threeFloor[3].productId)">
+					<img ng-src="{{threeFloor[3].photo}}" />
+				</div>
+			</div>
+
 			<div class="shop-list-three">
-				<div class="shop-list-three-chil">
+				<div class="shop-list-three-chil" ng-click="viewDeatil(threeFloor[4].productId)">
+					<img ng-src="{{threeFloor[4].photo}}" />
 				</div>
-				<div class="shop-list-three-chil">
+				<div class="shop-list-three-chil" ng-click="viewDeatil(threeFloor[5].productId)">
+					<img ng-src="{{threeFloor[5].photo}}" />
 				</div>
-				<div class="shop-list-three-chil">
+				<div class="shop-list-three-chil" ng-click="viewDeatil(threeFloor[6].productId)">
+					<img ng-src="{{threeFloor[6].photo}}" />
 				</div>
-				<div class="shop-list-three-chil">
+				<div class="shop-list-three-chil" ng-click="viewDeatil(threeFloor[7].productId)">
+					<img ng-src="{{threeFloor[7].photo}}" />
 				</div>
-				<div class="shop-list-three-chil">
+				<div class="shop-list-three-chil" ng-click="viewDeatil(threeFloor[8].productId)">
+					<img ng-src="{{threeFloor[8].photo}}" />
 				</div>
-				<div class="shop-list-three-chil">
+				<div class="shop-list-three-chil" ng-click="viewDeatil(threeFloor[9].productId)">
+					<img ng-src="{{threeFloor[9].photo}}" />
 				</div>
-				<div class="shop-list-three-chil">
+				<div class="shop-list-three-chil" ng-click="viewDeatil(threeFloor[10].productId)">
+					<img ng-src="{{threeFloor[10].photo}}" />
 				</div>
-				<div class="shop-list-three-chil">
+				<div class="shop-list-three-chil" ng-click="viewDeatil(threeFloor[11].productId)">
+					<img ng-src="{{threeFloor[11].photo}}" />
+				</div>
+			</div>
+
+			<div class="shop-list-two">
+				<img ng-src="{{fourFloor.photo}}" />
+			</div>
+
+			<div class="shop-list-two-2">
+				<div class="shop-list-two-2-chil" ng-click="viewDeatil(fiveFloor[0].productId)">
+					<img ng-src="{{fiveFloor[0].photo}}" />
+				</div>
+				<div class="shop-list-two-2-chil" ng-click="viewDeatil(fiveFloor[1].productId)">
+					<img ng-src="{{fiveFloor[1].photo}}" />
+				</div>
+				<div class="shop-list-two-2-chil" ng-click="viewDeatil(fiveFloor[2].productId)">
+					<img ng-src="{{fiveFloor[2].photo}}" />
+				</div>
+				<div class="shop-list-two-2-chil" ng-click="viewDeatil(fiveFloor[3].productId)">
+					<img ng-src="{{fiveFloor[3].photo}}" />
 				</div>
 			</div>
 		</div>

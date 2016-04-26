@@ -40,12 +40,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	shopItemClassIdSub:odata
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -92,12 +92,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	shopItemClassIdSub:shopItemClassIdSub
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -163,12 +163,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	title:searchData
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -197,12 +197,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	title:localStorage.searchValue1
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -233,12 +233,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	shopItemClassIdSub:localStorage.searchValue2
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -268,12 +268,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 				   	shopItemClassId:id
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	$scope.itemList2=data.result.pageResultList.result
@@ -294,12 +294,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	title:searchData
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -338,12 +338,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	shopInfoId:shopId
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -366,12 +366,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	usrUserId:localStorage.usrUserId
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){

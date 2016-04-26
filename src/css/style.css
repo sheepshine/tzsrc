@@ -119,13 +119,14 @@ button {
 }
 .index .header {
   position: fixed;
-  top: 1.375rem;
+  top: 0;
   width: 10.0rem;
   height: 1.484375rem;
   background: #ECECEC;
   text-align: center;
   padding-top: 0.25rem;
   box-sizing: border-box;
+  background: #EF3739;
 }
 .index .header .btn1 {
   width: 0.765625rem;
@@ -145,6 +146,25 @@ button {
   margin: 0 auto;
   position: relative;
   border-radius: 0.0625rem;
+}
+.index .index-list-item-warp {
+  text-align: center;
+  background: #fff;
+  margin: 0 0.15625rem;
+  border-radius: 0.09375rem;
+  overflow: hidden;
+}
+.index .index-list-item-warp .index-list-item {
+  display: inline-block;
+  margin: 0.46875rem 0.3125rem;
+  width: 1.271875rem;
+  height: 1.46875rem;
+  vertical-align: top;
+  float: left;
+}
+.index .index-list-item-warp .index-list-item .index-list-item-img {
+  width: 0.9375rem;
+  height: 0.9375rem;
 }
 .index .search-ico {
   height: 0.5rem;
@@ -176,48 +196,75 @@ button {
   background: #ECECEC;
   padding: 2.84375rem 0 1.53125rem;
 }
-.index .content .img-tap {
-  width: 9.59375rem;
-  height: 3.46875rem;
-  background: url("../images/content/shop4.jpg");
+.index .content-index {
+  padding-top: 0.075rem !important;
+}
+.index .img-tap-index {
+  width: 100%;
+  background: url("../images/index.png");
   background-size: 100% 100%;
+}
+.index .content .img-tap {
   margin: 0 auto;
+}
+.index .content .shop-list-two-2 {
+  margin: 0.46875rem 0;
+  text-align: center;
+  background: #fff;
+}
+.index .content .shop-list-two-2 .shop-list-two-2-chil {
+  width: 4.484375rem;
+  height: 2.765625rem;
+  display: inline-block;
+  margin: 0.21875rem 0;
+}
+.index .content .shop-list-two-2 .shop-list-two-2-chil img {
+  width: 100%;
+  height: 100%;
 }
 .index .content .shop-list-one {
   width: 9.59375rem;
   height: 4.171875rem;
-  margin: 0 auto;
+  margin: 0.3125rem auto;
 }
 .index .content .list-one {
   width: 3.0625rem;
   height: 4.171875rem;
-  background: url("../images/content/shop.jpg");
-  background-size: 100% 100%;
   float: left;
   border-right: 1px solid #c0c0c0;
+}
+.index .content .list-one img {
+  width: 100%;
+  height: 100%;
 }
 .index .content .list-tow {
   width: 6.4rem;
   height: 2.15625rem;
-  background: url("../images/content/shop2.jpg");
-  background-size: 100% 100%;
   float: right;
   border-bottom: 1px solid #c0c0c0;
+}
+.index .content .list-tow img {
+  width: 100%;
+  height: 100%;
 }
 .index .content .list-three {
   width: 3.2rem;
   height: 2.015625rem;
-  background: url("../images/content/shop3.jpg");
-  background-size: 100% 100%;
   float: right;
   border-right: 1px solid #c0c0c0;
+}
+.index .content .list-three img {
+  width: 100%;
+  height: 100%;
 }
 .index .content .shop-list-two {
   width: 9.59375rem;
   height: 1.84375rem;
-  background: url("../images/content/shop4.jpg");
-  background-size: 100% 100%;
-  margin-top: 0.1875rem;
+  margin: 0.1875rem auto 0;
+}
+.index .content .shop-list-two img {
+  width: 100%;
+  height: 100%;
 }
 .index .content .shop-list-three {
   width: 9.59375rem;
@@ -227,9 +274,11 @@ button {
 .index .content .shop-list-three .shop-list-three-chil {
   width: 2.34375rem;
   height: 2.375rem;
-  background: url("../images/content/shop5.jpg");
-  background-size: 100% 100%;
   float: right;
+}
+.index .content .shop-list-three .shop-list-three-chil img {
+  width: 100%;
+  height: 100%;
 }
 .index .footnav {
   width: 10.0rem;
@@ -629,6 +678,24 @@ button {
 .search-warp {
   background: #ECECEC;
 }
+.search-warp {
+  /*.list .img2{
+		background: url("../images/seachico2.png");
+		.bgfull;
+	}
+	.list .img3{
+		background: url("../images/seachico3.png");
+		.bgfull;
+	}
+	.list .img4{
+		background: url("../images/seachico4.png");
+		.bgfull;
+	}
+	.list .img5{
+		background: url("../images/seachico5.png");
+		.bgfull;
+	}*/
+}
 .search-warp .header {
   width: 10.0rem;
   height: 1.484375rem;
@@ -711,25 +778,11 @@ button {
 .search-warp .list .img {
   width: 1.15625rem;
   height: 1.15625rem;
-  background: url("../images/seachico1.png");
-  background-size: 100% 100%;
   margin: 0 auto;
 }
-.search-warp .list .img2 {
-  background: url("../images/seachico2.png");
-  background-size: 100% 100%;
-}
-.search-warp .list .img3 {
-  background: url("../images/seachico3.png");
-  background-size: 100% 100%;
-}
-.search-warp .list .img4 {
-  background: url("../images/seachico4.png");
-  background-size: 100% 100%;
-}
-.search-warp .list .img5 {
-  background: url("../images/seachico5.png");
-  background-size: 100% 100%;
+.search-warp .list .img img {
+  width: 100%;
+  height: 100%;
 }
 .search-warp .search-content-nav-til {
   font-size: 24px;
@@ -2048,15 +2101,14 @@ button {
   line-height: 1.5rem;
   text-align: center;
 }
-.collect{
+.collect {
   width: 4.03125rem;
   height: 0.875rem;
   margin: 0.25rem auto;
   border-radius: 0.09375rem;
   border: 1px solid #c6c6c6;
-
 }
-.collect .shop{
+.collect .shop {
   width: 50%;
   height: 0.875rem;
   font-size: 0.40625rem;
@@ -2064,16 +2116,16 @@ button {
   text-align: center;
   float: left;
 }
-.collect .shop.active{
+.collect .shop.active {
   background: #c6c6c6;
   color: #fff;
 }
-.collect-warp-fix{
+.collect-warp-fix {
   margin-top: 1.046875rem !important;
   overflow: hidden;
 }
-.collect-item-search-bg{
-  height: 0.875rem; 
+.collect-item-search-bg {
+  height: 0.875rem;
 }
 /*global*/
 .nobor {
