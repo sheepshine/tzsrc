@@ -1,6 +1,6 @@
 var goodDeatil=angular.module('goodDeatil',[])
 
-goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
+goodDeatil.controller('goodDeatilCtr',['$scope','$sce',function($scope,$sce){
 	$.ajax({
 			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfoById.tz',
 	        type: 'post',
@@ -20,7 +20,10 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	        success: function(data){
 	        	if(data.code=="00000"){
 	        		$scope.itemdata=data.result.result.productList[0]
+	        		localStorage.shopDataItemitemdata=JSON.stringify(data.result.result.productList[0])
 	        		$scope.shopdata=data.result.result.shopInfo
+	        		localStorage.shopDataItem=JSON.stringify(data.result.result.shopInfo)
+	        		$scope.intrdocutre=$sce.trustAsHtml($scope.itemdata.introduction)
 	        	}
 	        },
 	        error: function(data){
@@ -99,7 +102,7 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 			   	isdel:0
 			},
 	        headers: {
-	        	 "imei":"123",
+	        	"imei":"123",
 	 	        "mobileoperators":"123",
 	 	        "originateenum":"APP_USER_AND",
 	 	        "version":"V2_0Android_AppUser",
@@ -122,6 +125,11 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 		}
 		
 		
+	}
+
+	$scope.viewShopContent=function(id){
+		localStorage.shopItemId=id;
+		window.location.href='shop_list.html'
 	}
 }])
 

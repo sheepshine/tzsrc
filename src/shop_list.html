@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script type="text/javascript" src="js/a.js"></script>
+	<script type="text/javascript" src="js/a_css.js"></script>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/switchery.min.css" />
+	<script type="text/javascript" src="js/switchery.min.js"></script>
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tap.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/servies/shop-list.js"></script>
+	<style type="text/css">
+	.class-active{
+		background: #fff !important;
+	}
+	.class-select{
+		color: #E00B0B !important;
+	}
+	.fliter-select{
+		color: #139be8
+	}
+	</style>
+</head>
+<body ng-app='shopList'>
+<div class="centerfix">
+	<div class="search-no shop-item-search" ng-controller='shopListCtr'>
+		<div class="shop-item-search-bg">
+		</div>
+		<div class="header">
+			<div class="btn1" id="back-btn"></div>
+			<div class="search ">
+				<div class="search-ico"></div>
+				<input class="search-text f24px" id="searchInput" type="text" ng-blur="goSearch()" ng-keyup="goSearch($event)" ng-model='searchValue' ng-keyup="searchAjax(searchValue)" placeholder="感冒（1105）" />
+			</div>
+			<div class="QRcode"></div>
+		</div>
+		<div class="nav-filter f24px" ng-init='shopdata'>
+			<img class="logo fl" ng-src="{{shopdata.photo}}" />
+				<div class="shopname_ f26px fl" ng-cloak>{{shopdata.name}}</div>
+				<div class="info f22px fr">关注量：<span ng-cloak>{{itemdata.salesvolume}}</span>
+				</div>
+		</div>
+
+		<div class="content search-item-warp">
+			<div class="search-item" ng-repeat='searchitemdatas in searchitemdata'>
+				<img class="shop-img fl" ng-src="{{searchitemdatas.photo}}"  ng-click="viewDeatil(searchitemdatas.productId)">
+				<div class="til f26px fl"  ng-click="viewDeatil(searchitemdatas.productId)" ng-cloak>
+					{{searchitemdatas.name}}
+				</div>
+				<div class="phonepricewarp"  ng-click="viewDeatil(searchitemdatas.productId)">
+					<div class="phoneprice fl" ng-if="searchitemdatas.isonsale==1"></div>
+					<div class="phoneprice1 fl" ng-if="searchitemdatas.isfreedeliver==1"></div>
+					<div class="phoneprice2 fl" ng-if="searchitemdatas.activityState==1"></div>
+				</div>
+				<div class="price f26px fl" ng-cloak>￥{{searchitemdatas.mallprice}}</div>
+				<div class="tip f20px">1200条评论</div>
+				<div class="inshopcar" ng-click="addShopCar(searchitemdatas.productId,searchitemdatas.shopId);$event.stopPropagation();"></div>
+			</div>
+			
+		</div>
+
+		<div class="content" ng-show="noresout">
+			<img class="noout" src="images/noout.png">
+			<!-- <div class="search-no-til f28px">
+				猜您需要
+			</div>
+			<div class="listwarp">
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
+				</div>
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
+				</div>
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
+				</div>
+				<div class="list">
+					<div class="list-img">
+						
+					</div>
+					<div class="search-no-listwarp-til f22px">
+						感冒灵颗粒
+					</div>
+					<div class="search-no-listwarp-pri f22px">
+						￥9.9
+					</div>
+				</div>
+			</div> -->
+		</div>
+		<!-- <div class="shopcar" id="shopCar" style="display:none">
+			<div class="num" ng-cloak>{{shopcarNum}}</div>
+		</div> -->
+	</div>	
+</div>
+	<script type="text/javascript">
+		$("#back-btn").tap(function(){
+     	window.location.href=window.history.back(-1)
+      })
+	 // if (Array.prototype.forEach) {
+  //       var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+  //       elems.forEach(function(html) {
+  //         var switchery = new Switchery(html);
+  //       });
+  //     } else {
+  //       var elems = document.querySelectorAll('.js-switch');
+
+  //       for (var i = 0; i < elems.length; i++) {
+  //         var switchery = new Switchery(elems[i]);
+  //       }
+  //     }
+
+  //     // Disabled switch
+  //     var disabled = document.querySelector('.js-switch-disabled');
+  //     var switchery = new Switchery(disabled, { disabled: true });
+
+  //     var disabledOpacity = document.querySelector('.js-switch-disabled-opacity');
+  //     var switchery = new Switchery(disabledOpacity, { disabled: true, disabledOpacity: 0.75 });
+
+  //     var secondary = document.querySelector('.js-switch-secondary');
+  //     var switchery = new Switchery(secondary, { color: '#fec200', secondaryColor: '#ff8787' });
+
+
+	</script>
+</body>
+</html>

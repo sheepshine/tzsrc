@@ -509,10 +509,13 @@ button {
   display: inline-block;
   line-height: 0.53125rem;
   height: 0.53125rem;
-  width: 2.15625rem;
+  width: 4.15625rem;
   text-align: center;
   border-right: 1px solid #959595;
   margin-top: 0.34375rem;
+}
+.search-no .nav-filter > div.zhpxfix{
+  border:none;
 }
 .search-no .arrow {
   background: url("../images/searrow.png") no-repeat;
@@ -818,7 +821,7 @@ button {
   text-align: center;
   display: block;
   margin: 0.4rem auto 0.2rem;
-  height: 0.4975rem;
+  height: 0.3675rem;
   overflow: hidden;
 }
 .search-warp .shop-list-item-img {
@@ -2037,7 +2040,7 @@ button {
 }
 .good-item .content-info .item-list {
   width: 9.265625rem;
-  height: 2.1875rem;
+  height: auto;
   padding: 0.4375rem;
   box-sizing: border-box;
   margin: 0 auto;
@@ -2238,4 +2241,26 @@ body {
 .centerfix {
   width: 10.0rem;
   margin: 0 auto;
+}
+.fix-intr{
+  width: 9.625rem;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+.desTable tr{
+}
+.desTable th{
+  width: 30%;
+  font-size: 0.35rem
+}
+.desTable td{
+  font-size: 0.35rem;
+  display: table-cell;
+}
+.desTable .firstRow td {
+  width: 100%;
+  display: table-cell;
 }
