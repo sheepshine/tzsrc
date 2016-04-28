@@ -70,7 +70,7 @@ goodDeatil.controller('goodDeatilCtr',['$scope','$sce',function($scope,$sce){
 	        dataType: 'json',
 	       	async:false,
 	       	data:{
-			   	shopProductId:localStorage.CollectId
+			   	id:localStorage.CollectId
 			},
 	        headers: {
 	        	 "imei":"123",
@@ -82,7 +82,7 @@ goodDeatil.controller('goodDeatilCtr',['$scope','$sce',function($scope,$sce){
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
-	        		alert(data.errMsg)
+	        		alert('取消收藏成功')
 	        	}
 	        	$("#collect-ico").removeClass("icoactive")
 	        },
@@ -113,7 +113,7 @@ goodDeatil.controller('goodDeatilCtr',['$scope','$sce',function($scope,$sce){
 	        	if(data.code=="00000"){
 	        		localStorage.CollectId=""
 	        		localStorage.CollectId=data.result.id
-	        		alert(data.errMsg)
+	        		alert('添加收藏成功')
 	        	}
 	        	$("#collect-ico").addClass("icoactive")
 	        },

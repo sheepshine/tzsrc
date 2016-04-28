@@ -821,7 +821,7 @@ button {
   text-align: center;
   display: block;
   margin: 0.4rem auto 0.2rem;
-  height: 0.3675rem;
+  height: 0.3075rem;
   overflow: hidden;
 }
 .search-warp .shop-list-item-img {
@@ -1116,6 +1116,7 @@ button {
   border-bottom: 1px solid #c6c6c6;
   margin-bottom: 0.25rem;
   position: relative;
+  overflow: hidden;
 }
 .invoice-warp .pay-warp .shocar-list .shop-img {
   width: 1.59375rem;
@@ -1514,13 +1515,28 @@ button {
 .personal .sec1 {
   width: 9.625rem;
   background: #fff;
-  margin-top: 0.21875rem;
+  margin: 0.21875rem auto 0;
+  padding: 0.53125rem 0 0.5rem;
+}
+.personal .sec2 {
+  width: 100%;
+  background: #fff;
+  margin: 0.21875rem auto 0;
   padding: 0.53125rem 0 0.5rem;
 }
 .personal .sec1 .warp {
   display: inline-block;
   border-right: 1px solid #c6c6c6;
   padding: 0 0.4375rem;
+  height: 1.109375rem;
+  vertical-align: top;
+}
+.personal .sec2 .warp {
+  display: inline-block;
+  border-right: 1px solid #c6c6c6;
+  padding: 0 0.4375rem;
+  height: 0.5625rem;
+  vertical-align: top;
 }
 .personal .sec1 .num {
   color: #e00b0b;
@@ -2263,4 +2279,13 @@ body {
 .desTable .firstRow td {
   width: 100%;
   display: table-cell;
+}
+.search-no .nav-filter2> div {
+    display: inline-block;
+    line-height: 0.53125rem;
+    height: 0.53125rem;
+    width: 2.15625rem;
+    text-align: center;
+    border: none;
+    margin-top: 0.34375rem;
 }

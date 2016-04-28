@@ -41,16 +41,16 @@
 					<div class="phoneprice2 fl" ng-if="goodsinfo.activityState==1"></div>
 				</div>
 				<div class="price f26px fl" ng-cloak>￥{{goodsinfo.mallprice}}</div>
-				<div class="tip f20px">1200条评论</div>
+				<!-- <div class="tip f20px">1200条评论</div> -->
 				<div class="inshopcar" ng-click="addShopCar(goodsinfo.productId,goodsinfo.id);$event.stopPropagation();"></div>
 			</div>
 			
 		</div>
 		<div class="content search-item-warp collect-warp-fix" id="thecollectshopwarp">
-			<div class="search-item" ng-repeat='goodsinfo in shopinfos'>
-				<img class="shop-img fl" ng-src={{goodsinfo.photo}}  ng-click="viewDeatil(goodsinfo.id)">
+			<div class="search-item" ng-repeat='goodsinfos in shopinfos'>
+				<img class="shop-img fl" ng-src={{goodsinfos.photo}}  ng-click="viewShopContent(goodsinfos.id)">
 				<div class="til f26px fl" ng-cloak>
-					{{goodsinfo.name}}
+					{{goodsinfos.name}}
 				</div>
 				<!-- <div class="phonepricewarp"  ng-click="viewDeatil(goodsinfo.id)">
 					<div class="phoneprice fl" ng-if="goodsinfo.isonsale==1"></div>
@@ -58,8 +58,8 @@
 					<div class="phoneprice2 fl" ng-if="goodsinfo.activityState==1"></div>
 				</div> -->
 				<!-- <div class="price f26px fl" ng-cloak>￥{{goodsinfo.mallprice}}</div> -->
-				<div class="tip f20px">1200条评论</div>
-				<div class="inshopcar" ng-click="addShopCar(goodsinfo.productId,goodsinfo.id);$event.stopPropagation();"></div>
+				<!-- <div class="tip f20px">1200条评论</div>
+				<div class="inshopcar" ng-click="addShopCar(goodsinfos.productId,goodsinfos.id);$event.stopPropagation();"></div> -->
 			</div>
 			
 		</div>

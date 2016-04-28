@@ -51,6 +51,7 @@ collect.controller('collectCtr',['$scope',function($scope){
 		        success: function(data){
 		        	if(data.code=="00000"){
 		        		$scope.shopinfos=data.result.result.list;
+		        		console.log($scope.shopinfos.length)
 						$scope.theshop=true;
 						$scope.thegoods=false;
 					}
@@ -101,8 +102,12 @@ collect.controller('collectCtr',['$scope',function($scope){
 	        }
 		})
 	}
+	$scope.viewShopContent=function(id){
+		localStorage.shopItemId=id;
+		window.location.href='shop_list.html'
+	}
 	$scope.getcollectgoods()
-	
+	$scope.getcollectshop()
 	$("#thegoods").tap(function(){
 		$(".shop").removeClass("active")
 		$("#thegoods").addClass("active")

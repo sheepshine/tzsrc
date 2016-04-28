@@ -39,11 +39,12 @@
 			</div>
 			<div class="QRcode"></div>
 		</div>
-		<div class="nav-filter f24px" ng-init='shopdata'>
+		<div class="nav-filter nav-filter2 f24px" ng-init='shopdata'>
 			<img class="logo fl" ng-src="{{shopdata.photo}}" />
 				<div class="shopname_ f26px fl" ng-cloak>{{shopdata.name}}</div>
 				<div class="info f22px fr">关注量：<span ng-cloak>{{itemdata.salesvolume}}</span>
 				</div>
+				<div id="collectShopHtml" ng-click="collectShop()">收藏此店铺</div>
 		</div>
 
 		<div class="content search-item-warp">
@@ -120,6 +121,8 @@
 			<div class="num" ng-cloak>{{shopcarNum}}</div>
 		</div> -->
 	</div>	
+
+
 </div>
 	<script type="text/javascript">
 		$("#back-btn").tap(function(){
