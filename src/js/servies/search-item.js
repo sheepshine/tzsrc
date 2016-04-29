@@ -1,5 +1,5 @@
 var searchItem=angular.module('searchItem',[])
-
+var shopItemClassIdSub=null;
 searchItem.controller('searchItemCtr',['$scope',function($scope){
 	if(localStorage.searchData||localStorage.searchValue){
 		if(localStorage.searchData){
@@ -23,10 +23,15 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 		$scope.list2=!$scope.list2;
 		$scope.isActive=true;
 	}
-	$scope.selectClass=function(odata,oname){
+	$scope.selectClass=function(odata,oname,theindex){
+		$(".classSelectLi").removeClass("class-select")
+      	$(".classSelectLi").eq(theindex).addClass("class-select")
+      
+    
+		shopItemClassIdSub=odata
 		$scope.isActive2=true;
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -35,12 +40,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	shopItemClassIdSub:odata
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -62,6 +67,8 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 		$scope.maintitle=oname
 	}
 	$scope.selectClass2=function(odata,oname){
+		$(".classSelectLi2").removeClass("class-select")
+      	$(".classSelectLi2").eq(odata).addClass("class-select")
 		$scope.isActive2=true;
 		if(odata==0){
 			salesvolume=""
@@ -74,21 +81,23 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			score=1
 		}
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
 	       	data:{
+	       		title:$scope.searchValue,
 			   	salesvolume:salesvolume,
-			   	score:score
+			   	score:score,
+			   	shopItemClassIdSub:shopItemClassIdSub
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -146,7 +155,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	$scope.searchAjax=function(searchData){
 		localStorage
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -154,12 +163,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	title:searchData
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -180,20 +189,56 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	if(localStorage.autoSearch){
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfo.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
 	       	data:{
-			   	title:localStorage.searchValue
+			   	title:localStorage.searchValue1
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
+			},
+	        success: function(data){
+	        	if(data.code=="00000"){
+	        		$scope.$watch($scope.searchitemdata)
+	        		$scope.searchitemdata=data.result.result.list
+	        		console.log(data.result.result.list)
+	        		if(data.result.result.list.length==0){
+	        			$scope.noresout=true;
+	        		}else{
+	        			$scope.noresout=false;
+	        		}
+	        	}
+	        },
+	        error: function(data){
+	            alert(data.errMsg);
+	        }
+		})
+		localStorage.autoSearch=false;
+	}
+	if(localStorage.autoSearch1){
+		
+		$.ajax({
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfo.tz',
+	        type: 'post',
+	        dataType: 'json',
+	       	async:false,
+	       	data:{
+			   	shopItemClassIdSub:localStorage.searchValue2
+			},
+	        headers: {
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -215,7 +260,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	$scope.finditem=function(id){
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productItem/selectProductItem.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/productItem/selectProductItem.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -223,12 +268,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 				   	shopItemClassId:id
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	$scope.itemList2=data.result.pageResultList.result
@@ -241,7 +286,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	$scope.searchClassAjax=function(searchData){
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productItem/selectProductItem.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productItem/selectProductItem.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -249,12 +294,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	title:searchData
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -282,7 +327,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			location.href="../../personal.html"
 		}
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/addShopCart.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/addShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -293,12 +338,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	shopInfoId:shopId
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -313,7 +358,7 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 	}
 	$scope.shopCarInfo=function(){
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/queryShopCart.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/queryShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -321,12 +366,12 @@ searchItem.controller('searchItemCtr',['$scope',function($scope){
 			   	usrUserId:localStorage.usrUserId
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){

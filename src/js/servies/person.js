@@ -3,11 +3,11 @@ var person=angular.module('person',[])
 person.controller('personCtr',['$scope',function($scope){
 	$scope.tologin=true;
 	$scope.haslogin=false;
-	$scope.username=13983604781
-	$scope.password=123456
+	$scope.username=""//"13983604781"
+	$scope.password=""//"123456"
 	$scope.info=function(){
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/selectShopOrder.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopOrder/selectShopOrder.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -15,12 +15,12 @@ person.controller('personCtr',['$scope',function($scope){
 				   	usrUserId:localStorage.usrUserId
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
@@ -34,7 +34,7 @@ person.controller('personCtr',['$scope',function($scope){
 	}
 	$scope.likeshop=function(){
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectProduct/queryUsrCollectProduct.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/userCollectProduct/queryUsrCollectProduct.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -42,12 +42,12 @@ person.controller('personCtr',['$scope',function($scope){
 				   	usrUserId:localStorage.usrUserId
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
@@ -61,7 +61,7 @@ person.controller('personCtr',['$scope',function($scope){
 	}
 	$scope.likegoods=function(){
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectShop/queryUsrCollectShop.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/userCollectShop/queryUsrCollectShop.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -69,12 +69,12 @@ person.controller('personCtr',['$scope',function($scope){
 				   	usrUserId:localStorage.usrUserId
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
@@ -93,7 +93,7 @@ person.controller('personCtr',['$scope',function($scope){
 		$scope.orderstate3=0;
 		$scope.orderstate4=0;
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/selectShopOrder.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopOrder/selectShopOrder.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -101,17 +101,17 @@ person.controller('personCtr',['$scope',function($scope){
 				   	usrUserId:localStorage.usrUserId
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
 		        		$scope.shoporderList=data.result.result.list;
-		        		console.log($scope.shoporderList[0].state)
+		        	
 		        		$($scope.shoporderList).each(function(index){
 		        			if($scope.shoporderList[index].state==0){
 								$scope.orderstate0++;
@@ -122,7 +122,6 @@ person.controller('personCtr',['$scope',function($scope){
 							}else if($scope.shoporderList[index].state==3){
 								$scope.orderstate3++;
 							}
-							console.log($scope.orderstate0)
 		        		})
 		        		
 		        	}
@@ -134,7 +133,7 @@ person.controller('personCtr',['$scope',function($scope){
 	}
 	$scope.loginin=function(){
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/login/in.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/login/in.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -143,17 +142,18 @@ person.controller('personCtr',['$scope',function($scope){
 				   	password:$scope.password
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
+		        		localStorage.username=$scope.username;
+						localStorage.password=$scope.password;
 		        		$scope.personInfo=data.result
-		        		console.log($scope.personInfo.usrInfoName)
 		        		localStorage.usrUserId=$scope.personInfo.usrUserId;
 		        		$scope.tologin=!$scope.tologin;
 		        		$scope.haslogin=!$scope.haslogin;
@@ -169,12 +169,14 @@ person.controller('personCtr',['$scope',function($scope){
 			})
 	}
 	if(localStorage.usrUserId){
+		$scope.username=localStorage.username;
+		$scope.password=localStorage.password;
 		$scope.loginin()
 	}
 	$scope.viewDeatil=function(a,b){
-		if(a==0){
-			return false;
-		}
+		// if(a==0){
+		// 	return false;
+		// }
 		switch (b){
 			case 1:
 				localStorage.forPayType=0;

@@ -8,10 +8,20 @@ itemNav.controller('itemNavClassCtr',['$scope','searchClassSer',function($scope,
 		$scope.itemList=searchClassSer.searchItem(id).result.pageResultList.result;
 	}
 	$scope.searchValue=""
-	$scope.goSearch=function(){
-		localStorage.searchValue=$scope.searchValue;
-		localStorage.autoSearch=true;
+	$scope.goSearch=function(e){
+		var keycode = window.event?e.keyCode:e.which;
+		localStorage.searchValue1=$scope.searchValue;
+		if(keycode==13){
+			localStorage.autoSearch=true;
+			location.href="shop_item_search.html"
+		}
+	}
+	$scope.goSearchBtn=function(e){
+		console.log(e)
+		localStorage.searchValue2=e;
+		localStorage.autoSearch1=true;
 		location.href="shop_item_search.html"
+		
 	}
 }])
 
@@ -20,7 +30,7 @@ itemNav.service("searchClassSer",function(){
 		searchItem:function(id){
 			var datas="";
 			$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productItem/selectProductItem.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/productItem/selectProductItem.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -28,12 +38,12 @@ itemNav.service("searchClassSer",function(){
 				   	shopItemClassId:id
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	datas=data

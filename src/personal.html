@@ -58,7 +58,7 @@
 				<div class="num f24px" ng-cloak>{{personInfo.usrBalancePoint}}<span>分</span></div>
 			</div>
 			<div class="warp nobor">
-				<div class="til f24px til-all">
+				<div class="til f24px">
 					积分领取
 				</div>
 			</div>
@@ -103,20 +103,20 @@
 			</div>
 		</div>
 		<div class="pay-select">
-			<div class="row">
+			<div class="row viewcollectgoods">
 				<span class="f26px fw600 info">我的收藏</span>
 				<span class="f26px btn-til">查看全部收藏</span>
 				<div class="btn"></div>
 			</div>
 			<div class="sec1 sec2">
 				<div class="warp">
-					<div class="til f24px">
+					<div class="til f24px viewcollectgoods">
 						收藏的商品
 					</div>
 					<div class="num f24px" ng-cloak>{{likeshopslength.length}}</div>
 				</div>
 				<div class="warp">
-					<div class="til f24px">
+					<div class="til f24px viewcollectshop">
 						收藏的店铺
 					</div>
 					<div class="num f24px" ng-cloak>{{likegoodslength.length}}</div>
@@ -132,7 +132,12 @@
 	</div>
 </div>
 	<script type="text/javascript">
-		
+		$(".viewcollectgoods").tap(function(){
+			window.location.href="collect.html"
+		})
+		$(".viewcollectshop").tap(function(){
+			window.location.href="collect.html"
+		})
 	</script>
 </body>
 </html>

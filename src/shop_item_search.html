@@ -44,7 +44,7 @@
 			<div class="classwarp" ng-show="list1" ng-click="viewclass()">
 				<div class="arrlist1" ng-show="list1">
 					<ul>
-						<li ng-class='{"class-active":isActive}' ng-repeat='datas in searchClassNav' ng-if='datas.shopItemClassId==0' ng-click="finditem(datas.id);$event.stopPropagation()" ng-cloak>
+						<li  ng-repeat='datas in searchClassNav' ng-if='datas.shopItemClassId==0' ng-click="finditem(datas.id);$event.stopPropagation()" ng-cloak>
 							{{datas.name}}
 						</li>
 						<!-- <li>
@@ -66,7 +66,7 @@
 				</div>
 				<div class="arrlist2" ng-show="list2">
 					<ul>
-						<li ng-click='selectClass(datas2.shopItemClassId,datas2.name);$event.stopPropagation();' ng-class='{"class-select":isActive2}' ng-repeat='datas2 in itemList2' ng-cloak>
+						<li class="classSelectLi" ng-click='selectClass(datas2.shopItemClassId,datas2.name,$index);$event.stopPropagation();'  ng-repeat='datas2 in itemList2' ng-cloak>
 							{{datas2.name}}
 						</li>
 						<!-- <li>
@@ -87,17 +87,17 @@
 					</ul>
 				</div>
 			</div>
-			<div class="arrow" ng-click="rankClass()">{{maintile2}}</div>
+			<div class="arrow zhpxfix" ng-click="rankClass()">{{maintile2}}</div>
 				<div class="rankClass" ng-show="rankshow" ng-click="rankClass()">
 					<div class="arrlist3">
 						<ul>
-							<li ng-click="selectClass2('0','综合排序');$event.stopPropagation();" ng-class='{"class-select":isActive2}'>
+							<li class="classSelectLi2" ng-click="selectClass2('0','综合排序');$event.stopPropagation();">
 							综合排序
 							</li>
-							<li ng-click="selectClass2('1','销量排序');$event.stopPropagation();" ng-class='{"class-select":isActive2}'>
+							<li class="classSelectLi2" ng-click="selectClass2('1','销量排序');$event.stopPropagation();">
 								销量排序
 							</li>
-							<li ng-click="selectClass2('2','好评排序');$event.stopPropagation();" ng-class='{"class-select":isActive2}'>
+							<li class="classSelectLi2" ng-click="selectClass2('2','好评排序');$event.stopPropagation();">
 								好评排序
 							</li>
 							<!-- <li>
@@ -112,8 +112,8 @@
 						</ul>
 					</div>
 				</div>
-			<div>列表</div>
-			<div class="nobor" ng-click="filterShow()">筛选</div>
+			<!-- <div>列表</div> -->
+			<!-- <div class="nobor" ng-click="filterShow()">筛选</div>
 				<div class="filterClass" ng-show="filterShowCtr" ng-click="filterShow()">
 					<div class="arrlist4">
 						<ul>
@@ -148,7 +148,7 @@
 						</ul>
 						<button class="f30px">清除选项</button>
 					</div>
-				</div>
+				</div> -->
 		</div>
 		<div class="content search-item-warp">
 			<div class="search-item" ng-repeat='searchitemdatas in searchitemdata'>
@@ -225,6 +225,9 @@
 	</div>	
 </div>
 	<script type="text/javascript">
+		$("#back-btn").tap(function(){
+     	window.location.href=window.history.back(-1)
+      })
 	 if (Array.prototype.forEach) {
         var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
@@ -248,9 +251,8 @@
 
       var secondary = document.querySelector('.js-switch-secondary');
       var switchery = new Switchery(secondary, { color: '#fec200', secondaryColor: '#ff8787' });
-      $("#back-btn").tap(function(){
-      	window.location.href=window.history.back(-1)
-      })
+
+
 	</script>
 </body>
 </html>

@@ -6,7 +6,7 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 	$scope.shopInfo=[];
 	$scope.shopOrderProduct=[];
 	$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/queryShopCart.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/queryShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -14,12 +14,12 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 			   	usrUserId:localStorage.usrUserId
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -118,7 +118,7 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 	$scope.delectItem=function(){
 		for(var i=0;i<delectArr.length;i++){
 			$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/deleteShopCart.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/deleteShopCart.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -127,16 +127,16 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 				   	usrUserId:localStorage.usrUserId
 				},
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	if(data.code=="00000"){
-		        		
+		        		$scope.totalPrice=0;
 		        	}
 		        },
 		        error: function(data){
@@ -150,7 +150,7 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 		$(".selectBtn").hide();
 		$scope.editTil="编辑"
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/queryShopCart.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/queryShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -158,12 +158,12 @@ shopcar.controller('shopcarCtr',['$scope',function($scope){
 			   	usrUserId:localStorage.usrUserId
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){

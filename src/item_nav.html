@@ -14,16 +14,16 @@
 </head>
 <body>
 <div class="centerfix">
-	<div class="item-nav" ng-app='itemNav'>
+	<div class="item-nav" ng-app='itemNav'  ng-controller="itemNavClassCtr">
 		<div class="header">
 			<div class="btn1"></div>
 			<div class="search">
 				<div class="search-ico"></div>
-				<input class="search-text search-text-searchfix f26px" type="text" ng-blur="goSearch()"  placeholder="搜索商品名/症状/疾病名" />
+				<input class="search-text search-text-searchfix f26px" type="text" ng-keyup="goSearch($event)"   placeholder="搜索商品名/症状/疾病名" />
 			</div>
 			<div class="QRcode"></div>
 		</div>
-		<div class="content" ng-controller="itemNavClassCtr">
+		<div class="content">
 			<div class="slide fl">
 				<div class="navbtn" ng-repeat='datas in datas' ng-if="datas.shopItemClassId==0" ng-click="finditem(datas.id)">
 					<img class="ico" src="images/nav-ico-1.png" class="ico">
@@ -56,7 +56,7 @@
 						家庭常备
 					</div> -->
 					<div class="item">
-						<div class="item-box" ng-repeat="datasb in itemList">
+						<div class="item-box" ng-repeat="datasb in itemList" ng-click="goSearchBtn(datasb.id)">
 							{{datasb.name}}
 						</div>
 						<!-- <div class="item-box">
@@ -127,7 +127,7 @@
 </div>
 	<script type="text/javascript" src="js/servies/itemNav.js"></script>
 	<script type="text/javascript">
-		$(".back-btn").tap(function(){
+		$(".btn1").tap(function(){
 			window.location.href=window.history.back(-1)
 		})
 	</script>

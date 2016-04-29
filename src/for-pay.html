@@ -28,7 +28,10 @@
 			<div class="f24px" class="nobor" ng-click="viewAll(3)">待评价</div>
 		</div>
 		<div class="pay-warp" ng-repeat='orderDate in orderDates2' ng-show="allDis">
-			<span class="pay-for-pay-order pay-status f22px">未支付</span>
+			<span class="pay-for-pay-order pay-status f22px" ng-if="orderDate.state==0">未支付</span>
+			<span class="pay-for-pay-order pay-status f22px" ng-if="orderDate.state==1">待发货</span>
+			<span class="pay-for-pay-order pay-status f22px" ng-if="orderDate.state==2">待收货</span>
+			<span class="pay-for-pay-order pay-status f22px" ng-if="orderDate.state==4">待退货</span>
 			<span class="pay-for-pay-order f22px">订单编号:</span>
 			<span class="pay-for-pay-order-detail f22px">{{orderDate.shopOrdId}}</span><br>
 			<span class="pay-for-pay-order f22px">下单时间:</span>
@@ -48,7 +51,10 @@
 			</div>
 		</div>
 		<div class="pay-warp" ng-repeat='orderDate in orderDates' ng-if="orderDate.state==viewCtr">
-			<span class="pay-for-pay-order pay-status  f24px">未支付</span>
+			<span class="pay-for-pay-order pay-status f22px" ng-if="orderDate.state==0">未支付</span>
+			<span class="pay-for-pay-order pay-status f22px" ng-if="orderDate.state==1">待发货</span>
+			<span class="pay-for-pay-order pay-status f22px" ng-if="orderDate.state==2">待收货</span>
+			<span class="pay-for-pay-order pay-status f22px" ng-if="orderDate.state==4">待退货</span>
 			<span class="pay-for-pay-order  f24px">订单编号:</span>
 			<span class="pay-for-pay-order-detail f24px">{{orderDate.shopOrdId}}</span><br>
 			<span class="pay-for-pay-order f24px">下单时间:</span>
@@ -63,8 +69,8 @@
 			<hr class="hr2">
 			<div class="pay-for-pay-total-price  f24px">
 				合计：<span class=" f24px">￥{{orderDate.price}}</span>
-				<button class="pay-for-pay-total-button f24px" ng-click="cancel(orderDate.shopOrderId)">取消订单</button>
-				<button class="pay-for-pay-total-button button2 f24px" ng-click="toPay($index)">去支付</button>
+				<button class="pay-for-pay-total-button f24px" ng-click="cancel(orderDate.shopOrderId)" ng-if="orderDate.state==0">取消订单</button>
+				<button class="pay-for-pay-total-button button2 f24px" ng-click="toPay($index)" ng-if="orderDate.state==0">去支付</button>
 			</div>
 		</div>
 		<div class="footnav">

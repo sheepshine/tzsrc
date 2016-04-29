@@ -3,7 +3,7 @@ var orderView=angular.module('orderView',[])
 orderView.controller('orderViewCtr',['$scope',function($scope){
 	$scope.totalPrice=0;
 	$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/selectShopOrderById.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopOrder/selectShopOrderById.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -12,12 +12,12 @@ orderView.controller('orderViewCtr',['$scope',function($scope){
 			   	shopOrderId:localStorage.orderId
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){

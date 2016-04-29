@@ -1,8 +1,8 @@
 var goodDeatil=angular.module('goodDeatil',[])
 
-goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
+goodDeatil.controller('goodDeatilCtr',['$scope','$sce',function($scope,$sce){
 	$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/productInfo/queryProductInfoById.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/productInfo/queryProductInfoById.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -10,17 +10,20 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 			   	productId:localStorage.productId
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
 	        		$scope.itemdata=data.result.result.productList[0]
+	        		localStorage.shopDataItemitemdata=JSON.stringify(data.result.result.productList[0])
 	        		$scope.shopdata=data.result.result.shopInfo
+	        		localStorage.shopDataItem=JSON.stringify(data.result.result.shopInfo)
+	        		$scope.intrdocutre=$sce.trustAsHtml($scope.itemdata.introduction)
 	        	}
 	        },
 	        error: function(data){
@@ -30,7 +33,7 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	
 	$scope.addShopcar=function(){
 		$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopCart/addShopCart.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopCart/addShopCart.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -41,12 +44,12 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 			   	shopInfoId:$scope.shopdata.id
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
@@ -62,26 +65,24 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 	$scope.collectShop=function(){
 		if($("#collect-ico").attr("class")=="bg fl icoactive"){
 			$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectProduct/deleteCollectShop.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/userCollectProduct/deleteCollectProduct.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
 	       	data:{
-			   	usrUserId:localStorage.usrUserId,
-			   	shopProductId:localStorage.productId,
-			   	isdel:1
+			   	id:localStorage.CollectId
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	 "imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
-	        		alert(data.errMsg)
+	        		alert('取消收藏成功')
 	        	}
 	        	$("#collect-ico").removeClass("icoactive")
 	        },
@@ -91,7 +92,7 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 		})
 		}else{
 			$.ajax({
-			url: 'http://usrapp.tuozhen.com:26000/application-usrapp/userCollectProduct/addUsrCollectProduct.tz',
+			url: 'http://usrapp.tuozhen.com/application-usrapp/userCollectProduct/addUsrCollectProduct.tz',
 	        type: 'post',
 	        dataType: 'json',
 	       	async:false,
@@ -101,16 +102,18 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 			   	isdel:0
 			},
 	        headers: {
-	            "imei":"asdaSA",
-		        "mobileOperators":"IOS8",
-		        "originateEnum":"APP_USER_AND",
-		        "version":"2_0",
-		        "sysVersion":"ios9",
-		        "phoneModel":"iphone"
+	        	"imei":"123",
+	 	        "mobileoperators":"123",
+	 	        "originateenum":"APP_USER_AND",
+	 	        "version":"V2_0Android_AppUser",
+	 	        "sysversion":"123",
+	 	        "phonemodel":"123"
 			},
 	        success: function(data){
 	        	if(data.code=="00000"){
-	        		alert(data.errMsg)
+	        		localStorage.CollectId=""
+	        		localStorage.CollectId=data.result.id
+	        		alert('添加收藏成功')
 	        	}
 	        	$("#collect-ico").addClass("icoactive")
 	        },
@@ -122,6 +125,11 @@ goodDeatil.controller('goodDeatilCtr',['$scope',function($scope){
 		}
 		
 		
+	}
+
+	$scope.viewShopContent=function(id){
+		localStorage.shopItemId=id;
+		window.location.href='shop_list.html'
 	}
 }])
 

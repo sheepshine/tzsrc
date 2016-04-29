@@ -27,7 +27,7 @@ orderConfirm.controller('orderConfirmCtr',['$scope',function($scope){
 		var commitdata=JSON.parse(localStorage.payMoney)
 		//var commitdata= localStorage.payMoney
 		$.ajax({
-				url: 'http://usrapp.tuozhen.com:26000/application-usrapp/user_shopOrder/addShopOrder_shop.tz',
+				url: 'http://usrapp.tuozhen.com/application-usrapp/user_shopOrder/addShopOrder_shop.tz',
 		        type: 'post',
 		        dataType: 'json',
 		       	async:false,
@@ -36,12 +36,12 @@ orderConfirm.controller('orderConfirmCtr',['$scope',function($scope){
 		       	}
 				,
 		        headers: {
-		            "imei":"asdaSA",
-			        "mobileOperators":"IOS8",
-			        "originateEnum":"APP_USER_AND",
-			        "version":"2_0",
-			        "sysVersion":"ios9",
-			        "phoneModel":"iphone"
+		        	 "imei":"123",
+		 	        "mobileoperators":"123",
+		 	        "originateenum":"APP_USER_AND",
+		 	        "version":"V2_0Android_AppUser",
+		 	        "sysversion":"123",
+		 	        "phonemodel":"123"
 				},
 		        success: function(data){
 		        	datas=data
